@@ -1,0 +1,425 @@
+<style>
+<!--
+
+* {    font-size:    9pt;    font-family:    verdana, helvetica, arial, sans-serif; line-height: 1.7em; }
+p { margin: 0 }
+-->
+</style>
+<h2>Error report from Mon Jun 16 14:02:01 W. Europe Daylight Time 2008</h2>
+
+<table border="0">
+<tr><td>Message</td><td>#<REXML::ParseException: Missing end tag for 'img' (got "td")
+Line:
+Position:
+Last 80 unconsumed characters:
+<td> <table cellpadding="0" cellspacing="0" border="0" class="overviewTable"> <tr>
+c:/ruby/lib/ruby/1.8/rexml/parsers/baseparser.rb:315:in `pull'
+c:/ruby/lib/ruby/1.8/rexml/parsers/treeparser.rb:21:in `parse'
+c:/ruby/lib/ruby/1.8/rexml/document.rb:190:in `build'
+c:/ruby/lib/ruby/1.8/rexml/document.rb:45:in `initialize'
+D:/My Documents/My Apatana Workspaces/epfproject/EPF Wiki Sources/app/models/version.rb:266:in `xhtmldiff'
+D:/My Documents/My Apatana Workspaces/epfproject/EPF Wiki Sources/app/models/version.rb:284:in `xhtmldiffpage'
+D:/My Documents/My Apatana Workspaces/epfproject/EPF Wiki Sources/app/controllers/versions_controller.rb:129:in `diff'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+c:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'
+c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'
+c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'
+c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'
+c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'
+c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'
+c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'
+c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66
+c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+./script/server:3
+-e:2
+...
+Missing end tag for 'img' (got "td")
+Line:
+Position:
+Last 80 unconsumed characters:
+<td> <table cellpadding="0" cellspacing="0" border="0" class="overviewTable"> <tr
+Line:
+Position:
+Last 80 unconsumed characters:
+<td> <table cellpadding="0" cellspacing="0" border="0" class="overviewTable"> <tr</td></tr>
+<tr><td>Location</td><td>http://localhost:3000/versions/diff/645</td></tr>
+<tr><td>Action</td><td>diff</td></tr>
+<tr><td>Controller</td><td>versions</td></tr>
+<tr><td>Query</td><td></td></tr>
+<tr><td>Method</td><td>GET</td></tr>
+<tr><td>SSL</td><td>false</td></tr>
+<tr><td>Agent</td><td>Mozilla/5.0 (Windows; U; Windows NT 5.1; nl; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14</td></tr>
+</table>
+
+<h3>Backtrace</h3>
+<div>c:/ruby/lib/ruby/1.8/rexml/parsers/treeparser.rb:89:in `parse'</p>
+<p>c:/ruby/lib/ruby/1.8/rexml/document.rb:190:in `build'</p>
+<p>c:/ruby/lib/ruby/1.8/rexml/document.rb:45:in `initialize'</p>
+<p>/app/models/version.rb:266:in `xhtmldiff'</p>
+<p>/app/models/version.rb:284:in `xhtmldiffpage'</p>
+<p>/app/controllers/versions_controller.rb:129:in `diff'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'</p>
+<p>c:/ruby/lib/ruby/1.8/benchmark.rb:293:in `measure'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:112:in `handle_dispatch'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:78:in `service'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/server.rb:95:in `start'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/server.rb:92:in `start'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/server.rb:23:in `start'</p>
+<p>c:/ruby/lib/ruby/1.8/webrick/server.rb:82:in `start'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/webrick_server.rb:62:in `dispatch'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/webrick.rb:66</p>
+<p>c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'</p>
+<p>c:/ruby/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39</p>
+<p>c:/ruby/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'</p>
+<p>./script/server:3</p>
+<p>-e:2</div>
+
+<h3>Params</h3>
+<hr/>
+<p><b>id</b></p>
+<p>--- "645"
+</p>
+
+<h3>Session</h3>
+<hr/>
+<p><b>user</b></p>
+<p>--- &id001 !ruby/object:User
+</p>
+<p>    attributes:
+</p>
+<p>      logon_using_cookie_count: "0"
+</p>
+<p>      created_on: 2008-06-16 10:33:10
+</p>
+<p>      name: Andy Kaufman
+</p>
+<p>      logon_count: 1
+</p>
+<p>      http_user_agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; nl; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14
+</p>
+<p>      site_id:
+</p>
+<p>      notify_monthly: "0"
+</p>
+<p>      notify_weekly: "0"
+</p>
+<p>      account:
+</p>
+<p>      confirmed_on: 2008-06-16 10:33:10
+</p>
+<p>      hashed_password: 8585cc1bc7a2e4cdcc7bae8d6caaefa70ea27339
+</p>
+<p>      updated_on: 2008-06-16 10:55:18.905000 +02:00
+</p>
+<p>      hashed_password_new:
+</p>
+<p>      last_logon: 2008-06-16 10:55:18.889000 +02:00
+</p>
+<p>      admin: Y
+</p>
+<p>      id: "1"
+</p>
+<p>      notify_daily: "0"
+</p>
+<p>      notify_immediate: "0"
+</p>
+<p>      ip_address: 127.0.0.1
+</p>
+<p>      email: andy.kaufman@epf.eclipse.org
+</p>
+<p>    attributes_cache:
+</p>
+<p>      confirmed_on: 2008-06-16 10:33:10 +02:00
+</p>
+<p>    checkouts:
+</p>
+<p>    comments:
+</p>
+<p>    comments2review:
+</p>
+<p>    errors: !ruby/object:ActiveRecord::Errors
+</p>
+<p>      base: *id001
+</p>
+<p>      errors: {}
+</p>
+<p>
+</p>
+<p>    new_record_before_save:
+</p>
+<p>    notifications:
+</p>
+<p>    site:
+</p>
+<p>    sites:
+</p>
+<p>    uploads:
+</p>
+<p>    user_versions:
+</p>
+<p>    versions:
+</p>
+<p>    versions2review:
+</p>
+<p><b>return_to</b></p>
+<p>---
+</p>
+<p><b>flash</b></p>
+<p>--- !map:ActionController::Flash::FlashHash {}
+</p>
+<p>
+</p>
+
+<h3>Environment</h3>
+<hr/>
+<table border="0">
+<tr>
+  <td>
+    <small><b>SERVER_NAME</b></small>
+
+  </td>
+  <td>
+    <small>localhost</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>PATH_INFO</b></small>
+
+  </td>
+  <td>
+    <small>/versions/diff/645</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>REMOTE_HOST</b></small>
+
+  </td>
+  <td>
+    <small>127.0.0.1</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_ACCEPT_ENCODING</b></small>
+
+  </td>
+  <td>
+    <small>gzip,deflate</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_USER_AGENT</b></small>
+
+  </td>
+  <td>
+    <small>Mozilla/5.0 (Windows; U; Windows NT 5.1; nl; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>SERVER_PROTOCOL</b></small>
+
+  </td>
+  <td>
+    <small>HTTP/1.1</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_ACCEPT_LANGUAGE</b></small>
+
+  </td>
+  <td>
+    <small>en,en-us;q=0.7,nl;q=0.3</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_HOST</b></small>
+
+  </td>
+  <td>
+    <small>localhost:3000</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>REMOTE_ADDR</b></small>
+
+  </td>
+  <td>
+    <small>127.0.0.1</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>SERVER_SOFTWARE</b></small>
+
+  </td>
+  <td>
+    <small>WEBrick/1.3.1 (Ruby/1.8.4/2006-04-14)</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_KEEP_ALIVE</b></small>
+
+  </td>
+  <td>
+    <small>300</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_REFERER</b></small>
+
+  </td>
+  <td>
+    <small>http://localhost:3000/openup/958/history</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_COOKIE</b></small>
+
+  </td>
+  <td>
+    <small>_session_id=c53e3437c4e59d3ef9cd1dacebb35a29</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_ACCEPT_CHARSET</b></small>
+
+  </td>
+  <td>
+    <small>ISO-8859-1,utf-8;q=0.7,*;q=0.7</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>REQUEST_URI</b></small>
+
+  </td>
+  <td>
+    <small>http://localhost:3000/versions/diff/645</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>SERVER_PORT</b></small>
+
+  </td>
+  <td>
+    <small>3000</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>GATEWAY_INTERFACE</b></small>
+
+  </td>
+  <td>
+    <small>CGI/1.1</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>QUERY_STRING</b></small>
+
+  </td>
+  <td>
+    <small></small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>REMOTE_USER</b></small>
+
+  </td>
+  <td>
+    <small></small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_ACCEPT</b></small>
+
+  </td>
+  <td>
+    <small>text/xml,application/xml,application/xhtml+xml,text/html;q=0.9,text/plain;q=0.8,image/png,*/*;q=0.5</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>REQUEST_METHOD</b></small>
+
+  </td>
+  <td>
+    <small>GET</small>
+  </td>
+</tr>
+<tr>
+  <td>
+    <small><b>HTTP_CONNECTION</b></small>
+
+  </td>
+  <td>
+    <small>keep-alive</small>
+  </td>
+</tr>
+</table>

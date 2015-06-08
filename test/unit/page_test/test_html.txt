@@ -1,0 +1,1388 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Collaborate to align interests and share understanding</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Concept" name="uma.type">
+<meta content="core_principle_collaborate" name="uma.name">
+<meta content="Collaborate to align interests and share understanding" name="uma.presentationName">
+<meta name="element_type" content="concept">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+                    backPath = './../../../';
+                </script>
+</head>
+<body onload="createSectionLinks('div', 'sectionHeading', './../../../images/');">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top"><a name="Top"></a>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Concept: Collaborate to align interests and share understanding</td><td align="right" class="expandCollapseLink" width="100%"><a href="./../../../index.htm"></a><script src="./../../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+<tr>
+<td class="pageTitleSeparator"><img height="1" alt="" src="./../../../images/shim.gif"></td>
+</tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td width="50"><img alt="" src="./../../../images/concept.gif"></td><td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top">Develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants and help them develop a shared understanding of the project.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell"><H3>Collaborate to align interests and share understanding </H3>
+<P>Software is created by people with different interests and skills who must work together to create software effectively. Therefore develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants (e.g. development team, quality assurance, product stakeholders, customers) and help project participants develop a shared understanding of the project. </P>
+<H3>Practices </H3>
+<H4>Maintain a Common Understanding </H4>
+<P>Project participants require a common understanding of a project to cooperative effectively. Without a common understanding among project participants disorder sets in because they cannot align their interests and will work at cross purposes to one another. </P>
+<P>Therefore be proactive communicating and sharing information with project participants and do not assume everyone will just find what they need to know or has the same understanding of the project as everyone else. Use work products such as the vision and requirements to align the understanding of the stake holders and developers. Use the architecture to focus and align the interests of the developers. At the end of each iteration get agreement iteration goals have been reached and if not then what remedial actions must be taken. </P>The <a class=elementlinkwithusertext href="./resources/core_principle_focus,_9gocwMvoEdqukPpotm3DYg.html" guid="_9gocwMvoEdqukPpotm3DYg">Focus</a>&nbsp;principle helps to maintain a common understanding.<BR>
+<H4>Foster a High Trust Environment </H4>
+<P>People who do not feel safe will not communicate their ideas, take the initiative, or admit their ignorance. This leads to work environments where actions must be laboriously and expensively negotiated and work which must be carefully monitored and audited. </P>
+<P>Therefore take actions that will foster a high trust environment: </P>
+<UL>
+<LI>Manage by intent - create an environment where teams manage themselves and managers mentor teams to complete their objectives. 
+<LI>Tear down the walls � work to remove both the physical and mental barriers that inhibit development of a common understanding between project participants. 
+<LI>Walk mile (or a kilometer and a half) in someone else�s shoes � respect and try to understand the perspective of others before criticizing their ideas or responding to their criticism. </LI></UL>
+<H4>Share Responsibility<BR></H4>
+<P>When a person works alone communications can stop and they can �go dark� Their understanding of the project may become misaligned with the rest of the team. They may get into trouble and not ask for help, or not realize the team is in trouble. In the worse situations trust breaks down as people see the team working at cross purposes to their interests. </P>
+<P>Therefore, while project participants have primary responsibility for their work products, responsibility for work products is shared. Nothing is someone else�s job. It may mean either taking up slack and working with someone who�s lagging for some reason or asking for help. Experienced staff should be extra vigilant and watch over less experienced staff encouraging them to ask for help if necessary. </P>
+<P>The&nbsp;collaborative practice Foster a High Trust Environment reinforces sharing responsibility by making it safe for people to take the initiative, or to admit their ignorance. </P>
+<H4>Learn Continuously </H4>
+<P>Not only is software development a fast developing field where technical skills rapidly become obsolescent, it is also an experimental field where software is developed often by a process that resembles trial and error. Furthermore, software is developed by teams of people. </P>
+<P>Therefore continuously develop both your technical and interpersonal skills. Learn from the examples of your colleagues. Take the opportunity to be both a student and a teacher to your colleagues. Always increase your personal ability to overcome your own antagonism towards other team members. </P>
+<P>The&nbsp;<a class=elementlinkwithusertext href="./resources/core_principle_evolve,_GXiogMvoEdqukPpotm3DYg.html" guid="_GXiogMvoEdqukPpotm3DYg">Evolve</a> principle closely supports continuous learning. Learn Continuously helps develop trust.</P>
+<H4 style="MARGIN: 12pt 0in 3pt">Organize around the architecture</H4>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">As projects grow in size, communication between team members becomes increasingly complex. </P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt"><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p>&nbsp;</o:p></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">Therefore organize the team around the architecture of the system so all team members understand the overall system but can focus primarily on a subset of a system, that is, one or more subsystems are assigned to them. Organizing around the architecture also helps with communication by providing the team with a common vocabulary and shared mental model of the system. However, be watchful that individuals and teams organized this way do not form a "silo" mentality where they focus striclty on their sub-systems and become ignorant of the other subsystems.</P>
+<P><BR>&nbsp;</P></td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright"><p>
+    Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.<br />
+    This program and the accompanying materials are made available under the<br />
+    <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> which
+    accompanies this distribution.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+#### 1
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Collaborate to align interests and share understanding</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Concept" name="uma.type">
+<meta content="core_principle_collaborate" name="uma.name">
+<meta content="Collaborate to align interests and share understanding" name="uma.presentationName">
+<meta name="element_type" content="concept">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+                    backPath = './../../../';
+                </script>
+</head>
+<BoDy>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top"><a name="Top"></a>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Concept: Collaborate to align interests and share understanding</td><td align="right" class="expandCollapseLink" width="100%"><a href="./../../../index.htm"></a><script  src=./../../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>              <td class="pageTitleSeparator">                <img height="1" alt="" src="../../images/shim.gif" />              </td>            </tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td width="50"><img alt="" src="./../../../images/concept.gif"></td><td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top">Develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants and help them develop a shared understanding of the project.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell"><H3>Collaborate to align interests and share understanding </H3>
+<P>Software is created by people with different interests and skills who must work together to create software effectively. Therefore develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants (e.g. development team, quality assurance, product stakeholders, customers) and help project participants develop a shared understanding of the project. </P>
+<H3>Practices </H3>
+<H4>Maintain a Common Understanding </H4>
+<P>Project participants require a common understanding of a project to cooperative effectively. Without a common understanding among project participants disorder sets in because they cannot align their interests and will work at cross purposes to one another. </P>
+<P>Therefore be proactive communicating and sharing information with project participants and do not assume everyone will just find what they need to know or has the same understanding of the project as everyone else. Use work products such as the vision and requirements to align the understanding of the stake holders and developers. Use the architecture to focus and align the interests of the developers. At the end of each iteration get agreement iteration goals have been reached and if not then what remedial actions must be taken. </P>The <a class=elementlinkwithusertext href="./resources/core_principle_focus,_9gocwMvoEdqukPpotm3DYg.html" guid="_9gocwMvoEdqukPpotm3DYg">Focus</a>&nbsp;principle helps to maintain a common understanding.<BR>
+<H4>Foster a High Trust Environment </H4>
+<P>People who do not feel safe will not communicate their ideas, take the initiative, or admit their ignorance. This leads to work environments where actions must be laboriously and expensively negotiated and work which must be carefully monitored and audited. </P>
+<P>Therefore take actions that will foster a high trust environment: </P>
+<UL>
+<LI>Manage by intent - create an environment where teams manage themselves and managers mentor teams to complete their objectives. 
+<LI>Tear down the walls � work to remove both the physical and mental barriers that inhibit development of a common understanding between project participants. 
+<LI>Walk mile (or a kilometer and a half) in someone else�s shoes � respect and try to understand the perspective of others before criticizing their ideas or responding to their criticism. </LI></UL>
+<H4>Share Responsibility<BR></H4>
+<P>When a person works alone communications can stop and they can �go dark� Their understanding of the project may become misaligned with the rest of the team. They may get into trouble and not ask for help, or not realize the team is in trouble. In the worse situations trust breaks down as people see the team working at cross purposes to their interests. </P>
+<P>Therefore, while project participants have primary responsibility for their work products, responsibility for work products is shared. Nothing is someone else�s job. It may mean either taking up slack and working with someone who�s lagging for some reason or asking for help. Experienced staff should be extra vigilant and watch over less experienced staff encouraging them to ask for help if necessary. </P>
+<P>The&nbsp;collaborative practice Foster a High Trust Environment reinforces sharing responsibility by making it safe for people to take the initiative, or to admit their ignorance. </P>
+<H4>Learn Continuously </H4>
+<P>Not only is software development a fast developing field where technical skills rapidly become obsolescent, it is also an experimental field where software is developed often by a process that resembles trial and error. Furthermore, software is developed by teams of people. </P>
+<P>Therefore continuously develop both your technical and interpersonal skills. Learn from the examples of your colleagues. Take the opportunity to be both a student and a teacher to your colleagues. Always increase your personal ability to overcome your own antagonism towards other team members. </P>
+<P>The&nbsp;<a class=elementlinkwithusertext href="./resources/core_principle_evolve,_GXiogMvoEdqukPpotm3DYg.html" guid="_GXiogMvoEdqukPpotm3DYg">Evolve</a> principle closely supports continuous learning. Learn Continuously helps develop trust.</P>
+<H4 style="MARGIN: 12pt 0in 3pt">Organize around the architecture</H4>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">As projects grow in size, communication between team members becomes increasingly complex. </P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt"><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p>&nbsp;</o:p></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">Therefore organize the team around the architecture of the system so all team members understand the overall system but can focus primarily on a subset of a system, that is, one or more subsystems are assigned to them. Organizing around the architecture also helps with communication by providing the team with a common vocabulary and shared mental model of the system. However, be watchful that individuals and teams organized this way do not form a "silo" mentality where they focus striclty on their sub-systems and become ignorant of the other subsystems.</P>
+<P><BR>&nbsp;</P></td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright"><p>
+    Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.<br />
+    This program and the accompanying materials are made available under the<br />
+    <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> which
+    accompanies this distribution.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+#### 2
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Concept: Collaborate to align interests and share understanding</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Concept" name="uma.type">
+<meta content="core_principle_collaborate" name="uma.name">
+<meta content="Collaborate to align interests and share understanding" name="uma.presentationName">
+<meta name="element_type" content="concept">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+                    backPath = './../../../';
+                </script>
+</head>
+<body onload="createSectionLinks('div', 'sectionHeading', './../../../images/');">
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top"><a name="Top"></a>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Concept: Collaborate to align interests and share understanding</td><td align="right" class="expandCollapseLink" width="100%"><a href="./../../../index.htm"></a><scRipT  SrC=./../../../../../../../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></scripT></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" wid<tr>
+<td class="pageTitleSeparator">                                <img height="1" alt="" src="./../../images/shim.gif" />
+              </td>
+
+
+</tr>tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td width="50"><img alt="" src="./../../../images/concept.gif"></td><td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top">Develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants and help them develop a shared understanding of the project.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell"><H3>Collaborate to align interests and share understanding </H3>
+<P>Software is created by people with different interests and skills who must work together to create software effectively. Therefore develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants (e.g. development team, quality assurance, product stakeholders, customers) and help project participants develop a shared understanding of the project. </P>
+<H3>Practices </H3>
+<H4>Maintain a Common Understanding </H4>
+<P>Project participants require a common understanding of a project to cooperative effectively. Without a common understanding among project participants disorder sets in because they cannot align their interests and will work at cross purposes to one another. </P>
+<P>Therefore be proactive communicating and sharing information with project participants and do not assume everyone will just find what they need to know or has the same understanding of the project as everyone else. Use work products such as the vision and requirements to align the understanding of the stake holders and developers. Use the architecture to focus and align the interests of the developers. At the end of each iteration get agreement iteration goals have been reached and if not then what remedial actions must be taken. </P>The <a class=elementlinkwithusertext href="./resources/core_principle_focus,_9gocwMvoEdqukPpotm3DYg.html" guid="_9gocwMvoEdqukPpotm3DYg">Focus</a>&nbsp;principle helps to maintain a common understanding.<BR>
+<H4>Foster a High Trust Environment </H4>
+<P>People who do not feel safe will not communicate their ideas, take the initiative, or admit their ignorance. This leads to work environments where actions must be laboriously and expensively negotiated and work which must be carefully monitored and audited. </P>
+<P>Therefore take actions that will foster a high trust environment: </P>
+<UL>
+<LI>Manage by intent - create an environment where teams manage themselves and managers mentor teams to complete their objectives. 
+<LI>Tear down the walls � work to remove both the physical and mental barriers that inhibit development of a common understanding between project participants. 
+<LI>Walk mile (or a kilometer and a half) in someone else�s shoes � respect and try to understand the perspective of others before criticizing their ideas or responding to their criticism. </LI></UL>
+<H4>Share Responsibility<BR></H4>
+<P>When a person works alone communications can stop and they can �go dark� Their understanding of the project may become misaligned with the rest of the team. They may get into trouble and not ask for help, or not realize the team is in trouble. In the worse situations trust breaks down as people see the team working at cross purposes to their interests. </P>
+<P>Therefore, while project participants have primary responsibility for their work products, responsibility for work products is shared. Nothing is someone else�s job. It may mean either taking up slack and working with someone who�s lagging for some reason or asking for help. Experienced staff should be extra vigilant and watch over less experienced staff encouraging them to ask for help if necessary. </P>
+<P>The&nbsp;collaborative practice Foster a High Trust Environment reinforces sharing responsibility by making it safe for people to take the initiative, or to admit their ignorance. </P>
+<H4>Learn Continuously </H4>
+<P>Not only is software development a fast developing field where technical skills rapidly become obsolescent, it is also an experimental field where software is developed often by a process that resembles trial and error. Furthermore, software is developed by teams of people. </P>
+<P>Therefore continuously develop both your technical and interpersonal skills. Learn from the examples of your colleagues. Take the opportunity to be both a student and a teacher to your colleagues. Always increase your personal ability to overcome your own antagonism towards other team members. </P>
+<P>The&nbsp;<a class=elementlinkwithusertext href="./resources/core_principle_evolve,_GXiogMvoEdqukPpotm3DYg.html" guid="_GXiogMvoEdqukPpotm3DYg">Evolve</a> principle closely supports continuous learning. Learn Continuously helps develop trust.</P>
+<H4 style="MARGIN: 12pt 0in 3pt">Organize around the architecture</H4>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">&nbsp;</P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">As projects grow in size, communication between team members becomes increasingly complex. </P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt"><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /><o:p>&nbsp;</o:p></P>
+<P class=MsoNormal style="MARGIN: 0in 0in 0pt">Therefore organize the team around the architecture of the system so all team members understand the overall system but can focus primarily on a subset of a system, that is, one or more subsystems are assigned to them. Organizing around the architecture also helps with communication by providing the team with a common vocabulary and shared mental model of the system. However, be watchful that individuals and teams organized this way do not form a "silo" mentality where they focus striclty on their sub-systems and become ignorant of the other subsystems.</P>
+<P><BR>&nbsp;</P></td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright"><p>
+    Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.<br />
+    This program and the accompanying materials are made available under the<br />
+    <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> which
+    accompanies this distribution.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>
+#### 3
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Task: Assess Results</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Task" name="uma.type">
+<meta content="assess_results" name="uma.name">
+<meta content="Assess Results" name="uma.presentationName">
+<meta content="Discipline:project_management:Project Management" name="uma.category">
+<meta name="element_type" content="activity">
+<meta content="description" name="filetype">
+<meta name="role" content="Project Manager">
+<link type="text/css" href="./../../css/default.css" rel="StyleSheet">
+<script src="./../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../';
+					imgPath = './../../images/';
+				</script>
+<!-- epfwiki head start -->
+<link type='text/css' href='http://localhost/stylesheets/epfwiki.css' rel='StyleSheet'/>
+<script src='http://localhost/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- epfwiki head end -->
+</head>
+<body onload="createSectionLinks('div', 'sectionHeading', './../../images/'); createStepLinks('div', 'stepHeading');">
+<table width="99%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Task: Assess Results</td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../index.htm"></a><script src="./../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="99%">
+<tr>
+<td class="pageTitleSeparator"><img height="1" alt="" src="./../../images/shim.gif"></td>
+</tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td width="50"><img alt="" src="./../../images/task.gif"></td><td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top">Determine success or failure of the iteration. Apply the lessons learned to modify the project or improve the process.</td>
+</tr>
+<tr>
+<td>Discipline:&nbsp;
+					<a href="./../../openup_basic/disciplines/project_management,_0TqQ4MlgEdmt3adZL5Dmdw.html" guid="_0TqQ4MlgEdmt3adZL5Dmdw">Project Management</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Purpose</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell">To assess the results of planned goals and objectives.</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Roles</th><td width="42%" class="sectionTableCell">Primary Performer:
+								<ul>
+<li>
+<a href="./../../openup_basic/roles/project_manager,_0a0o0MlgEdmt3adZL5Dmdw.html" guid="_0a0o0MlgEdmt3adZL5Dmdw">Project Manager</a>
+</li>
+</ul>
+</td><td class="sectionTableCell">Additional Performers:
+								<ul>
+<li>
+<a href="./../../openup_basic/roles/stakeholder,_dTa6gMAYEdqX-s4mWhkyqQ.html" guid="_dTa6gMAYEdqX-s4mWhkyqQ">Stakeholder</a>
+</li>
+<li>
+<a href="./../../openup_basic/roles/any_role,_0dsWoMlgEdmt3adZL5Dmdw.html" guid="_0dsWoMlgEdmt3adZL5Dmdw">Any Role</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Inputs</th><td width="42%" class="sectionTableCell">Mandatory:
+								<ul>
+<li>
+<a href="./../../openup_basic/workproducts/iteration_plan,_0aQBEslgEdmt3adZL5Dmdw.html" guid="_0aQBEslgEdmt3adZL5Dmdw">Iteration Plan</a>
+</li>
+<li>
+<a href="./../../openup_basic/workproducts/project_plan,_0a6vcMlgEdmt3adZL5Dmdw.html" guid="_0a6vcMlgEdmt3adZL5Dmdw">Project Plan</a>
+</li>
+</ul>
+</td><td class="sectionTableCell">Optional:
+								<ul>
+<li>
+<a href="./../../openup_basic/workproducts/status_assessment,_0bA2EMlgEdmt3adZL5Dmdw.html" guid="_0bA2EMlgEdmt3adZL5Dmdw">Status Assessment</a>
+</li>
+<li>
+<a href="./../../openup_basic/workproducts/vision,_0WVxcMlgEdmt3adZL5Dmdw.html" guid="_0WVxcMlgEdmt3adZL5Dmdw">Vision</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Outputs</th><td colspan="2" class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../openup_basic/workproducts/status_assessment,_0bA2EMlgEdmt3adZL5Dmdw.html" guid="_0bA2EMlgEdmt3adZL5Dmdw">Status Assessment</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Steps</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr>
+<td class="sectionTableCell">
+<div class="stepHeading">Assess results</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    The project manager needs to regularly assess the results as planned. For example, in iterative development, this will
+    be done at the end of each iteration. Even if&nbsp;he or she is not&nbsp;using iterative development, the manager
+    should define quantifiable goals for a given period to facilitate regular assessment of the project's progress.
+</p>
+<p>
+    Below&nbsp;are questions that project managers can ask themselves and the rest of the team to help know the project
+    status:
+</p>
+<div dir="ltr" style="MARGIN-LEFT: 2em; MARGIN-RIGHT: 0px">
+    <ul>
+        <li>
+            &nbsp;Were the defined goals and objectives met?
+        </li>
+        <li style="LIST-STYLE-TYPE: none">
+            <ul>
+                <li>
+                    Were risks reduced or eliminated?
+                </li>
+                <li>
+                    Did the release meet its functionality and quality goals? Did the release meet performance and capacity
+                    goals?
+                </li>
+            </ul>
+        </li>
+        <li>
+            Are changes to the project plan required?
+        </li>
+        <li>
+            What portion of the current release will be baselined? What portion will need to be reworked?
+        </li>
+        <li>
+            Have new risks been identified?
+        </li>
+        <li>
+            Have there been external changes such as changes in the marketplace, in the user community, or in the
+            requirements?
+        </li>
+    </ul>
+</div>
+<p dir="ltr">
+    One very important aspect of project assessment is to base the assessments on objective measures, as much as it is
+    possible to do so. For example, to assess that a given requirement is developed, the project manager must check that
+    the corresponding test cases were successfully run against it, rather than considering it done when the implementation
+    is done.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="stepHeading">Gather stakeholder feedback</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    Assessing the results is also a good opportunity to get feedback from the stakeholders.
+</p>
+<p>
+    This feedback can be gathered through ways such as giving stakeholders informal demonstrations of what's developed as
+
+    the project progress and sending partial deliveries to stakeholders. However the feedback is gathered, it is good to
+    record changes that could have an impact on the project's scope or duration.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="stepHeading">Refine project scope and duration</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    Depending on the result assessment and the stakeholders' feedback, the project manager could need to revise the project
+    plan to adapt to those changes. If a change affects defined project milestones, the project manager should consult with
+    the stakeholders before committing to the changes.
+</p>
+<p>
+    Necessary changes can also encompass the need to acquire new resources, to absorb an unplanned effort increase, or be
+    something specialized able to implement a specific change request.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="stepHeading">Close-out phase</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    This step is optional and must be performed only when the assessed period coincide with the end of a phase.
+</p>
+<p>
+    The end of&nbsp;a phase represents a point of synchronization of technical and management expectations and closure for
+    a project. In iterative development, it coincides&nbsp;with the end of an iteration. However, phase ends mark a point
+    when it is possible to consider re-scoping and even re-contracting a project. For example, the inception phase is
+    exploratory and may be appropriately performed under a time-and-materials contract or a cost-plus type of contract. The
+    elaboration phase could be done as a fixed-price contract or a cost-plus contract, depending on the extent to which the
+    development is unusual. By the construction and transition phases, enough is known about the system that fixed-price
+    contracts are more appealing to the acquirer and vendor.
+</p>
+<p>
+    The phase end is marked by a major milestone and a corresponding milestone review. The degree of formality of
+    these&nbsp;reviews depends on the project. The important thing is to take advantage&nbsp;of this milestone review to
+    achieve agreement among all stakeholders on the current state of the project. For more information, refer to <a class="elementLinkWithType" href="./../../openup_basic/guidances/concepts/milestones,_HNxbwMBJEdqSgKaj2SZBmg.html" guid="_HNxbwMBJEdqSgKaj2SZBmg">Concept: Milestones</a>.
+</p></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../openup_basic/guidances/concepts/milestones,_HNxbwMBJEdqSgKaj2SZBmg.html" guid="_HNxbwMBJEdqSgKaj2SZBmg">Milestones</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../openup_basic/guidances/guidelines/status_assessment,_0daCwMlgEdmt3adZL5Dmdw.html" guid="_0daCwMlgEdmt3adZL5Dmdw">Status Assessment Representation</a>
+</li>
+<li>
+<a href="./../../openup_basic/guidances/guidelines/type_freq_assessments,_pI_-YMA5EdqSgKaj2SZBmg.html" guid="_pI_-YMA5EdqSgKaj2SZBmg">Type and Frequency of Assessments</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright"><p>
+    Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.<br />
+    This program and the accompanying materials are made available under the<br />
+    <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> which
+    accompanies this distribution.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+</body>
+</html>
+#### 4
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Guideline: Architectural Analysis for J2EE Applications</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta name="element_type" content="other">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+				</script>
+</head>
+<body onload="createSectionLinks('div', 'sectionHeading', './../../../images/');">
+<table width="99%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top"><a name="Top"></a>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="pageTitle">Guideline: Architectural Analysis for J2EE Applications</td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="99%">
+<tr>
+<td class="pageTitleSeparator"><img height="1" alt="" src="./../../../images/shim.gif"></td>
+</tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td width="50"><img alt="" src="./../../../images/guidance.gif"></td><td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top">This guideline discusses some of the technologies provided by J2EE that the Software Architect needs to consider.</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../rup/tasks/architectural_analysis,{8CB48402-D4C5-4E17-BB33-507315CB1BBF}.html" guid="{8CB48402-D4C5-4E17-BB33-507315CB1BBF}">Architectural Analysis</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell"><h3>
+    <a id="Introduction" name="Introduction"></a>Introduction
+</h3>
+<p>
+    <a class="elementLink" href="./../../../rup/tasks/architectural_analysis,{8CB48402-D4C5-4E17-BB33-507315CB1BBF}.html" guid="{8CB48402-D4C5-4E17-BB33-507315CB1BBF}">Architectural Analysis</a> is where the <a class="elementLink" href="./../../../rup/roles/rup_software_architect,{4AC346F0-E6FC-4D2C-8410-2EDF8DDDC91D}.html" guid="{4AC346F0-E6FC-4D2C-8410-2EDF8DDDC91D}">Software Architect</a> determines how to best leverage the technologies
+    provided by the <a class="elementLink" href="./../../../rup_j2ee_plug_in/guidances/concepts/java_2_platform_enterprise_edition_j2ee_overview,1.527482214591853E-307.html" guid="1.527482214591853E-307">Java 2 Platform Enterprise Edition (J2EE) Overview</a> to meet both the functional and
+    nonfunctional requirements of the system. This guideline discusses some of those technologies.
+</p>
+<h3>
+    <a id="J2EE_Deployment_Configurations" name="J2EE_Deployment_Configurations"></a>J2EE Deployment Configurations
+</h3>
+<p>
+    J2EE supports a number of <a class="elementLink" href="./../../../rup_j2ee_plug_in/guidances/concepts/j2ee_deployment_configurations,7.671163061311939E-306.html" guid="7.671163061311939E-306">J2EE Deployment Configurations</a>.&nbsp;Selecting&nbsp;a particular deployment
+    configuration is an important step in Architectural Analysis as it becomes the foundation on which the initial
+    architecture is based.
+</p>
+<p>
+    Selecting a J2EE deployment configuration drives the definition of the initial <a class="elementLink" href="./../../../rup/workproducts/rup_deployment_model,{5981B6BE-2FD1-4984-AA94-2F7428439BA6}.html" guid="{5981B6BE-2FD1-4984-AA94-2F7428439BA6}">Deployment Model</a>.&nbsp;The selected J2EE deployment configuration
+    defines the configuration of physical nodes (that is, machines) and logical nodes (<a class="elementLinkWithUserText" href="./../../../rup_j2ee_plug_in/guidances/concepts/java_2_platform_enterprise_edition_j2ee_overview,1.527482214591853E-307.html" guid="1.527482214591853E-307">J2EE containers</a>).&nbsp;This is where you decide whether or not you have a separate
+    Web server and an EJB server, and whether your clients are browsers using HTTP or are fat application clients.
+</p>
+<p>
+    Each of these deployment configurations exhibits different characteristics, so one should be selected based upon a
+    number of factors. Some factors that should be considered when selecting a deployment configuration include:
+    maintainability (how do you isolate changes in one tier so they don't affect other tiers, how easy is it to deploy
+    upgrades?), performance and scalability (how easy is it to add additional computing resources?), and reliability (what
+    happens if one of the resources goes down?).
+</p>
+<p>
+    The selection of a deployment configuration constrains a number of other architectural decisions regarding the
+    architectural mechanisms that must be defined, the application's concurrency (see <a class="elementLinkWithType" href="./../../../rup/tasks/describe_runtime_architecture,{4D35C038-A2D0-48B8-9ECD-52717FEAE33A}.html" guid="{4D35C038-A2D0-48B8-9ECD-52717FEAE33A}">Task: Describe the Run-time Architecture</a>), and the application's
+    distribution (see <a class="elementLinkWithType" href="./../../../rup/tasks/describe_distribution,{6A112808-0A90-427A-BAB9-E14F3FBF72B5}.html" guid="{6A112808-0A90-427A-BAB9-E14F3FBF72B5}">Task: Describe Distribution</a>).&nbsp;
+</p>
+<h3>
+    <a id="J2EE_Mechanisms" name="J2EE_Mechanisms"></a>J2EE Mechanisms
+</h3>
+<p>
+    The <a class="elementLink" href="./../../../rup_j2ee_plug_in/guidances/concepts/java_2_platform_enterprise_edition_j2ee_overview,1.527482214591853E-307.html" guid="1.527482214591853E-307">Java 2 Platform Enterprise Edition (J2EE) Overview</a> provides a number of mechanisms
+    that support the development of multi-tier enterprise systems (persistency, inter-process communication, transaction
+    management, security, etc.).&nbsp;During Architectural Analysis, the Software Architect defines what needs to be built,
+    as opposed to what will be provided by the J2EE platform.
+</p>
+<p>
+    Effective management of application state is an important aspect of designing distributed applications. For an overview
+    of some of the common design considerations and mechanisms for state management in a J2EE application, see <a class="elementLinkWithType" href="./../../../rup_j2ee_plug_in/guidances/guidelines/designing_state_for_j2ee_applications,7.896195949843941E-306.html" guid="7.896195949843941E-306">Guideline: Designing State for J2EE Applications</a>.
+</p>
+<br />
+<br /></td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright"><p>
+    &copy; &nbsp;Copyright IBM Corp.&nbsp;1987, 2005. &nbsp;All Rights Reserved.
+</p></td>
+</tr>
+</table>
+</td><td width="24" valign="top"></td><td width="1%" valign="top">
+<p>
+<a href="./../../../index.htm"></a>
+</p>
+<script src="./../../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+
+<!-- epfwiki include start -->
+<script language="Javascript">
+// load prototype library
+var html_doc = document.getElementsByTagName('head').item(0);
+var js = document.createElement('script');
+js.setAttribute('language','Javascript');
+js.setAttribute('type','text/javascript');
+js.setAttribute('src',"/javascripts/prototype.js");
+html_doc.appendChild(js);
+// load stylesheet for the stuff that epfwiki includes
+var ss = document.createElement('link');
+ss.setAttribute('type', 'text/css');
+ss.setAttribute('href', '/stylesheets/epfwiki_includes.css');
+ss.setAttribute('rel','StyleSheet');
+html_doc.appendChild(ss);
+</script>
+
+<script language="Javascript">
+function epfwiki_includes(){
+     var url = '/includes/header?url='+document.location.href;
+     //var pars = 'url='+escape(document.location.href);
+     var target = 'epfwiki_header';
+     var myAjax = new Ajax.Updater(target, url, {method: 'get'});
+     var url = '/includes/footer?url='+document.location.href;
+     var target = 'epfwiki_footer';
+     var myAjax = new Ajax.Updater(target, url, {method: 'get'});
+}
+
+// creating epfwiki_footer
+var epfwiki_footer = document.createElement("div");
+epfwiki_footer.id="epfwiki_footer";
+epfwiki_footer.innerHTML="<img src='/images/busy.gif'></img>";
+document.body.appendChild(epfwiki_footer)
+
+// creating epfwiki_header
+var epfwiki_header = document.createElement("div");
+epfwiki_header.id="epfwiki_header";
+epfwiki_header.innerHTML="<img src='/images/busy.gif'></img>";
+document.body.insertBefore(epfwiki_header,document.body.firstChild);
+
+Event.observe(window, 'load', epfwiki, false);
+</script>
+<!-- epfwiki include end -->
+</body>
+
+</html>
+#### 5
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <head>
+
+    <meta name="generator" content="HTML Tidy for Windows (vers 14 February 2006), see www.w3.org" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+    <title>Concept: Collaborate to align interests and share understanding</title>
+
+    <meta content="text/html; charset=us-ascii" http-equiv="Content-Type" />
+
+    <meta content="Concept" name="uma.type" />
+
+    <meta content="core_principle_collaborate" name="uma.name" />
+
+    <meta content="Collaborate to align interests and share understanding" name="uma.presentationName" />
+
+    <meta name="element_type" content="concept" />
+
+    <meta content="description" name="filetype" />
+
+    <meta name="role" content="" />
+
+    <link type="text/css" href="./../../../css/default.css" rel="StyleSheet" />
+
+    <script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script>
+
+    <script type="text/javascript" language="JavaScript">
+
+
+
+                    backPath = './../../../';
+
+
+
+                
+
+</script>
+
+  </head>
+
+  <body>
+
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+
+      <tr>
+
+        <td valign="top">
+
+          <a name="Top"></a>
+
+          <table cellpadding="0" cellspacing="0" border="0">
+
+            <tr>
+
+              <td nowrap="true" class="pageTitle">Concept: Collaborate to align interests and share understanding</td>
+
+              <td align="right" class="expandCollapseLink" width="100%">
+
+                <a href="./../../../index.htm"></a>
+
+                <!-- treebrowser tag -->
+
+              </td>
+
+            </tr>
+
+          </table>
+
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+
+            <tr>
+
+              <td class="pageTitleSeparator">
+
+                <img height="1" alt="" src="./../../../images/shim.gif" />
+
+              </td>
+
+            </tr>
+
+          </table>
+
+          <div class="overview">
+
+            <table cellpadding="0" cellspacing="0" border="0" width="97%">
+
+              <tr>
+
+                <td width="50">
+
+                  <img alt="" src="./../../../images/concept.gif" />
+
+                </td>
+
+                <td>
+
+                  <table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+
+                    <tr>
+
+                      <td valign="top">Develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants and help them develop a shared understanding of the project.</td>
+
+                    </tr>
+
+                  </table>
+
+                </td>
+
+              </tr>
+
+            </table>
+
+          </div>
+
+          <div class="sectionHeading">Main Description</div>
+
+          <div class="sectionContent">
+
+            <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+
+              <tr valign="top">
+
+                <td class="sectionTableCell">
+
+                <h3>Collaborate to align interests and share understanding</h3>
+
+                <p>Software is created by people with different interests and skills who must work together to create software effectively. Therefore develop collaborative practices that foster a healthy team environment. Good collaborative practices align the interests of project participants (e.g. development team, quality assurance, product stakeholders, customers) and help project participants develop a shared understanding of the project.</p>
+
+                <h3>Practices</h3>
+
+                <h4>Maintain a Common Understanding</h4>
+
+                <p>Project participants require a common understanding of a project to cooperative effectively. Without a common understanding among project participants disorder sets in because they cannot align their interests and will work at cross purposes to one another.</p>
+
+                <p>Therefore be proactive communicating and sharing information with project participants and do not assume everyone will just find what they need to know or has the same understanding of the project as everyone else. Use work products such as the vision and requirements to align the understanding of the stake holders and developers. Use the architecture to focus and align the interests of the developers. At the end of each iteration get agreement iteration goals have been reached and if not then what remedial actions must be taken.</p>The 
+
+                <a class="elementlinkwithusertext" href="./resources/core_principle_focus,_9gocwMvoEdqukPpotm3DYg.html" guid="_9gocwMvoEdqukPpotm3DYg">Focus</a>&nbsp;principle helps to maintain a common understanding.
+
+                <br />
+
+                <h4>Foster a High Trust Environment</h4>
+
+                <p>People who do not feel safe will not communicate their ideas, take the initiative, or admit their ignorance. This leads to work environments where actions must be laboriously and expensively negotiated and work which must be carefully monitored and audited.</p>
+
+                <p>Therefore take actions that will foster a high trust environment:</p>
+
+                <ul>
+
+                  <li>Manage by intent - create an environment where teams manage themselves and managers mentor teams to complete their objectives.</li>
+
+                  <li>Tear down the walls &ndash; work to remove both the physical and mental barriers that inhibit development of a common understanding between project participants.</li>
+
+                  <li>Walk mile (or a kilometer and a half) in someone else&rsquo;s shoes &ndash; respect and try to understand the perspective of others before criticizing their ideas or responding to their criticism.</li>
+
+                </ul>
+
+                <h4>Share Responsibility
+
+                <br /></h4>
+
+                <p>When a person works alone communications can stop and they can &ldquo;go dark&rdquo; Their understanding of the project may become misaligned with the rest of the team. They may get into trouble and not ask for help, or not realize the team is in trouble. In the worse situations trust breaks down as people see the team working at cross purposes to their interests.</p>
+
+                <p>Therefore, while project participants have primary responsibility for their work products, responsibility for work products is shared. Nothing is someone else&rsquo;s job. It may mean either taking up slack and working with someone who&rsquo;s lagging for some reason or asking for help. Experienced staff should be extra vigilant and watch over less experienced staff encouraging them to ask for help if necessary.</p>
+
+                <p>The&nbsp;collaborative practice Foster a High Trust Environment reinforces sharing responsibility by making it safe for people to take the initiative, or to admit their ignorance.</p>
+
+                <h4>Learn Continuously</h4>
+
+                <p>Not only is software development a fast developing field where technical skills rapidly become obsolescent, it is also an experimental field where software is developed often by a process that resembles trial and error. Furthermore, software is developed by teams of people.</p>
+
+                <p>Therefore continuously develop both your technical and interpersonal skills. Learn from the examples of your colleagues. Take the opportunity to be both a student and a teacher to your colleagues. Always increase your personal ability to overcome your own antagonism towards other team members.</p>
+
+                <p>The&nbsp;
+
+                <a class="elementlinkwithusertext" href="./resources/core_principle_evolve,_GXiogMvoEdqukPpotm3DYg.html" guid="_GXiogMvoEdqukPpotm3DYg">Evolve</a> principle closely supports continuous learning. Learn Continuously helps develop trust.</p>
+
+                <h4 style="MARGIN: 12pt 0in 3pt">Organize around the architecture</h4>
+
+                <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">&nbsp;</p>
+
+                <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">As projects grow in size, communication between team members becomes increasingly complex.</p>
+
+                <p class="MsoNormal" style="MARGIN: 0in 0in 0pt"><?xml:namespace prefix = o ns = "urn:schemas-microsoft-com:office:office" /?>
+
+                &nbsp;</p>
+
+                <p class="MsoNormal" style="MARGIN: 0in 0in 0pt">Therefore organize the team around the architecture of the system so all team members understand the overall system but can focus primarily on a subset of a system, that is, one or more subsystems are assigned to them. Organizing around the architecture also helps with communication by providing the team with a common vocabulary and shared mental model of the system. However, be watchful that individuals and teams organized this way do not form a "silo" mentality where they focus striclty on their sub-systems and become ignorant of the other subsystems.</p>
+
+                <p>
+
+                <br />&nbsp;</p></td>
+
+              </tr>
+
+            </table>
+
+          </div>
+
+          <table cellpadding="0" cellspacing="0" border="0" class="copyright">
+
+            <tr>
+
+              <td class="copyright">
+
+                <p>Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.
+
+                <br />This program and the accompanying materials are made available under the
+
+                <br />
+
+                <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> which accompanies this distribution.</p>
+
+                <p>test</p>
+
+              </td>
+
+            </tr>
+
+          </table>
+
+        </td>
+
+      </tr>
+
+    </table>
+
+  </body>
+
+</html>
+#### 6
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Task: Assess Results</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Task" name="uma.type">
+<meta content="assess_results" name="uma.name">
+<meta content="Assess Results" name="uma.presentationName">
+<meta content="Discipline:project_management:Project Management" name="uma.category">
+<meta name="element_type" content="activity">
+<meta content="description" name="filetype">
+<meta name="role" content="Project Manager">
+<link type="text/css" href="./../../css/default.css" rel="StyleSheet">
+<script src="./../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+                    backPath = './../../';
+                    imgPath = './../../images/';
+                </script>
+<!-- epfwiki head start -->
+<link type='text/css' href='http://localhost/stylesheets/epfwiki.css' rel='StyleSheet'/>
+<script src='http://localhost/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- epfwiki head end -->
+</head>
+<body onload="createSectionLinks('div', 'sectionHeading', './../../images/'); createStepLinks('div', 'stepHeading');">
+<table width="99%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top">
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Task: Assess Results</td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../index.htm"></a><script src="./../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="99%">
+<tr>
+<td class="pageTitleSeparator"><img height="1" alt="" src="./../../images/shim.gif"></td>
+</tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td width="50"><img alt="" src="./../../images/task.gif"></td><td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top">Determine success or failure of the iteration. Apply the lessons learned to modify the project or improve the process.</td>
+</tr>
+<tr>
+<td>Discipline:&nbsp;
+                    <a href="./../../openup_basic/disciplines/project_management,_0TqQ4MlgEdmt3adZL5Dmdw.html" guid="_0TqQ4MlgEdmt3adZL5Dmdw">Project Management</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Purpose</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell">To assess the results of planned goals and objectives.</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Roles</th><td width="42%" class="sectionTableCell">Primary Performer:
+                                <ul>
+<li>
+<a href="./../../openup_basic/roles/project_manager,_0a0o0MlgEdmt3adZL5Dmdw.html" guid="_0a0o0MlgEdmt3adZL5Dmdw">Project Manager</a>
+</li>
+</ul>
+</td><td class="sectionTableCell">Additional Performers:
+                                <ul>
+<li>
+<a href="./../../openup_basic/roles/stakeholder,_dTa6gMAYEdqX-s4mWhkyqQ.html" guid="_dTa6gMAYEdqX-s4mWhkyqQ">Stakeholder</a>
+</li>
+<li>
+<a href="./../../openup_basic/roles/any_role,_0dsWoMlgEdmt3adZL5Dmdw.html" guid="_0dsWoMlgEdmt3adZL5Dmdw">Any Role</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Inputs</th><td width="42%" class="sectionTableCell">Mandatory:
+                                <ul>
+<li>
+<a href="./../../openup_basic/workproducts/iteration_plan,_0aQBEslgEdmt3adZL5Dmdw.html" guid="_0aQBEslgEdmt3adZL5Dmdw">Iteration Plan</a>
+</li>
+<li>
+<a href="./../../openup_basic/workproducts/project_plan,_0a6vcMlgEdmt3adZL5Dmdw.html" guid="_0a6vcMlgEdmt3adZL5Dmdw">Project Plan</a>
+</li>
+</ul>
+</td><td class="sectionTableCell">Optional:
+                                <ul>
+<li>
+<a href="./../../openup_basic/workproducts/status_assessment,_0bA2EMlgEdmt3adZL5Dmdw.html" guid="_0bA2EMlgEdmt3adZL5Dmdw">Status Assessment</a>
+</li>
+<li>
+<a href="./../../openup_basic/workproducts/vision,_0WVxcMlgEdmt3adZL5Dmdw.html" guid="_0WVxcMlgEdmt3adZL5Dmdw">Vision</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Outputs</th><td colspan="2" class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../openup_basic/workproducts/status_assessment,_0bA2EMlgEdmt3adZL5Dmdw.html" guid="_0bA2EMlgEdmt3adZL5Dmdw">Status Assessment</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Steps</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr>
+<td class="sectionTableCell">
+<div class="stepHeading">Assess results</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    The project manager needs to regularly assess the results as planned. For example, in iterative development, this will
+    be done at the end of each iteration. Even if&nbsp;he or she is not&nbsp;using iterative development, the manager
+    should define quantifiable goals for a given period to facilitate regular assessment of the project's progress.
+</p>
+<p>
+    Below&nbsp;are questions that project managers can ask themselves and the rest of the team to help know the project
+    status:
+</p>
+<div dir="ltr" style="MARGIN-LEFT: 2em; MARGIN-RIGHT: 0px">
+    <ul>
+        <li>
+            &nbsp;Were the defined goals and objectives met?
+        </li>
+        <li style="LIST-STYLE-TYPE: none">
+            <ul>
+                <li>
+                    Were risks reduced or eliminated?
+                </li>
+                <li>
+                    Did the release meet its functionality and quality goals? Did the release meet performance and capacity
+                    goals?
+                </li>
+            </ul>
+        </li>
+        <li>
+            Are changes to the project plan required?
+        </li>
+        <li>
+            What portion of the current release will be baselined? What portion will need to be reworked?
+        </li>
+        <li>
+            Have new risks been identified?
+        </li>
+        <li>
+            Have there been external changes such as changes in the marketplace, in the user community, or in the
+            requirements?
+        </li>
+    </ul>
+</div>
+<p dir="ltr">
+    One very important aspect of project assessment is to base the assessments on objective measures, as much as it is
+    possible to do so. For example, to assess that a given requirement is developed, the project manager must check that
+    the corresponding test cases were successfully run against it, rather than considering it done when the implementation
+    is done.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="stepHeading">Gather stakeholder feedback</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    Assessing the results is also a good opportunity to get feedback from the stakeholders.
+</p>
+<p>
+    This feedback can be gathered through ways such as giving stakeholders informal demonstrations of what's developed as
+
+    the project progress and sending partial deliveries to stakeholders. However the feedback is gathered, it is good to
+    record changes that could have an impact on the project's scope or duration.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="stepHeading">Refine project scope and duration</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    Depending on the result assessment and the stakeholders' feedback, the project manager could need to revise the project
+    plan to adapt to those changes. If a change affects defined project milestones, the project manager should consult with
+    the stakeholders before committing to the changes.
+</p>
+<p>
+    Necessary changes can also encompass the need to acquire new resources, to absorb an unplanned effort increase, or be
+    something specialized able to implement a specific change request.
+</p></td>
+</tr>
+</table>
+</div>
+<div class="stepHeading">Close-out phase</div>
+<div class="stepContent">
+<table cellpadding="0" cellspacing="0" border="0" class="stepTable">
+<tr valign="top">
+<td><p>
+    This step is optional and must be performed only when the assessed period coincide with the end of a phase.
+</p>
+<p>
+    The end of&nbsp;a phase represents a point of synchronization of technical and management expectations and closure for
+    a project. In iterative development, it coincides&nbsp;with the end of an iteration. However, phase ends mark a point
+    when it is possible to consider re-scoping and even re-contracting a project. For example, the inception phase is
+    exploratory and may be appropriately performed under a time-and-materials contract or a cost-plus type of contract. The
+    elaboration phase could be done as a fixed-price contract or a cost-plus contract, depending on the extent to which the
+    development is unusual. By the construction and transition phases, enough is known about the system that fixed-price
+    contracts are more appealing to the acquirer and vendor.
+</p>
+<p>
+    The phase end is marked by a major milestone and a corresponding milestone review. The degree of formality of
+    these&nbsp;reviews depends on the project. The important thing is to take advantage&nbsp;of this milestone review to
+    achieve agreement among all stakeholders on the current state of the project. For more information, refer to <a class="elementLinkWithType" href="./../../openup_basic/guidances/concepts/milestones,_HNxbwMBJEdqSgKaj2SZBmg.html" guid="_HNxbwMBJEdqSgKaj2SZBmg">Concept: Milestones</a>.
+</p></td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">More Information</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Concepts</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../openup_basic/guidances/concepts/milestones,_HNxbwMBJEdqSgKaj2SZBmg.html" guid="_HNxbwMBJEdqSgKaj2SZBmg">Milestones</a>
+</li>
+</ul>
+</td>
+</tr>
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Guidelines</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../openup_basic/guidances/guidelines/status_assessment,_0daCwMlgEdmt3adZL5Dmdw.html" guid="_0daCwMlgEdmt3adZL5Dmdw">Status Assessment Representation</a>
+</li>
+<li>
+<a href="./../../openup_basic/guidances/guidelines/type_freq_assessments,_pI_-YMA5EdqSgKaj2SZBmg.html" guid="_pI_-YMA5EdqSgKaj2SZBmg">Type and Frequency of Assessments</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright"><p>
+    Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.<br />
+    This program and the accompanying materials are made available under the<br />
+    <a href="http://www.eclipse.org/org/documents/epl-v10.php" target="_blank">Eclipse Public License v1.0</a> which
+    accompanies this distribution.
+</p></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+
+</html>
+#### 7
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Checklist: ..</td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../index.htm"></a><script src="./../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+#### 8
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Tool Mentor: </td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../index.htm"></a><script src="./../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+#### 9 
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Checklist" name="element_type">
+<meta content="Checklist" name="uma.type">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+#### 10 
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content=Checklist name=element_type>
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+#### 11
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+< MetA name="element_type" content="Tool Mentor" >
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+#### 12
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<META NAME="element_type" CONTENT=" Tool Mentor " >
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+#### 13
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Checklist" name="element_type">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+#### 14
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="Checklist" name="element_type">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+#### 15
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Checklist: Actor</title>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet">
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script><script src="./../../../scripts/steps.js" type="text/javascript" language="JavaScript"></script><script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+					expandAllText = 'Expand All Check Items';
+					collapseAllText = 'Collapse All Check Items';
+				</script>
+<!-- rupwiki head start -->
+<link type='text/css' href='http://localhost:3000/stylesheets/rupwiki.css' rel='StyleSheet'/>
+<script src='http://localhost:3000/javascripts/wiki.js' type='text/javascript' language='JavaScript'></script>
+<!-- rupwiki head end -->
+</head>
+
+
+

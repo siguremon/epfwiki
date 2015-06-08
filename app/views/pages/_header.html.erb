@@ -1,0 +1,20 @@
+<div id="toolbar">
+	<ol id="toc">
+	    <%= menulink_to 'View', @page.url %>
+		<%= menulink_to 'Discussion', :controller => 'pages', :action => 'discussion', :site_folder => @wiki.folder, :id => @page.id %>
+		<%= menulink_to 'Edit', :controller => 'pages', :action => 'edit', :id => @page.id, :site_folder => @wiki.folder %>
+		<%= menulink_to 'New', :controller => 'pages', :action => 'new', :id => @page.id, :site_folder => @wiki.folder %>
+		<%= menulink_to 'History', :controller => 'pages', :action => 'history', :id => @page.id, :site_folder => @wiki.folder %>
+		<%= menulink_to 'Search', :controller => 'pages', :action => 'search', :id => @page.id, :site_folder => @wiki.folder if Rails.application.config.sphinxsearch %>
+		<li class="simple"><%= link_to raw('<span>Manage</span>'), {:controller => 'sites', :action => 'description', :id => @wiki.id}, {'data-popup' => 'true', :target => '_top'} %></li>
+		<li class="simple"><a href="<%= ENV['EPFWIKI_BASE_URL'] %>" target="_top"><span>Home</span></a></li>
+		<% if params[:action] != 'view' %>
+			<% if session['user'] %>
+				<li class="simple"><%= link_to raw("<span>#{session_user.email}</span>"), {:controller => 'users', :action => 'account'}, {:target => '_top'} %></li>
+			<% else %>
+				<li class="simple"><%= link_to raw('<span>Login</span>'), {:controller => 'login', :action => 'login'},{:target => '_top'} %></li>
+			<% end %>
+		<% end %>
+	</ol>
+</div>
+<%= render :partial => 'other/img' %>

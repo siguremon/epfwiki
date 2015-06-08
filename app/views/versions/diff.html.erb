@@ -1,0 +1,48 @@
+<% @heading = 'Compare Versions' %>
+<% @overview =  raw "This page shows changes between versions of #{link_to_page(@version.page)} in #{link_to_site(@wiki)}" %>
+
+
+<%= form_for @version, :url => { :action => 'diff'}, :html => { :method => :get} do |f| %>
+    Source Version: <%= f.select :version_id, @versions.collect { |v| [ v.version_text, v.id ] } %>
+    Target Version: <%= f.select :id, @versions.collect { |v| [ v.version_text, v.id ] } %>
+    <%= f.submit "Compare" %>
+<% end %>
+
+   <div class="sectionHeading">Differences Analysis</div>
+    <div class="sectionContent">
+      <table cellpadding="0" cellspacing="0" border="0"
+      class="sectionTable">
+        <tr valign="top">
+          <th scope="row" class="sectionTableHeading">
+            Old Version
+          </th>
+          <td class="sectionTableCell">
+           <%= link_to_version2 @version.source_version %> 
+          </td>
+        </tr>              
+        <tr valign="top">
+          <th scope="row" class="sectionTableHeading">
+            New Version
+          </th>
+          <td class="sectionTableCell">
+            <%= link_to_version2 @version %> 
+          </td>
+        </tr>
+        <tr valign="top">
+          <th scope="row" class="sectionTableHeading">
+            Differences
+          </th>
+          <td class="sectionTableCell">
+            <p><a href="<%= @version.url_to_diff(@version.source_version) %>" target="_blank">Open in a new window</a></p>
+            <iframe 
+            height = "600"
+            src ="<%= @version.url_to_diff(@version.source_version) %>"
+            width="100%">
+            </iframe>
+          </td>
+        </tr>
+      </table>
+   </div>
+   
+<%= render :partial => 'pages/relationships'%>
+

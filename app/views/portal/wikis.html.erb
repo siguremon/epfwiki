@@ -1,0 +1,17 @@
+<% @heading = 'Wikis' %>
+<h2>Wikis</h2>        
+
+<p>
+<table width="100%">
+<tr><th>Title</th><th>Contributions<br><small>(Changes/Comments/Uploads)</small></th><th>Baseline</th><th>Status</th></tr>
+<% @wikis.each do |wiki| %>
+<tr>
+	<td><%= link_to_site wiki %></td>
+	<td><%= wiki.versions.count(:conditions => ['baseline_process_id is null and version is not null']) %>
+	/<%= wiki.comments.count %>/<%= Upload.count %></td>
+	<td><%= wiki.baseline_process.title if wiki.baseline_process %></td>
+	<td><%= wiki.status %></td>
+</tr>
+<% end %>
+</table>
+</p>

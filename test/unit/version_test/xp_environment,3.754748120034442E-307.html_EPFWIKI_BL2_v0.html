@@ -1,0 +1,188 @@
+<html xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Guideline: XP Environment</title>
+<meta content="Guideline" name="uma.type">
+<meta content="xp_environment" name="uma.name">
+<meta content="XP Environment" name="uma.presentationName">
+<meta name="element_type" content="other">
+<meta content="description" name="filetype">
+<meta name="role" content="">
+<link type="text/css" href="./../../../css/default.css" rel="StyleSheet"/>
+<script src="./../../../scripts/contentpage.js" type="text/javascript" language="JavaScript"></script>
+<script type="text/javascript" language="JavaScript">
+					backPath = './../../../';
+				</script>
+</head>
+<body onload="createSectionLinks('div', 'sectionHeading', './../../../images/');">
+<table width="99%" cellspacing="0" cellpadding="0" border="0">
+<tr>
+<td valign="top"><a name="Top"></a>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td nowrap="true" class="pageTitle">Guideline: XP Environment</td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../../index.htm" name="mainIndex"></a><script src="./../../../scripts/treebrowser.js" type="text/javascript" language="JavaScript"></script></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" border="0" width="99%">
+<tr>
+<td class="pageTitleSeparator"><img height="1" title="" alt="" src="./../../../images/shim.gif"></td>
+</tr>
+</table>
+<div class="overview">
+<table cellpadding="0" cellspacing="0" border="0" width="97%">
+<tr>
+<td>
+<table cellpadding="0" cellspacing="0" border="0" class="overviewTable">
+<tr>
+<td valign="top"></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<th scope="row" class="sectionTableHeading">Related Elements</th><td class="sectionTableCell">
+<ul>
+<li>
+<a href="./../../../xp/tasks/setup_programmer_environment,{D3AA9FEE-AAD9-4884-BF71-425E122110A7}.html" guid="{D3AA9FEE-AAD9-4884-BF71-425E122110A7}">Setup Programmer Environment</a>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+</div>
+<div class="sectionHeading">Main Description</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+<td class="sectionTableCell"><a id="XE_xp__environment" name="XE_xp__environment"></a><a id="XE_environment__in_xp" name="XE_environment__in_xp"></a> 
+<p>
+    No process is an island. In other words, you can't expect to just take a process or process elements off a shelf and
+    use them without regard to their context.
+</p>
+<p>
+    XP has certain key requirements of the "environment"; the physical, organizational, and business setting where it will
+    be applied.
+</p>
+<h3>
+    Topics
+</h3>
+<ul>
+    <li>
+        <a href="#Physical">Physical Requirements</a> 
+        <ul>
+            <li>
+                <a href="#OpenWorkspace">Open Workspace</a>
+            </li>
+            <li>
+                <a href="#Toolset">Uniform Toolset</a>
+            </li>
+            <li>
+                <a href="#BuildMachine">Dedicated Build Machine</a>
+            </li>
+            <li>
+                <a href="#VersionControl">Version Control Tool</a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#Org">Organizational Requirements</a>
+    </li>
+    <li>
+        <a href="#Business">Business Requirements</a>
+    </li>
+</ul>
+<h3>
+    <a id="Physical" name="Physical">Physical Requirements</a>
+</h3>
+<h4>
+    <a id="OpenWorkspace" name="OpenWorkspace">Open Workspace</a>
+</h4>
+<p>
+    One key aspect of XP is a strong focus on communication. To communicate effectively, a team should have as few physical
+    barriers to each other as possible. The ideal XP programming environment is an open workspace filled with tables and
+    room for pairs of people to work together and maintain contact with their peers. For more details, see the <a class="elementLinkWithUserText" href="./../../../xp/guidances/guidelines/open_workspace,3.269440809144354E-305.html" guid="3.269440809144354E-305">open workspace guideline</a>.
+</p>
+<h4>
+    <a id="Toolset" name="Toolset">Uniform Toolset</a>
+</h4>
+<p>
+    XP works best when there are no artificial impediments to getting and giving help. If you have an open workspace with
+    five computers for production coding and each of them has a wildly different set of tools, some people will gravitate
+    to the machines that have the tools they like and feel uncomfortable moving to the machines that have unfamiliar tools.
+    Think about your own experiences. Do you feel hindered working in an unfamiliar IDE? How much does that impede you when
+    someone asks for your help. If, as a team, you adopt a uniform set of tools and keep your development machines
+    homogenous, you are making it far easier for people to give and receive help.
+</p>
+<h4>
+    <a id="BuildMachine" name="BuildMachine">Dedicated Build Machine</a>
+</h4>
+<p>
+    In XP, there are many different ways to do builds. However, the primary constraint is that all unit tests are run prior
+    to checking in any production code. In most situations, the easiest way to accomplish this is to have a dedicated build
+    machine. You can check in your code and trigger a build across the network or walk to the build machine and run the
+    build. Either way, having a dedicated machine gives you the advantage of having a common, pristine environment for your
+    builds.
+</p>
+<h4>
+    <a id="VersionControl" name="VersionControl">Version Control Tool</a>
+</h4>
+<p>
+    All software projects need version control tools; however, in XP we place a premium upon their usability. The ability
+    to be able to check out code without locking it is also valued. When a team writes pervasive unit tests and practices
+    collective code ownership, locking code for revision is often too pessimistic. It creates unncessary bottlenecks.
+</p>
+<h3>
+    <a id="Org" name="Org">Organizational Requirements</a>
+</h3>
+<p>
+    Organizations adopting XP should be able to dedicate someone to act as the customer for each XP team. The customer role
+    in XP is critical. If the person who is acting as the customer has other responsibilities, it is best if those
+    responsibilities are subordinate to being available to the rest of the team.
+</p>
+<p>
+    In addition to having an available customer, organizations practicing XP should allow teams to be self-sufficient. In
+    organizations where many functions are supported by different groups (configuration management group, deployment group,
+
+    QA), the different functions can impede development if there are not mechanisms to allow each team to do what it takes
+    to finalize its iterations without waiting for other teams.
+</p>
+<h3>
+    <a id="Business" name="Business">Business Requirements</a>
+</h3>
+<p>
+    XP works best in situations where organizations can take advantage of variable scope. If a business creates a fixed
+    scope contract with a fixed end date, it can be hard to discern how long it really takes for a team to sustainably
+    develop good software.
+</p>
+<p>
+    People in the organizations look at the schedule rather than the velocity data that XP produces. The result is all too
+    predictable. Software may be delivered on time, but it may also be buggy and a poor platform for future development. In
+    XP, we recognize that each team has a particular speed at which they can reliably develop software. That speed varies
+    from team to team. If a team is pushed faster than that speed, the results are often disasterous.
+</p>
+<p>
+    <br />
+    <br />
+</p></td>
+</tr>
+</table>
+</div>
+<table cellpadding="0" cellspacing="0" border="0" class="copyright">
+<tr>
+<td class="copyright">Copyright (c) 2002, 2006 IBM Corporation and Object Mentor. All rights reserved. <br />
+This program and the accompanying materials are made available under the terms of the Eclipse Public License v1.0 which
+accompanies this distribution, and is available at <a href="http://www.eclipse.org/legal/epl-v10.html" target="_blank">http://www.eclipse.org/legal/epl-v10.html</a>. <br />
+Contributors: IBM Corporation and Object Mentor - initial implementation<br /></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</body>
+
+</html>

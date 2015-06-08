@@ -1,0 +1,48 @@
+   <div class="sectionHeading">Uploads</div>
+   <div class="sectionContent">
+      <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+         <tr>
+            <td class="sectionTableCell">
+            <table width="100%">
+               <tr>
+                  <th>ID</th>
+                  <th>Filename</th>    
+                  <th>Type</th>                      
+                  <th>Content_type</th>    
+                  <th width="20%">Description</th>
+                  <th>Comment</th>
+                  <th>Review<br>Complete<br>(Harvested)</th>					  
+                  <th>Reviewer</th>
+				  <th width="20%">Review Note</th>
+				  <th>Review Note<br>Send On</th>				  
+                  <th>Action</th>				  
+              </tr>
+               <% for upload in @uploads%>
+                 <tr>
+                    <td><%= upload.id %></td>
+                    <td><%= link_to upload.filename, upload.url %></td>
+                    <td><%= upload.upload_type %></td>
+                    <td><%= upload.content_type %></td>
+                     <td><%= truncate(strip_tags(upload.description))%></td>
+                     <td>Created <%= time_ago_in_words(upload.created_on) %> ago by <%= link_to_user upload.user %></td> 
+					 <td><%= link_to_done_toggle(upload) %></td>
+                     <td><%= link_to_reviewer upload %></td>
+					 <td>
+				 		<% if admin? %>
+				 			<div class="edit-area" id="/review/note/<%= upload.id %>/<%= upload.class.name%>"><%= upload.review_note %></div>
+						<% else %>
+							<%= upload.review_note %>
+						<% end %>
+					</td>
+					<td><%= upload.review_note_send_on.localtime.strftime(Utils::TIME_FORMAT) unless upload.review_note_send_on.nil? %></td>
+                     <td>
+                        [<%= link_to 'Edit', :action => 'edit', :id => upload %>] 
+                        [<%= link_to 'Destroy', { :action => 'destroy', :id => upload }, :confirm => 'Are you sure?', :method => 'delete' %>]
+                    </td>
+                </tr>
+               <% end %>
+            </table>
+            </td>
+         </tr>
+      </table>
+   </div>

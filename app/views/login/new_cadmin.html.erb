@@ -1,0 +1,12 @@
+<% @heading = 'Create Central Admin User' %>
+<%= error_messages_for @user %>
+
+<div class="styled-form">
+<%= form_for(@user, :url => new_cadmin_login_index_path(@user)) do |f| %>
+	<div class="form-row"><label>Name:</label><%= f.text_field :name, :size => 30 %></div>
+    <div class="form-row"><label>Email:</label><%= f.text_field :email, :size => 30 %></div>
+    <div class="form-row"><label>Password:</label><%= f.password_field :password, :size => 42 %></div>
+    <div class="form-row"><label>Password confirmation:</label><%= f.password_field :password_confirmation, :size => 42 %></div>    
+    <div class="form-row"><%= f.submit 'Submit' %></div>
+<% end %>
+</div>

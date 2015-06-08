@@ -1,0 +1,6 @@
+$("#epfwiki_header").html('<%= escape_javascript(render :partial => "header") %>');
+$("#epfwiki_footer").html('<%= escape_javascript(render :partial => "footer") %>');
+
+<% if @checkout_text %>
+$('#checkout_text').html('<%= escape_javascript(render :partial => "checkout_text") %>');
+<% end %>

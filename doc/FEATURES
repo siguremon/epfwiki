@@ -1,0 +1,192 @@
+= Features
+
+* <b>Portal</b>
+* <b>Installation and Configuration</b>
+* <b>Browser Based WYSIWYG HTML Editing</b>
+* <b>Templates</b>
+* <b>Linking Pages</b>
+* <b>Wikis</b>
+* <b>Revision Control</b>
+* <b>Harvesting</b>
+* <b>Access Control</b>
+* <b>File attachments</b>
+* <b>Search</b>
+* <b>Managing users:</b> 
+* <b>RSS</b>
+* <b>Email</b>
+
+
+== Portal
+
+The portal is the easy entry point for new and returning users, which allows anonymous access. The Home page
+shows most recent discussions and changes. There is a list of Wikis and Users, an About Page, a Toolbox, Hall of Fame
+and the archives can be accessed. 
+
+* Implementation: PortalController.home, PortalController.archives, PortalController.wikis, PortalController.users
+* Testing: PortalControllerTest
+
+== Installation and Configuration
+
+The first time the application is accessed the user is redirected to create the central admin
+* Implementation: PortalController.home
+* Testing: PortalControllerTest.test_home, LoginControllerTest.test_signup_central_admin
+
+Several texts can be customized by the central admin: Welcome, About, Login, Help, Privacy Policy, Terms of Use
+* Implementation: AdminMessage, UsersController.adminmessage, UsersController.account
+* Testing:
+
+== Browser Based WYSIWYG HTML Editing
+
+WYSIWYG or HTML Editing provided by third party tool TinyMCE. Currently only TinyMCE is supported.
+* Implementation: PagesController.checkout, PagesController.edit
+* Testing: PagesControllerTest
+
+== Templates
+
+New pages can be created using templates. The templates are provided by a special Wiki with the title 'Templates'.
+This Wiki is automatically created when the first user account (the administrator) is created. 
+The 'Templates' Wiki is an ordinary Wiki except for the fact that the title ('Templates') gives 
+special status to the pages that the pages of this Wiki appear in the new page dialog.
+
+* Implementation: LoginController.new_cadmin, PagesController.new, WikiPage.new_using_template
+* Testing: UserTest.test_new_cadmin, PortalControllerTest.test_home, PagesControllerTest.test_checkout_edithtml_save_checkin_new, PageTest.test_new_page_using_template
+
+== Linking Pages
+
+Users can link pages by copy past URL in a dialog box
+* Implementation: feature of HTML editor (TinyMCE or PinEdit)
+* Testing: tbd
+
+== Wikis
+
+Administrators can upload a zip file containing a published website created with EPF (or RMC)
+* Implementation: Site.unzip_upload, SitesController.new
+* Testing: SiteTest.test_upload
+
+Administrators can define a baseline process with a EPF published site
+* Implementation: Site, BaselineProcess, SitesController.new
+* Testing: SiteTest.test_new_baseline_process, SitesControllerTest.test_new
+
+Administrators can create a Wiki based on a baseline process (published site from EPF)
+* Implementation: Site, Wiki, Wiki.wikify, SitesController.new_wiki,
+* Testing: SiteTest.test_new_wiki, SitesControllerTest.test_new_wiki, SitesControllerTest.test_new_wiki_job_daily, SitesControllerTest.test_new_wiki_post 
+
+Administrators can update a Wiki with a baseline process (published site from EPF) 
+* Implementation: Wiki.update_wiki, SitesController.update
+* Testing: SiteTest.test_update_wiki, SitesControllerTest.test_update_wiki
+
+For performance reasons there is an option of using scheduled jobs to perform actual wikifying.
+* Implementation: SitesController.update_now, SitesController.update_cancel
+* Testing: SitesControllerTest.test_wikify_now, SitesControllerTest.test_new_wiki_job_daily, 
+
+Administrator can make a Wiki obsolete
+* Implementation: SitesController.obsolete
+* Testing: SitesControllerTest.test_obsolete
+
+== Revision Control
+
+Checkout a page
+* Implementation: Checkout
+* Testing: CheckoutTest.test_new, CheckoutTest.test_checkin, PagesControllerTest.test_checkout_edithtml_save_checkin_new
+
+Create a new page using a (predefined) template or any other page
+* Implementation: PagesController.new, WikiPage.new_using_template
+* Testing: PagesControllerTest.test_checkout_edithtml_save_checkin_new, PageTest.test_new_page_using_template
+
+Save a checked out page
+* Implementation: PagesController.save
+* Testing: PagesControllerTest.test_checkout_edithtml_save_checkin_new
+
+Check in a checked out page
+* Implementation: PagesController.checkin
+* Testing: PagesControllerTest.test_checkout_edithtml_save_checkin_new
+
+Preview a checked out page
+* Implementation: PagesController.preview
+* Testing: TBD
+
+Undo a checkout
+* Implementation: PagesController.undocheckout
+* Testing: PagesControllerTest.test_undocheckout
+
+Rollback a change
+* Implementation: PagesController.rollback
+* Testing: PagesControllerTest.test_rollback
+
+The central admin can delete a page with its associated records
+* Implementation: PagesController.destroy
+* Testing: TBD
+
+Users can access version information of a version and add/update a version note
+* Implementation: VersionsController.show, VersionsController.note
+* Testing: VersionsControllerTest.test_show_and_diff
+
+Admins (process engineers) can assign reviewer, mark versions reviewed ('done')
+* Implementation: ReviewController
+* Testing: TBD
+
+Users can compare versions of a page
+* Implementation: VersionsController.diff, Version.xhtmldiffpage
+* Testing: VersionsControllerTest.test_show_and_diff
+
+
+== Harvesting
+
+Contributions can be reviewed and marked 'done'
+* Implementation: DaText(Comment, Feedback), Version, Upload, ReviewController.toggle_done, ReviewController.assign, ReviewController.note
+* Testing: TBD
+
+Contributors receive email notification when changes, comments, uploads are harvested (are marked 'done') and when a Wiki gets updated with a new baseline
+* Implementation: ReviewController.assign, ReviewController.note, ReviewController.toggle_done, ApplicationHelper.link_to_done_toggle
+* Testing: UpdateTest.test_reviewed_notification_email
+
+== Access Control
+
+After installation the first unauthenticated (!) user can create the central admin account 
+* Implementation: User, LoginController.login, LoginController.new_cadmin
+* Testing: LoginControllerSetupTest.test01_signup_central_admin, LoginControllerTest.test01_signup_central_admin
+
+The central admin account can grant and revoke admin privileges
+* Implementation: UsersController.admin
+* Testing:
+
+The central admin can assign someone else as central admin
+* Implementation: UsersController.cadmin, User.cadmin
+* Testing: 
+
+Admins can grant admin privileges
+* Implementation: UsersController.admin
+* Testing:
+
+== File attachments
+Users can upload documents and images
+* Implementation: UploadsController, Upload
+* Testing: UploadsControllerTest
+
+== Managing users
+
+Users can sign up with a valid email account and by providing and confirming a password (accounts need to be confirmed via a link sent via email)
+* Implementation: LoginController
+* Testing: LoginControllerTest.test_sign_up_with_pw, LoginControllerTest.test_sign_up_without_pw, LoginControllerTest.test_lost_password, SetupAndSignInTest.test_sign_up
+
+User can sign up with a valid email account, a password is generated and sent via email
+* Implementation: User.validate_on_create, LoginController, UsersController
+* Testing: UserTest, SetupAndSignInTest.test_sign_up
+
+Valid email accounts can be restriced to certain domains
+* Implementation: User.validate, LoginController.sign_up, ENV['EPFWIKI_DOMAINS']
+* Testing: SetupAndSignInTest.test02_sign_up
+
+== Email
+
+User are auto subscribed for receiving email
+* Testing: CheckoutTest.test_notification_subscription, PageTest.test_new_page_using_template
+* Implementation: Comment.after_create, Checkout.checkin, WikiPage.new_using_template
+
+Users are send email about changes
+* Implementation: PagesController.checkin, PagesController.discussion, Update.do_update
+* Testing: UserTest.test_reviewed_notification_email, UpdateTest.test_notification, PagesControllerTest.test_discussion
+
+User can subscribe and unsubscribe for receiving email
+* Implementation: UsersController.toggle_change_report_notification, UsersController.notification
+* Testing: TBD

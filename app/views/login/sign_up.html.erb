@@ -1,0 +1,19 @@
+<% @heading = 'Sign up' %>
+<%= error_messages_for @user %>
+
+<div class="styled-form">
+<%= form_for @user, :url => {:controller => 'login', :action => 'sign_up'} do |f| %>
+    <div class="form-row"><%= f.label :name %><%= f.text_field :name, :size => 30 %></div>
+    <div class="form-row"><%= f.label :email %><%= f.text_field :email, :size => 41 %></div>
+            					<% if ENV['EPFWIKI_DOMAINS'] %>
+        						<div class="form-row"><%= f.label :email %><select  name="user[email_extension]">
+        						   <% for domain in ENV['EPFWIKI_DOMAINS'].split(' ') %>
+        						      <%= '<option>' + domain + '</option>' %>
+        						   <% end %>
+        						</select></div>
+        					<% end %>
+    <div class="form-row"><%= f.label :password %><%= f.password_field :password, :size => 42 %></div>
+    <div class="form-row"><%= f.label :password_confirmation %><%= f.password_field :password_confirmation, :size => 42 %></div>    
+    <div class="form-row"><%= f.submit 'Sign me up!' %></div>
+<% end %>
+</div>

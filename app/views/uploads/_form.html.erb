@@ -1,0 +1,10 @@
+<%= error_messages_for @upload %>
+
+<div class="styled-form">
+<%= form_for(@upload, :html => {:multipart=> true}) do |f| %>
+    <div class="form-row"><label>Type:</label><%= f.select :upload_type, ['Image', 'Document'] %></div>
+    <div class="form-row"><label>File:</label><%= f.file_field :file if params[:action] == 'new' || params[:action] == 'home' %></div>
+    <div class="form-row"><label>Description:</label><%= f.text_area :description, :cols => 30, :rows => 3 %></div>
+	<div class="form-row"><label></label><%= f.submit 'Submit' %></div>
+<% end %>
+</div>

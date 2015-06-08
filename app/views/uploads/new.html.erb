@@ -1,0 +1,9 @@
+<% @heading = 'New Upload' %>
+<% @overview = 'Upload an image or document' %>
+
+<div id="menu">
+    <%= link_to 'List', :action => 'index' %> 
+</div>
+
+<%= render :partial => 'form' , :locals => {:action => 'new'} %>
+

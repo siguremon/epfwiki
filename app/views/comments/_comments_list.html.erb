@@ -1,0 +1,51 @@
+<div class="sectionHeading">Comments</div>
+<div class="sectionContent">
+  <% if @comments %>  
+  <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+     <tr>
+        <td class="sectionTableCell">
+        	<table width="100%">
+        	<tr>
+				<th>ID</th>
+				<th>Title</th>    
+				<th>Created</th>
+				<th>Created By</th>
+				<th>Page</th>
+				<th>Review<br>Complete<br>(Harvested)</th>
+				<th>Reviewer</th>
+				<th>Review Note</th>
+				<th>Review Note<br>Send On</th>
+				<% if @site.nil? %><th>Site</th><% end %>
+			   <th>Actions</th>
+          </tr>
+
+           <% for comment in @comments %>
+             <tr>
+                <td><%= comment.id %></td>
+                 <td><%= link_to_comment comment %></td>
+                 <td><%= comment.created_on.strftime("%I:%M %p %d-%b-%y") %></td>         
+                 <td><%= link_to_user comment.user %></td>         
+                 <td><%= link_to_page comment.page %></td> 
+                 <td><%= link_to_done_toggle comment %></td>
+                 <td><%= link_to_reviewer comment %></td>				 
+				 <td>
+			 		<% if admin? %>
+			 			<div class="edit-area" id="/review/note/<%= comment.id %>/<%= comment.class.name%>"><%= comment.review_note %></div>
+					<% else %>
+						<%= comment.review_note %>
+					<% end %>
+				 </td>
+					<td><%= comment.review_note_send_on.localtime.strftime(Utils::TIME_FORMAT) unless comment.review_note_send_on.nil? %></td>
+                     <% if @site.nil? %><td><%= link_to_site comment.site %></td><% end %>
+					 <td>[<%= link_to 'Edit', {:controller => 'comments', :action => 'edit', :id => comment} %>] 
+					 [<%= link_to 'Destroy', {:controller => 'comments', :action => 'destroy', :id => comment}, :confirm => 'Are you sure?', :method => :delete %>]</td>
+             </tr>
+           <% end %>
+        </table>
+        <% else %>
+           No comments found!
+        <% end %>
+        </td>
+     </tr>
+  </table>
+</div>

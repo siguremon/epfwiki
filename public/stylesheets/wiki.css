@@ -1,0 +1,135 @@
+div#epfwiki_header {
+	margin: 0px;
+	top: 0px;
+	left: 0px;
+	right: 0px;  
+}
+
+div#spacer {
+	height: 40px;
+}
+
+div#toolbar {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;	
+	height: 24px;	
+	background: url(../images/tab_background.png);
+}
+
+ol#toc {
+    list-style: none;
+    margin-left: 10px;
+	margin-top: 0px;	
+    padding: 0px;
+	font-size: 10pt;
+    height: 24px;
+	font-family: arial, helvetica, sans-serif;
+}
+
+ol#toc li {
+    float: left;
+    margin: 0 0 0 0;
+}
+
+ol#toc a {
+    background: url(../images/tab.png);
+    color: black;
+    display: block;
+    float: left;
+    height: 20px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+ol#toc a:hover {
+    background-position: 0 -40px;
+}
+
+ol#toc a:hover span {
+    background-position: 100% -40px;
+}
+
+ol#toc li.current a {
+    background-position: 0 -20px;
+    color: black;
+}
+
+ol#toc li.current span {
+    background-position: 100% -20px;
+}
+
+ol#toc span {
+    background: url(../images/tab.png) 100% 0;
+    display: block;
+    line-height: 20px;
+    padding-right: 10px;
+}
+
+ol#toc li.simple {
+    float: right;
+    margin: 0 0 0 0;
+}
+
+ol#toc li.simple a {
+    background: none;
+    color: #565656;
+    display: block;
+    height: 20px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+ol#toc li.simple a:hover{
+    text-decoration: underline;
+}
+
+ol#toc li.simple span {
+background: none;
+}
+
+
+div#page_status {
+	font-size: xx-small; 
+	font-family: verdana, arial, helvetica, sans-serif, kanji2; 
+	color: gray; 
+	padding: 4px; 
+	text-align: left;
+}
+
+#commentsList {
+padding-left: 100px
+}
+
+.comment{
+background-color: #ececec;
+width: 700px;
+padding: 10px;
+}
+
+.commentfooter{
+background: url(../images/arrow.gif) 20px 0 no-repeat;
+padding-left: 58px;
+padding-top: 1px;
+margin-bottom: 2em;
+font-size: 90%;
+color: #4A4A4A;
+}
+
+.pagination {
+	margin: 10px;
+}
+.styled-form {
+margin: 50px 50px 0;	
+}
+
+.styled-form label {
+    width: 150px;
+	clear: left;
+    float: left;
+}
+
+.form-row {
+	padding: 6px 0;
+}

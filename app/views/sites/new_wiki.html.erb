@@ -1,0 +1,17 @@
+<% @heading = 'New Wiki' %>
+<% @overview =  'Use this form to create a new Wiki'  %>
+
+<%= error_messages_for @wiki %>
+
+<div class="styled-form">
+<%= form_for :wiki do |f| %>
+    <div class="form-row"><label>Title:</label><%= f.text_field :title %></div>
+    <div class="form-row"><label>Folder:</label><%= f.text_field :folder %></div>
+    <div class="form-row"><label>Description:</label><%= f.text_area :description, :cols => 60, :rows => 8  %></div>
+    <div class="form-row"><label></label><%= f.submit 'Submit' %></div>
+<% end %>
+</div>
+
+
+
+

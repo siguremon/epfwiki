@@ -1,0 +1,18 @@
+<% @heading = "Edit Feedback" %>
+<% if @feedback.user.nil? %>
+	<% @overview = raw "Edit Feedback of #{link_to(@feedback.email, 'mailto:'+@feedback.email)}"  %>
+<% else %>
+	<% @overview = raw "Edit Feedback of #{link_to_user(@feedback.user)}  " %>
+<% end %>
+
+<%= error_messages_for @feedback %>
+
+<div class="styled-form">
+<% form_for @feedback, :url => { :action => 'update', :id => @feedback.id } do |f| %>
+    <div class="form-row"><%= f.label :feedback %><%= f.text_area 'text', :cols => 100, :rows => 10 %></div>
+    <%= f.hidden_field 'request_referer', :value => request.referer %>
+    <div class="form-row"><label><%= f.submit %></div> 
+<% end %>
+</div>
+
+<%= link_to 'Back', request.referer %>

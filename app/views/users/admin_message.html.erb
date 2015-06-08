@@ -1,0 +1,17 @@
+<% @heading = 'Admin Messages' %>
+<% @overview = 'Use this form to update a standard message text. Depending on caching settings the changes applied here might not be immediately visible' %>
+<% tinymce 'advanced' %>
+
+<%= error_messages_for @admin_message %>
+
+<div class="styled-form">
+<%= form_for @admin_message, :url => {:controller => 'users', :action => 'admin_message', :id => @admin_message.id}, :html => {:method => :post} do |f| %>
+	<%= f.hidden_field  'id', :value => @admin_message.id  %>
+    <div class="form-row">
+    	<label>GUID:</label>
+		<%= f.text_field  'guid', :value => @admin_message.guid  %>
+	</div>
+	<%= f.text_area :text, :cols => 60, :rows => 8  %>
+	<%= f.submit 'Submit' %>
+<% end %>
+</div>

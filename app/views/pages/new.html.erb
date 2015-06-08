@@ -1,0 +1,31 @@
+<% @overview = raw "Use this form to create a new page in site #{link_to_site(@wiki)}" %>    
+
+<%= error_messages_for @new_page %>
+
+<% unless @templates.empty? %>
+	<div class="styled-form">
+    <%= form_for(@new_page, :url => {:site_folder => params[:site_folder], :id => params[:id], :action => 'new'}) do |f| %>
+	<div class="form-row"><label>Presentation name: </label><%= f.text_field :presentation_name  %></div>
+	<%= f.hidden_field :tool, :value => 'Wiki' %>
+    <div class="form-row"><label>Checkout note: </label><%= f.text_area :note, :cols => 60, :rows => 8 %></div>
+	<div class="form-row"><label>Template</label><br>
+		<ul>
+                <% for template in @templates %>
+				<% if template.page.presentation_name != 'Templates' %>
+					<li id="<%= template.page.presentation_name.downcase.gsub(' ','-') %>-<%= template.id %>" style = "list-style-type:none"><%= radio_button(:page, :source_version, template.id) %> 
+					<% if template.template? %>
+						<%= link_to_function("#{template.page.presentation_name.gsub(' Template','')}", "$('##{template.id}').toggle()") %>
+						  [<%= link_to 'View', '/' + template.wiki.rel_path + '/' + template.page.rel_path, 'data-popup' => 'true' %>]
+					<p id="<%= template.id %>" style="display:none;"><%= template.uma_type_descr %></p>
+					<% else %>
+						<%= "#{template.page.presentation_name} (version #{template.version} from #{template.wiki.title})" %>
+					<% end %>
+					</li>
+				<% end %>	
+                <% end %>    			
+			</ul>
+	</div>
+    <div class="form-row"><%= f.submit "Submit" %></div>
+    <% end %>
+	</div>
+<% end %>

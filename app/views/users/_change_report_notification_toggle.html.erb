@@ -1,0 +1,26 @@
+<% 
+user = session_user if user.nil?
+if (type == 'D' && user.notify_daily == 1) || (type == 'M' && user.notify_monthly == 1) || (type == 'W' && user.notify_weekly == 1) || (type == 'I' && user.notify_immediate == 1)
+	checked = "checked"
+else
+	checked = ""
+end
+txt = case type
+when 'D'
+	'Daily'
+when 'M'
+	'Monthly'
+when 'W'
+	'Weekly'
+when 'I'
+	'Immediate'
+end
+div_id = "change_report_" + user.id.to_s + "_"  + type
+%>
+<% if mine?(user) || cadmin? %>
+	<span id="<%= div_id %>">
+		<%= link_to(txt.gsub('DISABLED', ''), :update => div_id, :url => {:controller => "users", :action => "toggle_change_report_notification", :type => type, :user_id => user.id}, :method => 'post', :remote => true) %>
+	</span>
+<% else %>
+	<input type=checkbox <%= checked %> DISABLED> <%= txt %>
+<% end %>

@@ -1,0 +1,872 @@
+/*
+ * Copyright (c) 2005, 2006 IBM Corporation and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ *
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ * IBM Corporation - initial implementation
+ * Onno van der Straaten - changes for use with EPF Wiki
+ */
+
+/* Portal  
+
+Layout of portal is based on example
+
+
+*/
+
+body,
+html {
+    margin:0;
+    padding:0;
+    background:#FFFFFF;
+    color:#000;
+    }
+body {
+    min-width:850px;
+    }
+#wrap {
+    margin:0 auto;
+    width:850px;
+    }
+
+#logo {
+    top: -10px;
+    text-align: right;
+}
+
+#header {
+    background:#9999CC;
+    color:#FFFFFF;
+    }
+#footer {
+    background:#9999CC;
+    color:#FFFFFF;
+    }    
+#nav {
+    }
+   
+#main {
+    float:left;
+    width:500px;
+    }
+#footer {
+    clear:both;
+    }
+#footer p {
+    padding:5px;
+    margin:0;
+    } 
+#footer a {
+text-decoration: none;	
+    color: #ffffff;
+}       
+#footer a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}       
+
+#nav ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+    }
+#nav li{
+    display:inline;
+    margin:0;
+    padding:0;
+    }
+    
+#header h1 {
+    padding:5px;
+    margin:0;
+    }
+#nav {
+    padding:5px;
+    }
+#main h2, #main h3, #main p {
+    padding:0 10px;
+    }
+#sidebar ul {
+    margin-bottom:0;
+    }
+#sidebar h3, #sidebar p {
+    padding:0 10px;
+    }
+     
+#sidebar {
+    background:#FFFFFF;
+    float:right;
+    width:240px;
+    }
+#sidebar h3, #sidebar p {
+    padding: 10px 10px 10px 10px;
+    }    
+
+#header .pageTitle {
+    color: #ffffff;
+    font-size: 12pt;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #9999cc; text-align: left;
+    border-bottom: 1px solid black;
+}
+
+/* large tabs used for the portal */
+
+div#tabs {
+background: url(../images/tab2_background.png);
+
+}
+
+ol#toc_tabs {
+    list-style: none;
+    margin-left: 15px;
+	margin-top: 0px;
+    padding: 0;
+    font-size: x-small;
+    height: 29px;
+    font-family: Microsoft Sans Serif;
+    font-weight: bold;
+}
+
+ol#toc_tabs li {
+    float: left;
+    margin: 0 0 0 0;
+}
+
+ol#toc_tabs a {
+    background: url(../images/tab2.png);
+    color: black;
+    display: block;
+    float: left;
+    height: 29px;
+    padding-left: 10px;
+    text-decoration: none;
+}
+
+ol#toc_tabs a:hover {
+    background-position: 0 -58px;
+}
+
+ol#toc_tabs a:hover span {
+    background-position: 100% -58px;
+}
+
+ol#toc_tabs li.current a {
+    background-position: 0 -29px;
+    color: black;
+}
+
+ol#toc_tabs li.current span {
+    background-position: 100% -29px;
+}
+
+ol#toc_tabs span {
+    background: url(../images/tab2.png) 100% 0;
+    display: block;
+    line-height: 29px;
+    padding-right: 10px;
+}
+
+.comment{
+background-color: #ececec;
+padding: 10px;
+}
+
+.commentfooter{
+background: url(../images/arrow.gif) 20px 0 no-repeat;
+padding-left: 58px;
+padding-top: 1px;
+margin-bottom: 2em;
+font-size: 90%;
+color: #4A4A4A;
+}
+
+/* EPFC style tabs */
+
+div#epfc_tabs {
+	border-bottom: solid;
+	border-width: 5px;
+	color: #C8D7E3;
+	margin: 0px;
+	padding: 0px;
+}
+
+ol#epfc_tabs_toc {
+    list-style: none;
+    margin-left: 0;
+    padding: 4px;
+    height: 0;
+    font-family: Microsoft Sans Serif;
+    font-weight: bold;
+}
+
+ol#epfc_tabs_toc li {
+    float: left;
+    margin: 1px;
+    color: #FF0000;
+    }
+
+ol#epfc_tabs_toc a {
+    background: url(../images/tab4.png);
+    display: block;
+    float: left;
+    height: 17px;
+    padding-left: 0px;
+    text-decoration: none;
+font-family:verdana,arial,sans-serif;
+font-size:11px;
+font-weight:bold;    
+
+}
+
+ol#epfc_tabs_toc a:hover {
+    background-position: 0 -34px;
+    text-decoration: underline;
+}
+
+ol#epfc_tabs_toc a:hover span {
+    background-position: 100% -34px;
+   
+}
+ol#epfc_tabs_toc span {
+    background: url(../images/tab4.png) 100% 0;
+    display: block;
+    line-height: 17px;
+    padding-right: 34px;
+    padding-left: 10px;
+  
+}
+
+ol#epfc_tabs_toc li.current span {
+    background-position: 100% -17px;
+    padding-left: 10px; 
+}
+
+ol#epfc_tabs_toc li a {
+    background-position: 0 -17px;
+    color: white;
+}
+
+ol#epfc_tabs_toc li.current a {
+    background-position: 0 -17px;
+    color: black;
+}
+
+.HDNormal {  }
+.HDDeleted {  color: #00ff00;background:  #ffffff;text-decoration:line-through ; font-family: Courier New ; font-size: 10pt;}
+.HDAdded {  color: #000000;background:  #ffff00;text-decoration:none ; font-family: Courier New ; font-size: 10pt;}
+
+#errorExplanation  
+{
+    border:1px solid #CCC;
+    padding-bottom:10px;
+    background: transparent url(../images/error.png) no-repeat 15px 15px;
+}
+
+#errorExplanation h2
+{
+    font-family: arial, helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: normal;
+    margin-left: 220px;
+}
+
+#errorExplanation p
+{
+    margin-left: 220px;
+}
+
+#errorExplanation ul
+{
+    margin-left: 240px;
+}
+
+#notice  {
+    border:1px solid #CCC;
+    padding-bottom:10px;
+    background: transparent url(../images/notice.png) no-repeat 10px 10px;
+	margin-left: 0px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#notice h2 {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 10pt;
+    font-weight: bold;
+    margin-left: 50px;
+}
+
+#notice p {
+    margin-left: 220px;
+}
+
+#notice ul {
+    margin-left: 240px;
+}
+
+body
+{
+	background-image: none;
+	background-color: #ffffff;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+p
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+h1
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: large;
+}
+
+h2
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 150%;
+}
+
+h3
+{
+	font-family: arial, helvetica, sans-serif;
+}
+
+h4, h5, h6
+{
+	font-family: arial, helvetica, sans-serif;
+}
+
+a:link
+{
+	color: #003399;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;
+}
+
+a:active
+{
+	color: #003399;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: underline;
+}
+
+a:visited
+{
+	color: #003399;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;
+}
+
+a[href]:hover
+{
+	color: #ff0000;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: underline;
+}
+
+ol
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	list-style-type: decimal;
+	margin-left: 30px;
+}
+
+ol li
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+}
+
+ul
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	list-style-type: disc;
+	margin-left: 30px;
+	margin-top: 5px;
+	padding-left: 0px;
+}
+
+ul li
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+}
+
+table
+{
+	background-image: none;
+	background: #ffffff;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;	
+}
+
+tbody
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	/*valign: baseline;*/
+}
+
+th
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-align: left;
+}
+
+td
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+}
+
+td ul
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	margin-bottom: 0px;
+	margin-left: 30px;
+}
+
+.pageTitle
+{
+	background: #9999cc;
+	color: #ffffff;
+	font-size: 12pt;
+	font-weight: bold;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	text-align: left;
+}
+
+.pageTitleSeparator
+{
+	background-color: #000000;
+	padding: 0px;
+}
+
+.tab
+{
+	background-color: #5c81a7;
+	color: #ffffff;
+	font-family: verdana, arial, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.activeTab
+{
+	background-color: #c8d7e3;
+	color: #293d6b;	
+	font-family: verdana, arial, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+}
+
+a.tab:link, a.tab:active, a.tab:visited
+{
+	color: #ffffff;
+	font-family: verdana, arial, sans-serif; 
+	font-size: 11px;
+	font-weight: bold;
+}
+
+a.tab:hover
+{
+	text-decoration: underline;	
+}
+
+.overview
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: normal;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	padding-right: 0px;
+	padding-top: 10px;
+}
+
+.overviewTable
+{
+	background: #ffffff;
+	width: 100%;	
+}
+
+.overviewTable td
+{
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.overviewSeparator
+{
+	background-color: #000000;
+	padding: 0px;
+}
+
+.expandCollapseText
+{
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.expandCollapseLink
+{
+	color: #333333;
+	padding-bottom: 5px;
+	text-decoration: none;
+}
+
+.expandCollapseLink:hover
+{
+	color: #0000ff;
+	text-decoration: underline;
+}
+
+.expandCollapseLink:visited
+{
+	color: #333333;
+}
+
+.sectionHeading
+{
+	background-color: #98b1c4;
+	color: #ffffff;
+	cursor: hand;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-top: 2px;
+	text-decoration: none;
+}
+
+.sectionContent
+{
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	text-align: right;
+}
+
+.sectionTable
+{
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 1px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 1px;
+	border-top-color: #ccc;
+	width: 100%;
+}
+
+.sectionTableHeading
+{
+	background: #eee;
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+	color: #333333;
+	/*height: 20; TODO */
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	text-align: left;
+	width: 20%;
+}
+
+.sectionTableCell
+{
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+}
+
+.breakdownTable
+{
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 1px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 1px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 100%;
+}
+
+.breakdownTable th
+{
+	background: #eee;
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+	color: #333333;
+	/*height: 20; TODO*/
+	text-align: left;
+}
+
+.breakdownTable td
+{
+	border-bottom: #ccc solid 1px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 1px;
+	border-top: #ccc solid 0px;
+}
+
+.defaultTable
+{
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	width: 100%;
+}
+
+.defaultTable td
+{
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 0px;
+	text-align: left;
+}
+
+.subSectionHeading
+{
+	color: #333333;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.subSectionContent
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	text-decoration: none;	
+}
+
+.stepHeading
+{
+	background-color: #ffffff;
+	color: #293d6b;
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	padding-bottom: 2px;
+	padding-left: 2px;
+	padding-top: 2px;
+	text-decoration: none;
+}
+
+.stepContent
+{
+	border-bottom: #ccc solid 0px;
+	border-left: #ccc solid 0px;
+	border-right: #ccc solid 0px;
+	border-top: #ccc solid 0px;
+	padding-bottom: 5px;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0px;
+	text-align: right;
+}
+
+.stepTable
+{
+	border-bottom: #999999 solid 1px;
+	border-left: #999999 solid 0px;
+	border-right: #999999 solid 0px;
+	border-top: #999999 solid 0px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	width: 100%;
+}
+
+.stepTable td
+{
+	border: #ccc solid 0px;
+}
+
+.stepSeparator
+{
+	background-color: #cccccc;
+	padding: 0px;
+}
+
+.backToTopLink
+{
+	color: #003399; 
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;	
+	margin: 0px;
+	padding-bottom: 10px;
+	text-align: right;
+	text-decoration: none;
+}
+
+.backToTopLink:hover
+{
+	color: #969;
+	text-decoration: underline;
+}
+
+.backToTopLink:visited
+{
+	color: #5c81a7;
+	text-decoration: none;	
+}
+
+.copyright
+{
+	color: #7080b0;
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	padding-left: 0px;
+	padding-right: 10px;
+	padding-top: 25px;
+	text-align: left;
+	width: 100%;
+}
+
+.versionInfo
+{
+	color: #7080b0;
+	font-family: verdana, arial, sans-serif;
+	font-size: 8pt;
+	font-weight: normal;
+	padding-left: 10px;
+	padding-right: 0px;
+	padding-top: 25px;
+	text-align: right;
+}
+
+.quote
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-style: italic;
+}
+
+.codeSample
+{
+	font-family: courier;
+	font-size: 10pt;		
+}
+
+.elementLink
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;	
+	color: #0000ff;
+}
+
+.elementLinkWithType
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: #0000ff;
+}
+
+.elementLinkWithUserText
+{
+	font-family: arial, helvetica, sans-serif;
+	font-size: 10pt;
+	color: #0000ff;
+}
+
+.portal_searchbox
+{
+	float: right; 
+	position: relative; 
+	top: -30px
+}
+
+
+/* 
+ *  Search pages
+ * 
+ */
+
+.dropdown-menu {
+	min-width:235px;
+	max-height: 300px; 
+	overflow: auto
+}
+
+.fieldLabel {
+	color:#666; 
+	margin-right:2px;
+}
+
+.filter-box {
+	margin-left:10px;
+	width:200px;
+	margin-bottom: 5px;
+}
+
+input.form-control.search-box {
+	width: 275px;
+}
+
+ul.dropdown-menu {
+	width: 235px;
+}
+
+p.search-results-info {
+	margin: 10px;	
+}
+
+div.pagination {
+	margin-left: 10px;
+}
+#search-bar {
+	margin-left: 10px;
+}

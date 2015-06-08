@@ -1,0 +1,8 @@
+<% @overview = "Add or change the version note" %>
+
+<%= form_for @version, :as => :version, :url => {:controller => 'pages', :action => 'checkin'} do |f| %>
+	<%= f.hidden_field  :id %>
+    <div class="styled-form"><label>Checkin note:</label><%= f.text_area :note, :cols => 60, :rows => 8  %></div>    
+    <div class="styled-form"><label></label><%= f.submit 'Submit' %></div> 
+<% end %>
+</div>

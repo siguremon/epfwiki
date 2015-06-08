@@ -1,0 +1,11 @@
+<%= render :partial => 'header' %>
+<p>Hi <%= @user.name %>,</p>
+<p>A request was made to create an account at <%= link_to ENV['EPFWIKI_APP_NAME'], ENV['EPFWIKI_BASE_URL'] %> for your email address.</p>
+<p>To complete the process and activate the new password.</strong>
+, click the link below.<p>
+<p><%= link_to "Activate my new password", "#{ENV['EPFWIKI_BASE_URL']}/login/confirm_account/#{@user.id}?tk=#{@user.token}" %>
+</p>
+
+<p>Best Regards,<br>
+Your <%= ENV['EPFWIKI_APP_NAME'] %> Server</p>
+<%= render :partial => 'footer' %>

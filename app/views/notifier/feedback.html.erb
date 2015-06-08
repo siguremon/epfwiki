@@ -1,0 +1,15 @@
+<%= render :partial => 'header' %>
+
+<p>Hi <%= @cadmin.name %>,</p>
+<p>Feedback was posted or help was requested via <%= link_to ENV['EPFWIKI_APP_NAME'] , "#{ENV['EPFWIKI_BASE_URL']}/" %> by
+<%= link_to(@feedback.user.name, "mailto:#{@feedback.user.email}") unless @feedback.user.nil? %>
+<%= link_to(@feedback.email, "mailto:#{@feedback.email}") if @feedback.user.nil? %>.</p>
+<p>The user posted the following message:<br>"<i><%= @feedback.text %></i>"</p>
+
+<p>
+You can manage follow-up of feedback using <%= link_to ENV['EPFWIKI_APP_NAME'], "#{ENV['EPFWIKI_BASE_URL']}/sites/feedback/#{@anywiki.id}" %>
+</p>
+
+<p></>Your <%= ENV['EPFWIKI_APP_NAME'] %> Server</p>
+
+<%= render :partial => 'footer' %>

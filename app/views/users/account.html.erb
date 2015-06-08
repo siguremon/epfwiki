@@ -1,0 +1,98 @@
+<% @heading = "Account: #{@user.name}" %>
+
+
+<% if mine?(@user) || cadmin? %>
+<div id="menu">
+    <%= link_to('Edit', :action => 'edit', :id => @user.id) %>
+	<% if session['user'] == @user.id %>
+    | <%= link_to 'Change Password', :controller => 'login', :action => 'change_password' %>
+	<% end %>
+	| <%= link_to 'My Public Page', :action => 'show', :id => @user.id %>
+</div>
+<% end %>
+
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Notifications</th>
+            <td class="sectionTableCell" colspan="2">
+                <ul><% for notification in @user.reload.notifications %>
+				<% if Page.exists?(notification.page_id) %>
+					<% p = Page.find(notification.page_id)%>
+                	<li><%= link_to_notification_toggle(p.id, Page.name, @user) %> for <%= link_to_page p %> in Wiki <%= link_to_site p.site %></li>
+				<% else %>
+					<% notification.destroy %>
+				<% end %>
+                <% end %></ul>
+            </td>
+        </tr>
+		<% if admin? %>  
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Admin Messages</th>
+            <td class="sectionTableCell" colspan="2">
+                <ul><% for m in AdminMessage.find(:all) %>
+                    <li><%= m.guid %> [<%= link_to 'Edit', :controller => 'users', :action => 'admin_message', :id => m.id %>]</li>
+                <% end %></ul>
+            </td>
+        </tr>
+		<% end %>  
+    </table>
+</div>
+
+<div class="sectionHeading">Properties</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">ID</th>
+            <td align="left" class="sectionTableCell"><%= @user.id.to_s %></td>
+        </tr>
+        <tr valign="top">
+                <th scope="row" class="sectionTableHeading">Name</th>
+                <td align="left" class="sectionTableCell"><%= @user.name %></td>
+        </tr>
+        <tr valign="top">
+                <th scope="row" class="sectionTableHeading">Admin</th>
+                <td align="left" class="sectionTableCell"><%= @user.admin %></td>
+        </tr>
+        <tr valign="top">
+                <th scope="row" class="sectionTableHeading">Email</th>
+                <td align="left" class="sectionTableCell"><%= @user.email %></td>
+        </tr>    
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Change Report</th>
+            <td align="left" class="sectionTableCell">
+            <p>Receive a change report via email:</p>
+			<%= check_box 'user', 'notify_daily', {:disabled => true} %> Daily
+			<%= check_box 'user', 'notify_weekly', {:disabled => true} %> Weekly
+			<%= check_box 'user', 'notify_monthly', {:disabled => true} %> Monthly
+			<%= check_box 'user', 'notify_immediate', {:disabled => true} %> Immediate
+            <p>Send me a change report now:</p>
+            <%= link_to(image_tag('report.gif', :border => 0, :title => 'Send now to me via email!') + " Changes of the last day", {:action => 'send_report', :type => 'D'}, :method => 'post') if mine?(@user) %>
+            <%= link_to(image_tag('report.gif', :border => 0, :title => 'Send now to me via email!') + " Changes of the last week", { :action => 'send_report', :type => 'W'}, :method => 'post') if mine?(@user) %>
+            <%= link_to(image_tag('report.gif', :border => 0, :title => 'Send now to me via email!') + " Changes of the last month", {:action => 'send_report', :type => 'M'}, :method => 'post') if mine?(@user) %>
+            </td>
+        </tr>     
+        <tr valign="top">
+                <th scope="row" class="sectionTableHeading">IP Address</th>
+                <td align="left" class="sectionTableCell"><%= @user.ip_address %></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Logon Count</th>
+            <td align="left" class="sectionTableCell"><%= @user.logon_count.to_s %></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Created On</th>
+            <td align="left" class="sectionTableCell"><%= @user.created_on.strftime("%I:%M %p %d-%b-%y") %></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Last Logon On</th>
+            <td align="left" class="sectionTableCell"><%= @user.last_logon.strftime("%I:%M %p %d-%b-%y") if @user.last_logon %></td>
+        </tr>    
+    </table>
+</div>
+
+
+
+
+

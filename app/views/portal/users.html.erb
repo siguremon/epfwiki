@@ -1,0 +1,18 @@
+<% @heading = 'Users' %>
+<h2>Users</h2>  
+
+<p>
+<table width="100%">
+<tr><th>User</th><th>Changes</th><th>Comments</th><th>Uploads</th><th>New Pages</th><th>Total</th></tr>
+<% @contributors.each do |c| %>
+<tr>
+	<td><%= link_to_user c[:user] %></td>
+	<td><%= c[:version_count].to_s %></td>
+	<td><%= c[:comment_count].to_s %></td>	
+	<td><%= c[:upload_count].to_s %></td>
+	<td><%= c[:new_page_count].to_s %></td>
+	<td><strong><%= c[:count].to_s %></strong></td>
+</tr>
+<% end %>
+</table>
+</p>

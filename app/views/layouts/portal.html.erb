@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<%= csrf_meta_tag %>
+    <title><%= ENV['EPFWIKI_APP_NAME'] %><%= ' - ' + @heading if @heading %>
+    </title>
+    <meta name="keywords" content="epf, wiki, eclipse, process, framework, community, software, process, openup, scrum, xp, rup, description, composer" />
+    <%= javascript_include_tag :defaults %>
+    <%= stylesheet_link_tag 'default' %> 
+    <%= auto_discovery_link_tag :atom, "/rss/all" %>
+	<%= auto_discovery_link_tag :rss, "/rss/all.rss" %>
+	<% Wiki.find(:all, :conditions => ['obsolete_on is null']).each do |w| %>
+	    <%= auto_discovery_link_tag :atom, "/rss/#{w.folder}", {:title => "ATOM #{w.title}"} %>
+		<%= auto_discovery_link_tag :rss, "/rss/#{w.folder}.rss", {:title => "RSS #{w.title}"} %>
+	<% end %>
+    
+    </head>
+<body>
+    <div id="wrap">
+        <div id="header"><h1 class="pageTitle"><%= ENV['EPFWIKI_APP_NAME'] %></h1></div>
+        <div id="nav">
+            <p>
+            <ul>
+                <li><%= link_to 'Home', :controller => 'portal', :action => 'home' %> |</li> 
+                <li><%= link_to 'Wikis', :controller => 'portal', :action => 'wikis' %> |</li>
+				<li><%= link_to 'Users', :controller => 'portal', :action => 'users' %> |</li>
+				<li><%= link_to 'Manage', :controller => 'sites', :action => 'list' %> |</li>
+				<% if Rails.application.config.sphinxsearch %>
+				<li><%= link_to 'Search', :controller => 'search' %> |</li>
+                <% end %>
+                <li><%= link_to 'About', :controller => 'portal', :action => 'about' %></li> 
+            </ul>
+            </p>
+			<% if false %>
+			  <!-- See also Bugzilla 231125 -->
+			  <%= form_tag({controller: "search"}, method: "get", class: "portal_searchbox") do %>
+  				<%= text_field_tag(:q, nil, placeholder: 'Quick Search') %>
+  				<%= submit_tag("Go") %>
+			  <% end %>
+			<% end %> 			
+        </div>
+   
+        <div id="main">
+<% unless flash.empty? %>        
+    <div class="sectionContent">
+        <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+            <tr>
+                <td class="sectionTableCell">
+                    <table>
+                    <% ['error', 'warning', 'notice', 'success'].each do |flash_type| %>
+                        <% if flash[flash_type] %>
+                            <tr>
+                                <th valign="top" width="100"><%= image_tag(flash_type + '.png') %></th>
+                                <td><%= flash[flash_type] %></td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+<% end %>      
+            <%= yield %>
+            <p></p>
+        </div>
+        <div id="sidebar">
+
+            <h3>Wikis</h3>
+            <p>Process descriptions created using EPF Composer deployed as Wikis:
+			    <ul>
+			        <% for wiki in @wikis %>
+					<% if wiki.title != 'Templates' %>
+			            <li>
+			                <%= link_to(raw(wiki.title + " " + image_tag('link.gif', :border => 0, :title => "Activate this site")), wiki.url, :target => '_blank') %> 
+							<%= link_to(image_tag('rss.gif', :border => 0, :title => "Link to RSS feed"), :controller => 'rss', :action => 'list', :site_folder => wiki.folder) %>
+			                <% if wiki.created_on > (Time.now - 14.days ) %> 
+			                    <%= image_tag ('new.png') %>
+			                <% end %>
+			            </li>
+					<% end %>	
+			        <% end %>
+			    </ul>
+            </p>
+			<p>RSS for all Wikis: <%= link_to(image_tag('rss.gif', :border => 0, :title => "Link to RSS feed"), :controller => 'rss', :action => 'list', :site_folder => 'all') %>
+			</p>
+            <% unless @updates_sidebar.empty? %>
+            <p>Updates:
+                <ul>
+                    <% for update in @updates_sidebar %>
+                        <li><%= update.wiki.title%> was updated to <%= update.wiki.baseline_process.title %> on <%= update.started_on.localtime.strftime(Utils::TIME_FORMAT)%></li>
+                    <% end %>
+                </ul>
+            </p>
+            <% end %>
+
+            <h3>Toolbox</h3>
+            <p>
+                <ul>
+                    <li><%= link_to_function("Create new page in ...", "$('#sites_for_new_pages').toggle()") %>
+						<ul id="sites_for_new_pages" style="display:none;">
+					        <% for wiki in @wikis %>
+							<% page = Page.find(:first, :conditions => ['site_id=?',wiki.id]) %>
+							<% if page %>
+					            <li>
+					                <%= link_to wiki.title, :controller => 'pages', :site_folder => wiki.folder, :id => page.id, :action => 'new' %> 
+					            </li>
+							<% end %>
+					        <% end %>
+						</ul>
+					</li>
+                    <li><%= link_to 'Upload file', :controller => 'uploads', :action => 'new' %></li>
+					<li><%= link_to 'My Account', :controller => 'users', :action => 'account' %></li>
+					<li><%= link_to 'EPF Wiki User Guide', 'http://wiki.eclipse.org/EPF_Wiki_User_Guide' %></li>
+                </ul>
+            </p>
+			
+			
+			<h3>Hall of Fame</h3>
+			<p>
+				<div id="monthly_top">
+				<div id="tabs">
+				<ol id="toc_tabs">
+				    <li class="current"><a><span>Monthly</span></a></li>
+					<li>
+						<%= link_to_function(raw("<span>Overall</span>"),"$('#monthly_top').hide();$('#overall_top').show()") %>
+					</li>
+				</ol>
+				</div>
+				<ul>
+				<% @monthly_top.each do | top | %>
+					<li><%= link_to_user top[0] %>: <%= top[1].to_s %></li>
+				<% end %>		
+				</ul>
+				</div>
+
+				<div id="overall_top" style="display:none;">
+				<div id="tabs">
+				<ol id="toc_tabs">
+					<li>
+						<%= link_to_function(raw("<span>Monthly</span>"),"$('#monthly_top').show();$('#overall_top').hide()") %>
+					</li>
+				    <li class="current"><a><span>Overall</span></a></li>
+				</ol>
+				</div>
+				<ul>
+				<% @overall_top.each do | top | %>
+					<li><%= link_to_user top[0] %>: <%= top[1].to_s %></li>
+				<% end %>		
+				</ul>
+				</div>
+			
+			</p>
+            <% if @checkouts.size > 0 %>
+            <h3>Checkouts</h3>
+            <p>
+                <ul>
+                    <% for checkout in @checkouts %>
+                        <li>
+                            <%= checkout.created_on.localtime.strftime(Utils::TIME_FORMAT)%> - <%= link_to_page checkout.page %>
+							by <%= link_to_user checkout.user %>
+                        </li>
+                    <% end %>
+                </ul>
+            </p>
+            <% end %>
+            <h3>Archives</h3>
+            <p>
+                <ul>
+                    <% @archives_count.each do |archive_count| %>
+                    <li><%= link_to "#{Time.gm(Time.now.year,archive_count[0]).strftime('%B')} (#{archive_count[1]})", :controller => 'portal', :action => 'archives', :year => Time.now.year, :month => archive_count[0] %></li>
+                    <% end %>
+                </ul>
+            </p>
+
+
+            
+        </div>
+        <div id="footer">
+        <p>
+            <%= link_to 'Site Help and Feedback', :controller => 'portal', :action => 'feedback' %> 
+			<% unless @termsofuse.blank? %>
+			| <%= link_to 'Terms of Use', :controller => 'portal', :action => 'termsofuse' %>
+			<% end %>
+			<% unless @privacypolicy.blank? %>
+			| <%= link_to 'Privacy Policy', :controller => 'portal', :action => 'privacypolicy' %>
+			<% end %>
+			<%= render :partial => 'other/img' %>
+        </p>
+        </div>
+    </div>
+ </body>
+</html>           
+                

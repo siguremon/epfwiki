@@ -1,0 +1,13 @@
+<% @heading = 'Site Help & Feedback' %>
+<h1><%= @heading %></h1>
+
+<%= @help %>
+
+<%= error_messages_for @feedback %>
+
+    <%= form_for :feedback, :url => {:controller =>'portal', :action => 'feedback'} do  |f| %>
+    Your Email Address<br>
+    <%= f.text_field :email %><br><br>
+    Question or Feedback<br>
+    <%= f.text_area :text, :cols => 40, :rows => 8  %><br><br><%= submit_tag 'Submit' %>
+    <% end %>

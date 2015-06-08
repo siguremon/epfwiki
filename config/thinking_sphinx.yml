@@ -1,0 +1,7 @@
+# See website http://pat.github.io/thinking-sphinx/advanced_config.html
+development:
+  mysql41: 9306
+test:
+  mysql41: 9307
+production:
+  mysql41: 9308

@@ -1,0 +1,35 @@
+Concept: Artifact[][1]
+![][2]
+
+![][3]
+Artifact is a Work Product that provides a description and definition for tangible, non-trivial work products.
+
+Main Description
+
+Artifacts are tangible well-defined Work Products consumed, produced, or modified by Tasks.  Artifacts may be composed of other Artifacts. For example, a model Artifact can be composed of model elements, which are also Artifacts. They may serve as a basis for defining Reusable Assets.  Roles use Artifacts to perform Tasks and produce Artifacts in the course of performing Tasks. 
+
+Artifacts are the responsibility of a single Role, making responsibility easy to identify and understand, and promoting the idea that every piece of information produced in the method requires the appropriate set of skills. Even though one Role might "own" a specific type of Artifact, other Roles can still use the Artifacts, and perhaps even update them if the Role has been given permission to do so. 
+
+**Artifacts are generally _not_ documents**. Many methods have an excessive focus on documents, and in particular on _paper documentation_. The most efficient and pragmatic approach to managing project Artifacts is to maintain them _within_ the appropriate tool used to create and manage them. When necessary, one may generate documents (snapshots) from these tools, on a just-in-time basis. 
+
+Examples Artifacts: 
+
+  * A use case specification stored in a word processor tool 
+  * A design model stored in a visual modeling tool. 
+  * A project plan stored in a project planning tool. 
+  * A defect stored in a change requests tools 
+  * A project requirements database in a requirements management tool. 
+
+Note also that formats such as on **whiteboards** or **flip charts** can be used to capture pictorial information such as UML diagrams, tabular information such as short lists of status information or even textual information such as short vision statements. These formats work well for smaller, collocated teams where all team members have ready access to these resources. 
+
+However, there are still Artifacts which either have to be or are best suited to being plain text documents, as in the case of external input to the project, or in some cases where it is simply the best means of presenting descriptive information. Where possible, teams should consider using collaborative **Work Group** tools, such as WikiWiki webs or Groove to capture textual documentation electronically, thus simplifying ongoing content and version management. This is especially of importance where historic records must be maintained for purposes such as fulfilling audit requirements. For any nontrivial development effort, especially where large development teams are involved, Work Products **are** **most likely to be subject to version control and configuration management.** This is sometimes only achieved by versioning the container Work Product, when it is not possible to do it for the elementary, contained Work Products. For example, in software development, you may control the versions of a whole design model, or design package, and not the individual classes they contain. 
+
+Copyright (c) 1987, 2006 IBM Corp. and others. All Rights Reserved.  
+This program and the accompanying materials are made available under the  
+[Eclipse Public License v1.0][4] which accompanies this distribution. 
+
+   [1]: ./../../../index.htm
+   [2]: ./../../../images/shim.gif
+   [3]: ./../../../images/concept.gif
+   [4]: http://www.eclipse.org/org/documents/epl-v10.php
+

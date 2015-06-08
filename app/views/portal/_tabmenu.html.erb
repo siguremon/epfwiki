@@ -1,0 +1,17 @@
+<% div_id = 'tabs' if div_id.nil? %>
+<% ol_id = 'toc_tabs' if ol_id.nil? %>
+	<div id="<%= div_id %>">
+	<ol id="<%= ol_id %>">
+		<% items.each do |item| %>
+			<% logger.debug('items:' + items.inspect) %>
+			<% logger.debug('current:' + current.inspect) %>
+			<% if item[:id] == current %>
+				<li class="current"><a><span><%= item[:text] %></span></a></li>
+			<% else %>
+				<li>
+					<%= link_to_function(raw("<span>#{item[:text]}</span>"),"showTab('#{item[:id]}');") %> 
+				</li>
+			<% end %>
+		<% end %>
+	</ol>
+	</div>

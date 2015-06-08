@@ -1,0 +1,24 @@
+<%= render :partial => 'header' %>
+<p>Hi <%= @update.user.name %>,</p>
+<% if @s.include? 'STARTED' %>
+	<p>The update (or creation) of Wiki <%= @update.wiki.title %> with baseline <%= @update.baseline_process.title %> has finished</p>
+<% elsif @s.include? 'FINISHED' %>
+	<p>The update (or creation) of Wiki <%= link_to @update.wiki.title, @update.wiki.url %> with baseline <%= @update.baseline_process.title %> has finished</p>
+<% elsif @s.include? 'CANCELLED' %>
+	<p>The update (or creation) of Wiki <%= @update.wiki.title %> with baseline <%= @update.baseline_process.title %> has been cancelled</p>
+<% elsif @s.include? 'SCHEDULED' %>
+	<% if @update.first_update? %>
+	<p>The creation of the new Wiki <%= @update.wiki.title %> has been scheduled. The new Wiki will be created using
+	Baseline Process <%= @update.baseline_process.title %>. At what time this will take place depends on the schedule of 'job_daily' cause that job will trigger the creation.</p>
+	<p>You can monitor status, cancel or force the update using <%= link_to ENV['EPFWIKI_APP_NAME'] , "#{ENV['EPFWIKI_BASE_URL']}/" %>.</p>
+	</p>
+	<% else %>
+	<p>The update of Wiki <%= @update.wiki.title %> has been scheduled. The Wiki will be updated using
+	Baseline Process <%= @update.baseline_process.title %>. At what time this will take place depends on the schedule of 'job_daily' cause that job will trigger the creation.</p>
+	<p>You can monitor status, cancel or force the update using <%= link_to ENV['EPFWIKI_APP_NAME'] , "#{ENV['EPFWIKI_BASE_URL']}/" %>.</p>
+	</p>
+<% end %>
+<% end%>
+Your <%= ENV['EPFWIKI_APP_NAME'] %> Server</p>
+
+<%= render :partial => 'footer' %>

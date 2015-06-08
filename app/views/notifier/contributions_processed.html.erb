@@ -1,0 +1,28 @@
+<%= render :partial => 'header' %>
+<p>Hi <%= @user.name %>,</p>
+<p>One or more contributions you made through <%= link_to ENV['EPFWIKI_APP_NAME'] , "#{ENV['EPFWIKI_BASE_URL']}/" %> have been processed.
+Contributions through the Wiki are typically used to update the process asset library but they might also be recorded 
+as enhancement requests or defects for more formal processing and tracking of the request or issue raised.
+This email is send to inform you on how the contribution was processed.</p>
+<p>
+	<table>
+		<tr><th>Contribution</th><th>Reviewer</th><th>Review Note</th><th>Wiki</th></tr>
+		<% @contributions.each do | contribution | %>
+			<% if contribution.class.name == Upload.name %>
+				<% upload = contribution %>
+				<tr><td><%= link_to upload.filename, upload.url %></td><td><%= upload.reviewer.name if upload.reviewer %></td><td><%= upload.review_note %></td><td></td></tr>          
+			<% elsif contribution.class.name == UserVersion.name %>
+				<% version = contribution %>
+				<tr><td><%= link_to version.page.presentation_name + ' version ' + version.version.to_s , version.page.url %></td><td><%= version.reviewer.name if version.reviewer %></td><td><%= version.review_note %></td><td><%= link_to version.wiki.title, version.wiki.url %></td></tr>
+			<% elsif contribution.class.name == Comment.name %>
+				<% comment = contribution %>
+				<tr><td><%= link_to comment.text, comment.page.url %></td><td><%= comment.reviewer.name if comment.reviewer %></td><td><%= comment.review_note %></td><td><%= link_to comment.site.title, comment.site.url %></td></tr>
+			<% end %>
+		<% end %>
+	</table>
+</p>
+
+<p>Thanks for your contributions,<br>
+Your <%= ENV['EPFWIKI_APP_NAME'] %> Server</p>
+
+<%= render :partial => 'footer' %>

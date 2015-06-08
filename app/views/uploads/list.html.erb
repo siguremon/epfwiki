@@ -1,0 +1,15 @@
+<% @heading = 'Uploads' %>
+<% @overview = '' %>
+<% tinymce %>
+
+<div id="menu">
+    <%= link_to 'New Upload', :action => 'new' %> 
+</div>
+
+<%= will_paginate @uploads %>
+
+<%= render :partial => 'list' %>
+
+
+
+

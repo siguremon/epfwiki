@@ -1,0 +1,2 @@
+$('#<%= params[:div_id]%>').html('<%= escape_javascript(render :inline => @html) %><div style="float:right" id="<%= params[:div_id]%>-saved">Saved!<\/div>');
+$('#<%= params[:div_id]%>-saved').fadeTo('slow', 0)

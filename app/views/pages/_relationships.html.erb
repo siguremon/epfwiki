@@ -1,0 +1,65 @@
+  <div class="sectionHeading">Relationships</div>
+  <div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0"
+    class="sectionTable">
+	<% if !@versions.nil? && @versions.size > 0%>
+    <tr valign="top">
+     <th scope="row" class="sectionTableHeading">
+       Baseline Updates
+     </th>
+     <td class="sectionTableCell" colspan=2>
+     <p>This page was updated with the following Baseline Processes:</p>
+         <ul>
+            <% for v in @versions %>
+			<% if v.baseline_process_id %>
+               <li>
+                  <%= v.created_on.localtime.strftime(Utils::TIME_FORMAT) %> with <%= link_to_site v.baseline_process %>
+               </li>
+            <% end %>
+			<% end %>
+         </ul>
+     </td>
+   </tr> 
+   <% end %>
+   
+    <tr valign="top">
+     <th scope="row" class="sectionTableHeading">
+       Notifications
+     </th>
+     <td class="sectionTableCell" colspan=2>
+        The following users will be notified of changes and new comments:<ul>
+        	<% Notification.find_all_users(@page, Page.name).each do |user| %>
+        	<li><%= link_to_user user %></li>
+			<% end %>
+			</ul>
+			<%= link_to_notification_toggle(@page.id, Page.name)  %>
+     </td>
+   </tr> 
+
+      <tr valign="top">
+     <th scope="row" class="sectionTableHeading">
+       Sites
+     </th>
+     <td class="sectionTableCell">
+         <p>This page was modified in other Wiki sites: </p>
+         <ul>
+            <% @page.other_pages_with_versions.each do |p| %>
+               <li>
+                  <%= link_to_page(p) %>  
+               </li>
+            <% end %>
+         </ul>
+    </td>
+     <td class="sectionTableCell">
+         <p>This page was discussed in other Wiki sites: </p>
+         <ul>
+            <% @page.other_pages_with_comments.each do |p| %>
+               <li>
+                  <%= link_to_page(p) %> 
+               </li>
+            <% end %>
+         </ul>
+    </td>
+   </tr>
+       </table>
+  </div>

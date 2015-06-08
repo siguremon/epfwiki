@@ -1,0 +1,99 @@
+<% @heading = "#{Time.gm(@year,@month).strftime('%B')} #{@year}" %>
+<h2><%= @heading %></h2>
+
+<p>
+<div id="discussion">
+	<%= render :partial => 'tabmenu', :locals => {:items => @tabitems, :current => 'discussion' }%>
+	<div id="comments_list">
+		<% @comments.each do |comment | %>
+		<p><%= comment.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+			 - <%= link_to comment.page.presentation_name, comment.site.rel_path + '/' + comment.page.rel_path %> 
+			 in <%= comment.site.title %>
+			<div class="comment"><%= comment.text %></div>
+		    <div class="commentfooter"><%= link_to_user comment.user %></div>
+		</p>
+		<% end %>
+		<% if @comments.size == 0 %>
+		<div id="notice">
+			<h2>No comments have been submitted</h2>
+		</div>
+		<% end %>		
+	</div>
+</div>
+
+<div id="changes" style="display:none;">
+	<%= render :partial => 'tabmenu', :locals => {:items => @tabitems,:current => 'changes' }%>	
+	<div id="versions_list">
+		<% @versions.each do |version| %>
+		<p><%= version.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+			 - <%= link_to version.page.presentation_name, version.wiki.rel_path + '/' + version.page.rel_path %> 
+			 in <%= version.wiki.title %>
+			<div class="comment"><%= version.note || '' %></div>
+		    <div class="commentfooter"><%= link_to_user version.user %></div>
+		</p>
+		<% end %>
+
+		<% if @versions.size == 0 %>
+		<div id="notice">
+			<h2>No changes were made</h2>
+		</div>
+		<% end %>
+		</ul>
+	</div>
+	
+</div>
+
+<div id="uploads" style="display:none;">
+	<%= render :partial => 'tabmenu', :locals => {:items => @tabitems,:current => 'uploads' }%>
+	
+	<div id="uploads_list">
+		<ul>
+		<% @uploads.each do |upload| %>
+			<li><%= upload.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+			 - <%= link_to upload.filename , "/uploads/#{upload.new_filename}" %>
+			 - <%= link_to upload.user.name, :controller => 'users', :action => 'show', :id => upload.user.id %>
+			 <% if !upload.description.blank? %> <i>"<%= upload.description %>"</i><% end %>
+			 </li>
+		<% end %>
+		<% if @uploads.size == 0  %>
+		<div id="notice">
+			<h2>No uploads or new pages available yet</h2>
+		</div>
+		<% end %>
+		</ul>
+	</div>
+</div>
+
+<div id="updates" style="display:none;">
+	<%= render :partial => 'tabmenu', :locals => {:items => @tabitems,:current => 'updates'}%>
+	<div id="updates_list">
+		<ul>
+		<% @updates.each do |update| %>
+			<li><%= update.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+			 - <%= link_to_site update.wiki %> updated to <%= link_to_site update.baseline_process %>
+			 </li>
+		<% end %>
+		<% if @updates.size == 0 %>
+		<div id="notice">
+			<h2>No updates were made</h2>
+		</div>
+		<% end %>
+		</ul>
+	</div>
+</div>
+
+<div id="pages" style="display:none;">
+	<%= render :partial => 'tabmenu', :locals => {:items => @tabitems,:current => 'pages'}%>
+	<div id="pages_list">
+		<ul>
+		<% @pages.each do |p| %>
+			<li><%= p.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+			 - <%= link_to_page p %> in <%= link_to_site p.site %> 
+			 by <%= link_to_user p.user %>
+			 </li>
+		<% end %>
+		</ul>
+	</div>
+</div>
+
+</p>

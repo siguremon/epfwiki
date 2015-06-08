@@ -1,0 +1,101 @@
+<% @heading = "About" %>
+<% @overview = raw "<strong>#{ENV['EPFWIKI_APP_NAME']} </strong> (#{render(:partial => 'revision')})<br>Designed to be used together with Eclipse Process Framework (EPF)" %>
+
+<div class="sectionHeading"><%= "About " + ENV['EPFWIKI_APP_NAME'] %></div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr valign="top">
+            <td scope="row" class="sectionTableCell">
+            <p>EPF Wiki is Wiki technology designed to be used together with Eclipse Process Framework (EPF). This offers the best of two distinct worlds: the worlds of Wikis and powerfull process frameworks. It combines a modular method construction approach and the flexibility and ease of use that is the defining characteristic of a wiki. 
+            </p>
+            <p><ul><li>EPF Wiki enhances EPFC published process descriptions with Wiki functions using Javascript (wiki.js) </li>
+				<li>EPF Wiki is a Web Application created using Ruby On Rails Framework</li>
+				<li>EPF Wiki is Wiki technology that works on plain HTML (no Wiki markup language) easy editable using commonly available browser-based WYSIWYG HTML editors (e.g. TinyMCE)</li>
+				</ul>
+            </p>
+            </td>
+        </tr>
+    </table>
+ </div>
+
+<div class="sectionHeading">Properties</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Application Name</th>
+        <td align="left" class="sectionTableCell"><%= ENV['EPFWIKI_APP_NAME'] %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Version</th>
+        <td align="left" class="sectionTableCell"><%= render :partial => 'revision' %></td>
+    </tr>        
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Rails Version</th>
+        <td align="left" class="sectionTableCell"><%= Rails::VERSION::STRING %></td>
+    </tr> 
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Database Schema Version</th>
+        <td align="left" class="sectionTableCell"><%= @database_schema.to_s %> 
+        </td>
+    </tr>
+
+    <% if admin? %>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Database Name</th>
+            <td align="left" class="sectionTableCell"><%= @database %></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Database User</th>
+            <td align="left" class="sectionTableCell"><%= @username %></td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Environment</th>
+            <td align="left" class="sectionTableCell"><%= Rails.env %></td>
+        </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Search index updated on</th>
+        <td align="left" class="sectionTableCell"><%= @index_mtime.strftime("%I:%M %p %d-%b-%y") if @index_mtime  %>
+        </td>
+    </tr>
+    <% end %>
+</table>
+</div>
+
+
+ <div class="sectionHeading"><%= ENV['EPFWIKI_APP_NAME'] %> Environment Variables</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+                <table>
+                <% ENV.keys.sort.each do |key| %>
+                <% if key.index("EPFWIKI") %>
+                    <tr>
+                        <th><%=key%></th><td><%=ENV[key]%></td>
+                    </tr>
+                <% end %>
+                <% end %>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="sectionHeading">Other Environment Variables</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+                <table>
+                <% ENV.keys.sort.each do |key| %>
+                <% if !key.index("EPFWIKI") %>
+                <tr>
+                    <th><%=key%></th><td><%=ENV[key]%></td>
+                </tr>
+                <% end %>
+                <% end %>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

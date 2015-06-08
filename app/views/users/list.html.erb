@@ -1,0 +1,10 @@
+<% @heading = 'Users' %>
+
+<div class="sectionHeading">Central Administrator</div>
+<%= render :partial => 'list', :locals => {:users => [@cadmin]} %>
+
+<div class="sectionHeading">Administrators</div>
+<%= render :partial => 'list',  :locals => {:users => @admins} %>
+
+<div class="sectionHeading">Users</div>
+<%= render :partial => 'list', :locals => {:users => @users} %>

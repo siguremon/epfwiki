@@ -1,0 +1,15 @@
+<% @heading = "Edit Comment" %>
+<% @overview = raw "Edit Comment of #{link_to_user(@comment.user)} about #{link_to_page(@comment.page)} in Wiki #{link_to_site(@comment.site)} " %>
+<% tinymce('advanced') %>
+
+<%= error_messages_for @comment %>
+
+<div class="styled-form">
+<%= form_for @comment do |f| %>
+  <%= hidden_field 'id', @comment.id %>
+  <div class="form-row"><%= f.text_area 'text', :cols => 100, :rows => 10 %></div>
+  <%= f.hidden_field 'request_referer', :value => request.referer %>
+  <div class="form-row"><%= f.submit %></div>
+<% end %>
+</div>
+

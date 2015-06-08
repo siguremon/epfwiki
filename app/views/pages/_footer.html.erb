@@ -1,0 +1,54 @@
+<div class="versionInfo" style="text-align:left">
+	<p>
+	<% if @version %>
+		<% if @version.base_version? %>
+			This page was last modified <%= time_ago_in_words(@wiki.baseline_updated_on || @wiki.wikified_on) %> ago with baseline <%= @version.baseline_process.title %>
+		<% else %>
+			<br/>Last updated <%= time_ago_in_words(@version.created_on) %> ago by <%= @version.user.name %>
+			<% if !@version.note.blank? %>
+				 <i>(<%= @version.note %>)</i>
+			<% end %>
+		<% end %>
+		<% if @contributor_names.size > 0 %>
+			<br/><%= @contributor_names.join(', ') %> contributed to this page.
+		<% end %>
+	        <br/>Version <%= @version.version.to_s %> - 
+			<% if @version.base_version? %>
+				<%= @version.baseline_process.title %>
+			<% else %>
+				<%= @version.user.name %>
+			<% end %>
+	<% else %>
+	<% end %>
+	</p>
+</div>
+<br>
+<br>
+
+<% if @comments.size > 0 %>
+	<table width="99%" cellspacing="0" cellpadding="0" border="0">
+		<tr>
+			<td valign="top"><a name="Top"></a>
+				<table cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td nowrap="true" class="pageTitle">Discussion</td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../index.htm" name="mainIndex"></a></td>
+	
+					</tr>
+				</table>
+				<table cellspacing="0" cellpadding="0" border="0" width="99%">
+					<tr>
+						<td class="pageTitleSeparator"><img height="1" title="" alt="" src="./../../images/shim.gif"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<div id="commentsList">
+    <% for comment in @comments %>
+	<p>
+		<%= comment.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+		<div class="comment"><%= raw comment.text %></div>
+		<div class="commentfooter"><%= link_to_user comment.user %></div>
+	</p>
+	<% end %>
+<% end %>

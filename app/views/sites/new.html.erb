@@ -1,0 +1,45 @@
+<% @heading = 'New Baseline Process' %>
+<% @overview = raw "Use this form to create a new Baseline Process or to first upload content to create a Baseline Process." %>
+<% @table_heading = 'New Baseline Process' %>
+
+<%= error_messages_for @site %>
+
+<p><div id="create_from_folder">
+<div id="epfc_tabs">
+	<ol id="epfc_tabs_toc">
+			<li class="current"><a><span>Create From Server Folder</span></a>
+			</li>
+			<li><%= link_to_function(raw("<span>Create From Upload (Zip File)</span>"), "$('#create_from_folder').hide();$('#create_from_file').show();")  %>
+			</li>
+	</ol>
+</div>
+<div class="styled-form">
+    <%= form_for :site do |f| %>
+        <div class="form-row"><label>Server folder: </label><%= f.select :folder, @folders.collect {|folder| [folder,folder]} %></div>
+        <div class="form-row"><label>Title:</label><%= f.text_field :title %></div>  
+        <div class="form-row"><label>Description:</label><%= f.text_area :description, :cols => 60, :rows => 8 %></div>
+        <div class="form-row"><label></label><%= f.submit 'Submit' %></div>
+    <% end %>
+</div>
+</div>
+</p>
+
+<p><div id="create_from_file" style="display:none;">
+<div id="epfc_tabs">
+	<ol id="epfc_tabs_toc">
+			<li >
+			<%= link_to_function(raw("<span>Create From Server Folder</span>"), "$('#create_from_file').hide();$('#create_from_folder').show()") %>
+			</li>
+			<li class="current"><a><span>Create From Upload(Zip file)</span></a>
+			</li>
+	</ol>
+</div>
+	<div class="styled-form">
+    <%= form_for :site, :html => {:multipart=> true, :id =>'upload-form'} do |f| %>
+	    <div class="form-row"><label>ZIP file:</label><%= f.file_field :file, :size => 120 %></div>	
+        <div class="form-row"><label>Title:</label><%= f.text_field :title %></div>
+        <div class="form-row"><label>Description:</label><%= f.text_area :description, :cols => 60, :rows => 8 %></div>
+        <div class="form-row"><label></label><%= f.submit 'Submit' %></div>
+    <% end %>
+	</div>
+</div></p>

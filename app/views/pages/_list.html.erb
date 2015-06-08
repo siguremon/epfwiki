@@ -1,0 +1,33 @@
+   <div class="sectionHeading">Pages</div>
+   <div class="sectionContent">
+      <% unless @pages.empty? %>  
+      <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+         <tr>
+            <td class="sectionTableCell">
+            <table width="100%">
+               <tr>
+                  <th>ID</th>    
+                  <th>Presentation Name</th>
+                  <th>Filename</th>
+                  <th>Type</th>
+                  <th>Created</th>
+              </tr>
+
+               <% for page in @pages %>
+                    <td><%= page.id %></td>
+                     <td>
+                        <%= link_to_page page %>
+                     </td>
+                     <td><%= page.filename %></td>
+                     <td><%= page.uma_type.name %></td>
+                     <td><%= page.created_on.strftime("%I:%M %p %d-%b-%y") %></td>         
+                 </tr>
+               <% end %>
+            </table>
+            </td>
+         </tr>
+      </table>
+    <% else %>
+       No pages found!
+    <% end %>
+   </div>

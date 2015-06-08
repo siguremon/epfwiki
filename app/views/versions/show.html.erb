@@ -1,0 +1,129 @@
+<% params[:action] = @version.class.name.gsub('UserVersion', 'User Version').gsub('BaselineProcessVersion', 'Baseline Process Version') + " V#{@version.version}" %>
+<% @overview = raw "This page show the details of version #{link_to_version(@version, 'version')} of page #{link_to_page(@version.page)}" %>
+
+<%= error_messages_for @version %>
+
+<div class="sectionHeading">Description</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+<tr valign="top">
+    <td class="sectionTableCell"> 
+        <%= @version.note %>
+    </td>
+</tr>
+</table>
+</div>
+
+<div class="sectionHeading">Relationships</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Last Version</th>
+        <td align="left" class="sectionTableCell">
+            <%= link_to_version @last_version, 'version' if @last_version %>
+        </td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Current Version</th>
+        <td align="left" class="sectionTableCell">
+            <%= link_to_version @current_version, 'version' if @current_version %>
+        </td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Source Version</th>
+        <td align="left" class="sectionTableCell">
+            <%= link_to_version @source_version, 'version' if @source_version %>
+        </td>
+    </tr>    
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Previous Version</th>
+        <td align="left" class="sectionTableCell">
+            <%= link_to_version @previous_version, 'version' if @previous_version %>
+        </td>
+    </tr>    
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Page</th>
+            <td align="left" class="sectionTableCell"><%= link_to_page @page %></td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Created By</th>
+            <td align="left" class="sectionTableCell">
+			 	<% if @version.user_version? %>        
+             		<%= link_to_user @version.user %>
+			 	<% else %>
+			 		<%= link_to_site @version.baseline_process %>
+			 	<% end %>
+            </td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Reviewer</th>
+            <td align="left" class="sectionTableCell">
+            <%= link_to_user(@version.reviewer) if @version.reviewer %>
+            </td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Harvest</th>
+        <td align="left" class="sectionTableCell" id="harvest-status">
+        	<%= @version.done %>
+        </td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Wiki</th>
+        <td align="left" class="sectionTableCell"><%= link_to_site @version.wiki %> </td>
+    </tr>
+</table>
+</div>
+
+<div class="sectionHeading">Properties</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">ID</th>
+        <td align="left" class="sectionTableCell"><%= @version.id.to_s %></td>
+    </tr>
+     <tr valign="top">
+
+             <th scope="row" class="sectionTableHeading">Version</th>
+             <td align="left" class="sectionTableCell"><%= @version.version %></td>
+    </tr>
+ <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Path</th>
+            <td align="left" class="sectionTableCell"><%= @version.path %></td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">URL</th>
+            <td align="left" class="sectionTableCell"><%= link_to "#{ENV['EPFWIKI_BASE_URL']}/#{@version.rel_path_root}", "/#{@version.rel_path_root}" %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Created On</th>
+        <td align="left" class="sectionTableCell"><%= @version.created_on.strftime(Utils::TIME_FORMAT) %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Updated On</th>
+        <td align="left" class="sectionTableCell"><%= @version.updated_on.strftime(Utils::TIME_FORMAT) %></td>
+    </tr>
+</table>
+</div>
+
+<% if @checkout %>
+<div class="sectionHeading">Checkout Properties</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">ID</th>
+        <td align="left" class="sectionTableCell"><%= @checkout.id.to_s %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Created On</th>
+        <td align="left" class="sectionTableCell"><%= @checkout.created_on.strftime(Utils::TIME_FORMAT) %></td>
+    </tr>
+</table>
+</div>
+<% end %>
+
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<% @heading = 'Sites' %>
+
+<div id="menu">
+    <%= link_to 'New Baseline Process', :action => 'new' %> 
+    | <%= link_to 'New Wiki', :action => 'new_wiki' %>
+</div>
+
+<div class="sectionHeading">Wikis</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+				<table width="100%">
+				    <tr>
+				        <th>ID</th>    
+				        <th>Title</th>
+				        <th>Pages</th>
+				        <th>Versions</th>
+				        <th>Comments</th>
+				        <th>Created By</th>
+				        <th>Created</th>
+				        <th>Baseline Process</th>
+						<th>Actions</th>
+				    </tr>
+				    <% @wikis.each do |wiki| %>
+				    <tr>
+				        <td><%= wiki.id %></td>
+				        <td>
+				            <%= link_to_site wiki %> 
+				            <%= link_to(image_tag('rss.gif', :border => 0, :title => "Link to RSS feed"), :controller => 'rss', :action => 'list', :site_folder => wiki.folder) %>
+				        </td>
+				        <td><%= @pages_count[wiki.id] %></td>
+				        <td><%= @versions_count[wiki.id] %></td>
+				        <td><%= @comments_count[wiki.id] %></td>
+				        <td><%= link_to_user wiki.user %></td>
+				        <td><%= wiki.created_on.strftime("%I:%M %p %d-%b-%y") %></td>         
+				        <td><%= link_to_site wiki.baseline_process if wiki.baseline_process %></td>         
+						<td>
+							<% if wiki.obsolete_on.nil? %>
+								[<%= link_to 'Make Obsolete', {:action => 'obsolete', :id => wiki.id}, :confirm => "'Make Obsolete' will hide Wiki #{wiki.title} from end users. This operation can be reversed at any time. Do you want to make Wiki #{wiki.title} obsolete?", :method => :post %>]
+							<% else %>
+								[<%= link_to 'Undo Make Obsolete', {:action => 'obsolete', :id => wiki.id}, :method => :post %>]
+							<% end %>
+						</td>
+				    </tr>
+				    <% end %>
+				</table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div class="sectionHeading">Baseline Processes</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+				<table width="100%">
+				   <tr>
+				      <th>ID</th>    
+				      <th>Name</th>
+				      <th>Pages</th>
+				      <th>Created By</th>
+				      <th>Created</th>
+				  </tr>
+				   <% @baseline_processes.each do |site| %>
+				     <tr><td><%= site.id %></td>
+				         <td><%= link_to_site site %></td>
+				         <td><%= @pages_count[site.id] %></td>
+				         <td><%= link_to_user site.user %></td>
+				         <td><%= site.created_on.strftime("%I:%M %p %d-%b-%y") %></td>         
+				     </tr>
+				   <% end %>
+				</table>
+            </td>
+        </tr>
+    </table>
+</div>

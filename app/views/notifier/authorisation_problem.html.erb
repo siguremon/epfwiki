@@ -1,0 +1,51 @@
+<%= render :partial => 'header' %>
+
+<p>Hi <%= @cadmin.name %>,</p>
+<p>A authorisation problem was detected when user <%= link_to @user.name, "mailto:#{@user.email}" %> 
+was using <%= link_to ENV['EPFWIKI_APP_NAME'] , "#{ENV['EPFWIKI_BASE_URL']}/" %>. This could mean
+many things. It could mean there is a problem in the application. Or maybe the user needs extra privileges (admin privileges).
+Or the user tried to hack the system. Details of the event are below to help you analyse the event</p>
+
+Your <%= ENV['EPFWIKI_APP_NAME'] %> Server</p>
+
+<table border="0">
+<tr><th>Location</th><td><%= @env['REQUEST_URI'] %></td></tr>
+<tr><th>Action</th><td><%= @params.delete('action') %></td></tr>
+<tr><th>Controller</th><td><%= @params.delete('controller') %></td></tr>
+<tr><th>Query</th><td><%= @env['QUERY_STRING'] %></td></tr>
+<tr><th>Method</th><td><%= @env['REQUEST_METHOD'] %></td></tr>
+<tr><th>SSL</th><td><%= @env['SERVER_PORT'].to_i == 443 ? "true" : "false"  %></td></tr>
+<tr><th>Agent</th><td><%= @env['HTTP_USER_AGENT']  %></td></tr>
+</table>
+
+<h3>Params</h3>
+<hr/>
+<% for key, val in @params -%>
+<p><b><%= key %></b></p>
+<p><%= val.to_yaml %></p>
+<% end if @params -%>
+
+<h3>Session</h3>
+<hr/>
+<% for key, val in @session -%>
+<p><b><%= key %></b></p>
+<p><%= val.to_yaml %></p>
+<% end if @session -%>
+
+<h3>Environment</h3>
+<hr/>
+<table border="0">
+<% for key, val in @env -%>
+<tr>
+  <td>
+    <small><b><%= key %></b></small>
+
+  </td>
+  <td>
+    <small><%= val %></small>
+  </td>
+</tr>
+<% end if @env -%>
+</table>
+
+<%= render :partial => 'footer' %>

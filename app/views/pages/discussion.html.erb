@@ -1,0 +1,33 @@
+<% tinymce('advanced') %>
+
+<% @overview =  raw "Discussion about #{link_to_page @page}" %>
+
+<div id="menu">  
+</div>
+
+    <div id="commentsList">
+		<% @comments.each do |comment | %>
+			<p><%= comment.created_on.localtime.strftime(Utils::TIME_FORMAT) %>
+			<div class="comment"><%= raw comment.text %></div>
+		    <div class="commentfooter"><%= link_to_user comment.user %></div>
+			</p>
+		<% end %>
+    </div>
+
+<%= error_messages_for @comment %>
+
+<div class="styled-form">
+<%= form_for @comment, :url => {:action => 'discussion'} do |f| %>
+	<div class="form-row">
+    	<label>Comment: </label><%= f.text_area 'text', :cols => 80, :rows => 10 %>
+	</div>
+	<%= f.hidden_field 'page_id' %>
+	<%= f.hidden_field 'site_id' %>
+	<div class="form-row">
+    <%= f.submit 'Submit' %>
+	</div> 
+<% end %>
+</div>
+<p>
+<%= render :partial => 'relationships' %>
+</p>

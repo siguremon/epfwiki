@@ -1,0 +1,28 @@
+<% @overview = "This page displays the history of changes of #{@page.presentation_name} in Wiki #{@wiki.title}" %>
+
+<div id="menu">
+    <%= link_to('Edit', {:controller => 'pages', :action=> 'checkout', :id=> @page.id, :site_id => @wiki.id}) %>
+    <% if session['user'] %>
+    | <%= link_to_notification_toggle(@page.id, Page.name) %>
+    <% end %>
+    <% if @versions && @versions.size > 1 && !@page.checkedout? %>
+	| <%= link_to_function("Rollback", "$('#rollback_form').toggle()") %>
+    <% end %>
+</div>
+<br>
+<% if @versions && @versions.size > 1 %>
+<div id="rollback_form" style="display: none;">
+<% @table_heading = "Rollback" %>
+<div class="styled-form">
+<%= form_for :version, :url => { :action => 'rollback' } do |f| %>
+<div class="form-row"><label>Back to Version:</label>
+	<%= f.select :version_id, (@versions - [@versions.last]).collect {|version| [version.version_text, version.id]} %>
+</div>
+ <div class="form-row"><label></label><%= submit_tag 'Submit' %></div>
+<% end %>
+</div>
+<% end %>
+</div>
+<%= render :partial => 'versions/versions_list' %>
+<%= render :partial => 'relationships' %>
+

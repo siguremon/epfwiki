@@ -1,0 +1,85 @@
+<% @heading = @page.presentation_name  %>
+<% @overview = "This page shows the details of #{link_to_page(@page)} in site #{link_to_site(@site)}" %>
+
+<% if @site.wiki? %>
+<div id="menu">
+    <%= link_to 'Edit', :action => 'checkout', :id => @page.id, :site_id => @site %>
+    | <%= link_to 'New Page', :action => 'new', :id => @page, :site_id => @site %>
+    <% if cadmin? %>
+    | <%= link_to 'Destroy', {:action => 'destroy', :id => @page}, :confirm => 'Are you sure? This will remove the page, comments and versions from the database. This will remove all meta-data and could cause a corruption. To undo changes you should use rollback or checkout, checkin!' %>
+    <% end %>
+    <%= link_to_notification_toggle(@page.id, Page.name) %>
+</div>
+
+<p>
+<%= tabs([["Versions", url_for(:action => 'show', :id => @page.id, :site_id => @site), (params[:action] == "show")],
+["Comments", url_for(:action=> 'show_comments', :id => @page.id, :site_id => @site.id), (params[:action] == "show_comments")]], 80) %>
+</p>
+
+<%= links_to_pages(@version_pages) if @version_pages %>
+<%= links_to_pages(@comment_pages) if @comment_pages %>
+
+<%= render(:partial => 'versions/versions_list') if @version_pages %>
+<%= render(:partial => 'comments/comments_list') if @comment_pages %>
+
+<% end %>
+<div class="sectionHeading"> Relationships</div>
+<div class="sectionContent">
+ <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <%= render_partial("relationships") %>
+ </table>
+</div>
+
+<div class="sectionHeading">Properties</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">ID</th>
+        <td align="left" class="sectionTableCell"><%= @page.id.to_s %></td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Presentation Name</th>
+            <td align="left" class="sectionTableCell"><%= @page.presentation_name %></td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Content Type</th>
+            <td align="left" class="sectionTableCell"><%= @page.content_type %></td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">File Name</th>
+            <td align="left" class="sectionTableCell"><%= @page.filename %></td>
+    </tr>    
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Relative Path</th>
+        <td align="left" class="sectionTableCell"><%= @page.rel_path %></td>
+    </tr> 
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">URL</th>
+        <td align="left" class="sectionTableCell"><%= ENV['EPFWIKI_BASE_URL'] %><%= @page.url %> </td>
+    </tr>   
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Updated On</th>
+        <td align="left" class="sectionTableCell"><%= @page.updated_on.strftime("%I:%M %p %d-%b-%y") %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Updated On</th>
+        <td align="left" class="sectionTableCell"><%= @page.updated_on.strftime("%I:%M %p %d-%b-%y") %></td>
+    </tr>
+    <% if cadmin? %>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">body_tag</th>
+        <td align="left" class="sectionTableCell"><%=h @page.body_tag %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">treebrowser_tag</th>
+        <td align="left" class="sectionTableCell"><%=h @page.treebrowser_tag %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">copyright_tag</th>
+        <td align="left" class="sectionTableCell"><%=h @page.copyright_tag %></td>
+    </tr>    
+    <% end %>
+</table>
+</div>
+
+

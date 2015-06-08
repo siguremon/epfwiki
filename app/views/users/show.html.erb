@@ -1,0 +1,116 @@
+<% @heading = "User: #{@user.name}" %>
+<% @overview = "User details of user #{@user.name}" %>
+
+<div id="discussion" style="display:none;" class="portal-tab">
+	<%= render :partial => 'portal/tabmenu', :locals => {:items => @tabitems, :current => 'discussion', :div_id => 'epfc_tabs', :ol_id => 'epfc_tabs_toc' }%>
+	<p><%= render(:partial => 'comments/comments_list') %></p>
+</div>
+
+<div id="changes"  style="display:none;" class="portal-tab">
+	<%= render :partial => 'portal/tabmenu', :locals => {:items => @tabitems, :current => 'changes', :div_id => 'epfc_tabs', :ol_id => 'epfc_tabs_toc' }%>
+	<p><%= render(:partial => 'versions/versions_list') %></p>
+</div>
+
+<div id="uploads"  style="display:none;" class="portal-tab">
+	<%= render :partial => 'portal/tabmenu', :locals => {:items => @tabitems, :current => 'uploads', :div_id => 'epfc_tabs', :ol_id => 'epfc_tabs_toc' }%>
+	<p><%= render(:partial => 'uploads/list') %></p>
+</div>
+
+<div id="new_pages"  style="display:none;" class="portal-tab">
+	<%= render :partial => 'portal/tabmenu', :locals => {:items => @tabitems, :current => 'new_pages', :div_id => 'epfc_tabs', :ol_id => 'epfc_tabs_toc' }%>
+	<p><%= render(:partial => 'pages/list') %></p>
+</div>
+
+<div id="general" class="portal-tab">
+	<%= render :partial => 'portal/tabmenu', :locals => {:items => @tabitems, :current => 'general', :div_id => 'epfc_tabs', :ol_id => 'epfc_tabs_toc' }%>
+	<% unless @user.page.blank? %>
+	<div class="sectionHeading"></div>	
+	<div class="sectionContent">
+	    <table class="sectionTable" border="0" cellpadding="0" cellspacing="0">
+	        <tbody><tr>
+	            <td class="sectionTableCell">
+	        		<%= raw @user.page %>
+	            </td>
+	        </tr>
+	    </tbody></table>
+	</div>
+	<% end %>
+	<div class="sectionHeading">Relationships</div>
+	<div class="sectionContent">
+	    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Sites</th>
+	            <td class="sectionTableCell" colspan="2">The user contributed in the following Wikis:
+	                <ul><% for site in @user.sites %>
+	                    <li><%= link_to_site site %></li>
+	                <% end %></ul>
+	            </td>
+	        </tr>                
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Notifications</th>
+	            <td class="sectionTableCell" colspan="2">
+	                <ul><% for notification in @user.notifications %>
+					<% if Page.exists?(notification.page_id) %>
+						<% p = Page.find(notification.page_id)%>
+	                	<li><input type="checkbox" 'checked' DISABLED> for <%= link_to_page p %> in Wiki <%= link_to_site p.site %></li>
+					<% else %>
+						<% notification.destroy %>
+					<% end %>
+	                <% end %></ul>
+	            </td>
+	        </tr>
+	    </table>
+	</div>
+	
+	<div class="sectionHeading">Properties</div>
+	<div class="sectionContent">
+	    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">ID</th>
+	            <td align="left" class="sectionTableCell"><%= @user.id.to_s %></td>
+	        </tr>
+	        <tr valign="top">
+	                <th scope="row" class="sectionTableHeading">Name</th>
+	                <td align="left" class="sectionTableCell"><%= @user.name %></td>
+	        </tr>
+	        <tr valign="top">
+	                <th scope="row" class="sectionTableHeading">Admin</th>
+	                <td align="left" class="sectionTableCell"><%= @user.admin %></td>
+	        </tr>
+	        <tr valign="top">
+	                <th scope="row" class="sectionTableHeading">Email</th>
+	                <td align="left" class="sectionTableCell">
+	                	[<%= mail_to @user.email, "Send Email", :encode => "hex" %>]
+					</td>
+	        </tr>    
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Change Report</th>
+	            <td align="left" class="sectionTableCell">
+	            <p>Receive a change report via email:</p>
+				<p>
+					<input type="checkbox" <%= 'checked' if @user.notify_daily == 1 %> DISABLED> Daily
+					<input type="checkbox" <%= 'checked' if @user.notify_weekly == 1 %> DISABLED> Weekly
+					<input type="checkbox" <%= 'checked' if @user.notify_monthly == 1 %> DISABLED> Monthly
+					<input type="checkbox" <%= 'checked' if @user.notify_immediate == 1 %> DISABLED> Immediate
+				</p>
+	            </td>
+	        </tr>     
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Contributed</th>
+	            <td align="left" class="sectionTableCell"><%= @comments.size.to_s %> Comments, <%= @versions.size.to_s %> Changes, <%= @uploads.size.to_s %> Uploads, <%= @pages.size.to_s %> New Pages </td>
+	        </tr>
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Logon Count</th>
+	            <td align="left" class="sectionTableCell"><%= @user.logon_count.to_s %></td>
+	        </tr>
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Created On</th>
+	            <td align="left" class="sectionTableCell"><%= @user.created_on.strftime("%I:%M %p %d-%b-%y") %></td>
+	        </tr>
+	        <tr valign="top">
+	            <th scope="row" class="sectionTableHeading">Last Logon On</th>
+	            <td align="left" class="sectionTableCell"><%= @user.last_logon.strftime("%I:%M %p %d-%b-%y") if @user.last_logon %></td>
+	        </tr>    
+	    </table>
+	</div>
+</div>

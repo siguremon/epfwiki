@@ -1,0 +1,50 @@
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+                <table width="100%">
+                     <tr>
+                        <th>ID</th>    
+                        <th>Name</th> 
+                        <th>Email</th>    
+                        <th>IP Address</th>
+						<th>Notifications<br><small>(Daily, Weekly,<br>Monthly,Immediate)</small></th>
+                        <th>Logon</th>
+                        <th>Created On</th>    
+                        <th>Last Logon On</th>    
+                        <th>Actions</th>
+                    </tr>
+                    <% for user in users %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= link_to_user user %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.ip_address %></td>
+						<td><%= [user.notify_daily, user.notify_weekly, user.notify_monthly, user.notify_immediate].join(', ') %></td>
+                        <td><%= user.logon_count.to_s %></td>
+                        <td><%= user.created_on.strftime("%I:%M %p %d-%b-%y") %></td>         
+                        <td><%= user.last_logon.strftime("%I:%M %p %d-%b-%y") if user.last_logon %></td>         
+                        <td>
+                    		<% if cadmin? %>
+								<% if user.admin? && !user.cadmin? %>
+									<%= link_to(image_tag("up.png", :border => 0, :align=>"middle", :title=>'Make this user the central administrator'), {:controller => 'users', :action => 'cadmin', :id => user.id}, :confirm => 'Are you sure? There can only be one!', :method => 'post' )%>
+									<%= link_to(image_tag("down.png", :border => 0, :align=>"middle", :title=>'Revoke administrator privileges'), {:controller => 'users', :action => 'admin', :id => user.id, :admin => 'N'}, :method => 'post' ) %>
+								<% elsif user.cadmin? %>
+								<% else %>
+									<%= link_to(image_tag("up.png" , :border => 0, :align=>"middle", :title=>'Grant administrator privileges'), {:controller => 'users', :action => 'admin', :id => user.id, :admin => 'Y'}, :method => 'post' ) %>									
+								<% end %>
+								<% if !user.cadmin? and false %>								
+									<%= link_to(image_tag("delete.png", :border => 0, :align=>"middle", :title=>'Delete this User'), {:controller => 'users', :action => 'destroy', :id => user.id}, :method => 'post', :confirm => 'Not properly implemented yet! Leads to corruption if user has versions, comments. This user has ' + user.versions.count.to_s + " versions and " + Comment.count(:conditions => ['user_id=?',user.id]).to_s + " comments!")%>
+								<% end %>
+							<% end %>
+							<% if admin? %>
+								[<%= link_to 'Edit Account', :action => 'account', :id => user.id %>]
+							<% end %>
+						</td>
+                    </tr>              
+                    <% end %>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>

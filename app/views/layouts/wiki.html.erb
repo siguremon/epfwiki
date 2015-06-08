@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<%= csrf_meta_tag %>
+    <title><%= @wiki.title + ' - ' + @page.presentation_name + ' - ' + params[:action].split(/\s+/).each{ |word| word.capitalize! }.join(' ') %></title>
+    <%= stylesheet_link_tag 'default' %>
+	<%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'contentpage' if @tinymce.blank? %>
+    <%= stylesheet_link_tag 'wiki' %>
+    <% if params[:controller] == 'pages' and params[:action] == 'search' %>
+    <!-- search stuff -->
+    	<%= javascript_include_tag 'jquery.ba-bbq.min','bootstrap.min' %>
+    	<%= javascript_include_tag 'search.js' %>
+    	<%= javascript_include_tag 'jquery.cookie.js' %>
+    	<%= stylesheet_link_tag 'bootstrap.min', 'bootstrap-theme.min' %> 
+	<!-- end of search stuff -->
+	<% else %>
+	    <%= stylesheet_link_tag "#{ENV['EPFWIKI_BASE_URL']}/#{ENV['EPFWIKI_WIKIS_FOLDER']}/#{@wiki.folder}/css/default.css" %>
+		<% if !@tinymce.blank? %>
+	        <%= javascript_include_tag 'tiny_mce/tiny_mce.js' %>  
+	        <script language="javascript" type="text/javascript">
+	        tinyMCE.init({
+	        gecko_spellcheck : true,
+	        mode : "textareas",
+	        theme : "<%= @tinymce %>",
+	        theme_advanced_statusbar_location: "bottom",
+	        theme_advanced_resizing : true,
+	        content_css : "../../stylesheets/default.css"
+	        });
+	        </script>        
+	    <% end %>
+    <% end %>  
+    </head>
+
+	<% if @tinymce.blank? and params[:action] != 'search' %>
+		<body onload="createSectionLinks('div', 'sectionHeading', './../../images/');">
+  	<% else %>
+		<body>
+	<% end %>
+	
+	<div id="epfwiki_header">
+		<%= render :partial => 'pages/header' %>
+	</div>
+	<div id="spacer"></div>
+
+  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td valign="top">
+          <a name="Top" id="Top"></a>
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tr>
+			<td nowrap="true" class="pageTitle">
+				<% if params[:action] == 'search'  %>
+				Search
+				<% else %>
+				<%= params[:action].capitalize.split(/\s+/).each{ |word| word.capitalize! }.join(' ') + ': ' + @page.presentation_name %>
+				<% end %>
+			</td><td align="right" class="expandCollapseLink" width="99%"><a href="./../../../index.htm"></a></td>
+			</tr>
+			</table>
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+               <td class="pageTitleSeparator">
+                  <%= image_tag 'shim.gif',:height => 1 %></td>
+				  <%= render :partial => 'other/img' %>				  
+            </tr>
+          </table>
+
+
+           <div class="overview">
+             <table cellpadding="0" cellspacing="0" border="0"
+             width="97%">
+               <tr>
+                 <td width="50">
+                    <%= image_tag('site_logo.jpg') %>
+                 </td>
+                 <td>
+                   <table cellpadding="0" cellspacing="0" border="0"
+                   class="overviewTable">
+                     <tr>
+                       <td valign="top">
+                           <%= @overview %>
+                       </td>
+                     </tr>
+                   </table>
+                 </td>
+               </tr>
+             </table>
+           </div>
+
+<!-- start of what should be a partial because it is also in management.rhtml -->
+<% unless flash.empty? %>
+    <div class="sectionContent">
+        <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+            <tr>
+                <td class="sectionTableCell">
+                    <table>
+                    <% ['error', 'warning', 'notice', 'success'].each do |flash_type| %>
+                        <% if flash[flash_type] %>
+                            <tr>
+                                <th valign="top" width="100"><%= image_tag(flash_type + '.png') %></th>
+                                <td><%= raw flash[flash_type] %></td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+<% end %>
+<!-- end of partial -->
+            <%= yield %>
+         </td>
+      </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+              <% if Rails.env == "development2" %>
+                <div class="sectionHeading">Debug</div>
+                <div class="sectionContent">
+                    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+                        <tr>
+                            <td class="sectionTableCell">
+                                <table>
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Session</th>
+                                      <td align="left" class="sectionTableCell"><%= debug(session) %></td>
+                                  </tr> 
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Params</th>
+                                      <td align="left" class="sectionTableCell"><%= debug(params) %></td>
+                                  </tr> 
+                                  <!--<tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Response</th>
+                                      <td align="left" class="sectionTableCell"> debug(response) </td>
+                                  </tr> -->
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Request Environment</th>
+                                      <td align="left" class="sectionTableCell"><%= debug(request.env) %></td>
+                                  </tr>
+                                  <% if @site %>
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Site</th>
+                                      <td align="left" class="sectionTableCell"><!-- TODOdebug(@site) --></td>
+                                  </tr>
+                                  <% end %>
+                                <% if @page %>
+                                    <tr valign="top">
+                                        <th scope="row" class="sectionTableHeading">Page</th>
+                                        <td align="left" class="sectionTableCell"><%= debug(@page) %></td>
+                                    </tr>
+                                <% end %>
+                                <% if @baseline %>
+                                    <tr valign="top">
+                                        <th scope="row" class="sectionTableHeading">Baseline</th>
+                                        <td align="left" class="sectionTableCell"><%= debug(@baseline) %></td>
+                                    </tr>
+                                <% end %>
+                                <% if @version %>
+                                    <tr valign="top">
+                                        <th scope="row" class="sectionTableHeading">Version</th>
+                                        <td align="left" class="sectionTableCell"><%= debug(@version) %></td>
+                                    </tr>
+                                <% end %>
+                                </table>
+                            </td>
+                      </tr>
+                  </table>
+              </div>
+            <% end %>
+     </body>
+</html>

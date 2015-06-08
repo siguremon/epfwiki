@@ -1,0 +1,39 @@
+<%= javascript_include_tag  :defaults %>
+<% @heading = 'Log in' %>
+<% @overview =  raw "Not a user? Click #{link_to('here', :controller => 'login', :action => 'sign_up')} to create a new account!"  %>
+
+<%= error_messages_for @user %>
+
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+                <table width=100% border=0>
+                    <tr>
+                        <td>
+							<%= raw @login_message %>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<div class="styled-form">
+<%= form_for(@user, :url => login_login_index_path(@user))  do |f| %>
+    <div class="form-row">
+    	<label>Email:</label>
+		<%= f.text_field :email, :size => 42 %>
+	</div>
+	<div class="form-row">
+    	<label>Password:</label>
+		<%= f.password_field(:password, :size => 42) %> (<%= link_to 'I forgot my password', :controller => 'login', :action => 'lost_password' %>)
+	</div>
+	<div class="form-row">
+		<label><%= f.check_box(:remember_me, {}, 0, 1) %> Remember me</label>
+    	<%= f.submit 'Let me in!' %>
+	</div>
+<% end %>
+</div>

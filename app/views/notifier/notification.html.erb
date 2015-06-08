@@ -1,0 +1,8 @@
+<%= render :partial => 'header' %>
+<p><%= raw @introduction %></p>
+<% unless @body.blank? %><p><table width=100% border=1><tr><td>
+<%= raw @body %>
+</td></tr></table></p>
+<% end %>
+<p>To unsubscribe from receiving notifications, edit your user details at <%= @link %></p>
+<%= render :partial => 'footer' %>

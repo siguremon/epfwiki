@@ -1,0 +1,86 @@
+<% @heading = "Search" %>
+<div id="search-bar">
+	<% unless @wiki %>
+	<!-- no wiki defined, we are doing a global search -->
+	<div id="btn-group-site" class="btn-group">
+		<button type="button" 
+		class="btn btn-default dropdown-toggle btn-title" 
+		data-toggle="dropdown"
+		data-placement="bottom"
+		data-content=""
+		data-original-title="Site:	 All">
+			<div class="criteria-wrap">
+				<span class="fieldLabel">Site:</span> All <span class="caret"></span>
+			</div>
+		</button>
+		<ul class="dropdown-menu" role="menu"">
+			<li>
+				<input type="text" class="filter-box" placeholder="Filter sites...">
+			</li>
+			<li class="divider"></li>
+			<li class="check-list-item-group">
+				<label style="margin-left:5px;">Wikis</label>
+			</li>
+			<% @wikis.each do |wiki| %>
+			<li class="check-list-item">
+				<a class="check-a-item">
+				<input type="checkbox" tabindex="-1" value="<%= wiki.id %>" data-title="<%= wiki.title %>" data-param="site">
+				<%= wiki.title %></a>
+			</li>
+			<% end %>
+			<li class="divider"></li>
+			<li class="check-list-item-group">
+				<label style="margin-left:5px;">Baselines</label>
+			</li>
+			<% @baselines.each do |baseline| %>
+			<li class="check-list-item">
+				<a class="check-a-item">
+				<input type="checkbox" tabindex="-1" value="<%= baseline.id %>" data-title="<%= baseline.title %>" data-param="site">
+				<%= baseline.title %></a>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+	<% end %>
+	
+	<div class="btn-group" id="btn-group-type">
+		<button type="button" 
+		class="btn btn-default dropdown-toggle btn-title" 
+		data-toggle="dropdown"
+		data-placement="bottom"
+		data-content=""
+		data-original-title="Type:	 All">
+			<div class="criteria-wrap">
+				<span class="fieldLabel">Type:</span> All <span class="caret"></span>
+			</div>
+		</button>
+		<ul class="dropdown-menu" role="menu">
+			<li>
+				<input type="text" class="filter-box" placeholder="Filter types...">
+			</li>
+			<li class="divider"></li>
+			<% @types.each do |type| %>
+			<li class="check-list-item">
+				<a class="check-a-item">
+				<input type="checkbox" tabindex="-1" value="<%= type.id %>" data-title="<%= type.name %>" data-param="type">
+				<%= type.name %></a>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+
+
+	<div class="btn-group" id="btn-group-search">
+		<div class="col-lg-6" style="width:180px">
+			<div class="input-group">
+				<input name="search-text" type="text" class="form-control search-box">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button">
+						Go!
+					</button> </span>
+			</div><!-- /input-group -->
+		</div><!-- /.col-lg-6 -->
+	</div>
+</div><!-- search-bar -->
+
+<div id="results"></div>	

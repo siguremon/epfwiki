@@ -1,0 +1,27 @@
+<% @heading = 'Edit User Details' %>
+<% @overview = raw "Use the form below to edit details of user #{link_to_user(@user)}. The page field is part of your public page. " %>
+
+<% tinymce 'advanced' %>
+
+<%= error_messages_for @user %>
+
+<div class="styled-form">
+<%= form_for(@user, :url => '/users/edit') do |f| %>
+	<%= hidden_field_tag 'id', @user.id %>
+    <div class="form-row">
+   		<label>Name: </label><%= f.text_field :name, :size => 30 %>
+	</div>
+	<div class="form-row">
+		<label>Profile page:</label><%= f.text_area :page, :cols => 80, :rows => 10 %>
+	</div>
+	<div class="form-row">
+		<label>Notifications: </label><%= f.check_box("notify_daily") %> Daily 
+			<%= f.check_box("notify_weekly") %> Weekly 
+			<%= f.check_box("notify_monthly") %> Monthly
+			<%= f.check_box("notify_immediate") %> immediate		
+	</div>
+	<div class="form-row">
+  	<%= f.submit "Submit" %>
+	</div>    
+<% end %>
+</div>

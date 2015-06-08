@@ -1,0 +1,65 @@
+   <div class="sectionHeading">Versions</div>
+   <div class="sectionContent">
+      <% if @versions %>  
+      <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+         <tr>
+            <td class="sectionTableCell">
+            <table width="100%">
+               <tr>
+                  <th>ID</th> 
+				  <% if @page.nil? %>
+				  	<th>Page</th>
+				  <% end %>
+                  <th>Version</th>
+				  <th>Note</th> 
+                  <th>Created</th>
+                  <th>Created By</th>
+                  <th>Review<br>Complete<br>(Harvested)</th>				  
+                  <th>Reviewer</th>
+				  <th>Review Note</th>
+				  <th>Review Note<br>Send On</th>
+                  <% if @site.nil? && @wiki.nil? %><th>Site</th><% end %>
+              </tr>
+               <% for version in @versions %>
+                 <tr id="version-<%= version.version %>">
+                    <td><%= version.id %></td>
+					<% if @page.nil? %>
+                    	<td><%= link_to_page(version.page) %></td>
+					<% end %>
+                     <td><%= link_to_version(version, 'Version') %></td>
+					 <td>
+						<% if admin? %>
+							<div class="edit-area" id="/versions/note/<%= version.id %>/<%= version.class.name%>"><%= version.note %></div>
+					 	<% else %>
+							<%= version.note %>
+					 	<% end %>
+					 </td>
+                     <td><%= version.created_on.localtime.strftime(Utils::TIME_FORMAT) %></td> 
+					 <td>
+					 	<% if version.user_version? %>        
+                     		<%= link_to_user version.user %>
+					 	<% else %>
+					 		<%= link_to_site version.baseline_process %>
+					 	<% end %>
+					 </td>
+						<td><%= link_to_done_toggle(version) %></td>
+                     <td><%= link_to_reviewer version %></td>
+					 <td>
+				 		<% if admin? %>
+				 			<div class="edit-area" id="/review/note/<%= version.id%>/Version"><%= version.review_note %></div>
+						<% else %>
+							<%= version.review_note %>
+						<% end %>
+					</td>
+					<td><%= version.review_note_send_on.localtime.strftime(Utils::TIME_FORMAT) unless version.review_note_send_on.nil? %></td>
+                     <% if @site.nil? && @wiki.nil? %><td><%= link_to_site version.wiki %></td><% end %>
+                 </tr>
+               <% end %>
+            </table>
+            <% else %>
+               No versions found!
+            <% end %>
+            </td>
+         </tr>
+      </table>
+   </div>

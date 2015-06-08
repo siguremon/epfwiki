@@ -1,0 +1,369 @@
+<% @heading = "Baseline Process: #{@site.title}" if @site.baseline_process? %>
+<% @heading = "Wiki: #{@site.title}" if @site.wiki? %>
+<% @overview = raw("Use this page to manage " + link_to_site(@site)) %>
+
+<div id="menu">
+	<%= link_to 'Edit', {:action => 'edit', :id => @site}, :title => "Edit detail information of #{@site.title}" %>   
+    <% if @site.wiki? %>
+		 <% if admin? %>
+		 	| <%= link_to 'New Wiki', :action => 'new_wiki' %>
+		 <% end %>
+    <% end %>
+</div>
+
+<% if @site.wiki?  %>
+<br>
+<br>
+
+<div id="epfc_tabs">
+	<ol id="epfc_tabs_toc">
+		<%= menulink_to 'Description',  :controller => 'sites', :action => 'description', :id => @site.id %>
+	    <%= menulink_to 'Versions',  :controller => 'sites', :action => 'versions', :id => @site.id %>
+		<%= menulink_to 'Comments', :controller => 'sites', :action => 'comments', :id => @site.id %>
+		<%= menulink_to 'Pages', :controller => 'sites', :action => 'pages', :id => @site.id %>		
+		<%= menulink_to 'Uploads', :controller => 'sites', :action => 'uploads', :id => @site.id %>		
+		<% if admin? %><%= menulink_to 'Feedback', :controller => 'sites', :action => 'feedback', :id => @site.id  %><% end %>
+	</ol>
+</div>
+
+
+<% if @versions %>
+	<p>
+	<form name="filter" method="get">
+		Filter:
+		<%= check_box('filter', 'done', {}, 'N', 'All' )%> Only Todo
+		<%= check_box('filter', 'type_filter', {}, 'UserVersion', 'All' )%> Only User Versions
+		<input type=submit value=OK>
+	</form>
+	</p>
+	<%= will_paginate @versions %>
+	<%= render(:partial => 'versions/versions_list') %>
+<% end %>
+
+<% if @comments %>
+	<p>
+	<form name="filter" method="get">
+		Filter:
+		<%= check_box('filter', 'done', {}, 'N', 'All' )%> Only Todo
+		<input type=submit value=OK>
+	</form>
+	</p>
+	<%= will_paginate @comments  %>
+	<%= render(:partial => 'comments/comments_list')  %>
+<% end  %>
+
+<% if admin? and @pages %>
+	<%= will_paginate @pages %>
+	<%= render(:partial => 'pages/list') %>
+<% end %>
+
+<% if admin? and @uploads %>
+	<%= will_paginate @uploads %>
+	<%= render(:partial => 'uploads/list') %>
+<% end %>
+
+<% if admin? and @feedbacks %>
+	<%= will_paginate @feedbacks %>
+	<%= render(:partial => 'feedbacks/list') %>
+<% end %>
+	
+<br>
+<br>
+<% end %>
+
+<% if params[:action] == 'description' %>
+
+<div class="sectionHeading">Description</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <td class="sectionTableCell">
+            	<%= if @site.description.blank? 
+					link_to 'Click to add a description...', {:action => 'edit', :id => @site}
+				else
+					@site.description
+				end %>
+            </td>
+        </tr>
+    </table>
+</div>
+
+
+<% if @site.wiki? %>
+<div class="sectionHeading">Updates</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <th scope="row" class="sectionTableHeading">Current Baseline Process</th>
+            <td align="left" class="sectionTableCell">
+    			<ul>
+					<% if @site.status != 'Pending' %>
+						<%= link_to_site @site.baseline_process if @site.baseline_process %>
+					<% else %>
+						<%= @site.title %> is pending and so there is no current Baseline Process Yet. The Wiki is empty.
+					<% end %>
+				</ul>
+			</td>
+        </tr>
+        <tr>
+            <th scope="row" class="sectionTableHeading">Status</th>
+            <td align="left" class="sectionTableCell">
+				<%= @site.status %>
+			</td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Updates</th>
+            <td align="left" class="sectionTableCell" >
+             <ul>
+             	<% @site.updates_done.each do |update| %>
+					<li><%= link_to_site update.baseline_process %>  deployed on  <%= update.started_on.localtime.strftime(Utils::TIME_FORMAT) %> </li>
+				<% end %>
+             </ul>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Scheduled</th>
+            <td align="left" class="sectionTableCell" >
+             <ul>
+             	<% @site.updates_todo.each do |update| %>
+					<li><%= link_to_site update.baseline_process %> scheduled on <%= update.created_on.localtime.strftime(Utils::TIME_FORMAT) %> 
+					[<%= link_to 'Cancel', {:action => 'update_cancel', :update_id => update.id, :id => @site.id}, :confirm => 'Are you sure?', :method => :post %>] 
+					[<%= link_to 'Update Now', {:action => 'update_now', :update_id => update.id, :id => @site.id}, :confirm => 'Are you sure?', :method => :post %>] </li>
+				<% end %>
+             </ul>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Schedule New Update</th>
+            <td align="left" class="sectionTableCell" ><%= link_to_function("Select a Baseline Process ...", "$('#baselines').toggle()") %>
+             <ul id="baselines" style="display:none;" >
+             	<% BaselineProcess.find(:all, :order => 'created_on DESC', :conditions => ['obsolete_on is null']).each do |bp| %>
+					<li><%= link_to bp.title, {:action => 'schedule_update', :baseline_process_id => bp.id, :id => @site.id}, :confirm => "Schedule update of Wiki '#{@site.title}' with Baseline Process '#{bp.title}'?", :method => :post %> created on <%= bp.created_on.localtime.strftime(Utils::TIME_FORMAT) %></li>
+				<% end %>
+             </ul>
+            </td>
+        </tr>		
+    </table>
+</div>
+
+
+<div class="sectionHeading">Harvesting/Reviewing</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <th scope="row" class="sectionTableHeading">Versions</th>
+            <td align="left" class="sectionTableCell">
+            	<%= Version.count(:conditions => ['wiki_id=? and done=? and baseline_process_id is null', @site.id, 'N']).to_s %> to do of a total of <%= Version.count(:conditions => ['wiki_id=? and baseline_process_id is null', @site.id]).to_s %> versions
+			</td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Comments</th>
+            <td align="left" class="sectionTableCell" >
+            	<%= @site.comments.count(:conditions => ['done=?', 'N']).to_s %> to do of a total of <%= @site.comments.count.to_s %> comments
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Uploads</th>
+            <td align="left" class="sectionTableCell" >
+				<%= Upload.count(:conditions => ['done=?', 'N']).to_s %> to do of a total of <%= Upload.count.to_s %> uploads
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Feedback</th>
+            <td align="left" class="sectionTableCell" >
+				<%= Feedback.count(:conditions => ['done=?', 'N']).to_s %> to do of a total of <%= Feedback.count.to_s %> feedback items
+            </td>
+        </tr>
+    </table>
+</div>
+<% end %>
+
+<div class="sectionHeading">Content</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+		<% if @site.wiki? %>
+        <tr>
+            <th scope="row" class="sectionTableHeading">Harvesting</th>
+            <td align="left" class="sectionTableCell" colspan="2">
+    			<ul>
+					<li><%= Version.count(:conditions => ['wiki_id=? and done=? and baseline_process_id is null', @site.id, 'N']).to_s %> versions to do of <%= Version.count(:conditions => ['wiki_id=? and baseline_process_id is null', @site.id]).to_s %> </li>
+					<li><%= @site.comments.count(:conditions => ['done=?', 'N']).to_s %> comments to do of <%= @site.comments.count.to_s %> </li>
+					<li><%= Upload.count(:conditions => ['done=?', 'N']).to_s %> uploads to do of <%= Upload.count.to_s %> </li>
+				</ul>
+			</td>
+        </tr>
+		<% end %>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Content Types</th>
+			<% if @site.wiki? %>
+	            <td align="left" class="sectionTableCell" >EPFC Pages:<ul><li>
+					<%= raw WikiPage.count(:group => 'uma_type', :conditions => ['site_id=? and tool=?',@site.id, 'EPFC'] ).collect{|t|t.join(': ')}.join('</li><li>') %>
+					</li></ul>
+	            </td>
+	            <td align="left" class="sectionTableCell" >Wiki Pages:<ul><li>
+					<%= raw WikiPage.count(:group => 'uma_type', :conditions => ['site_id=? and tool=?',@site.id, 'Wiki'] ).collect{|t|t.join(': ')}.join('</li><li>') %>
+					</li></ul>
+	            </td>
+			<% else %>
+	            <td align="left" class="sectionTableCell" ><ul><li>
+					<%= raw BaselineProcessPage.count(:group => 'uma_type', :conditions => ['site_id=?',@site.id] ).collect{|t|t.join(': ')}.join('</li><li>') %>
+					</li></ul>
+	            </td>
+			<% end %>
+        </tr>
+		<% if @site.wiki? %>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Status</th>
+            <td align="left" class="sectionTableCell" >EPFC Pages:
+				<ul><li>
+					<%= WikiPage.count(:group => 'status', :conditions => ['site_id=? and tool=?',@site.id, 'EPFC'] ).collect{|t|t.join(': ')}.join('</li><li>') %>
+				</li></ul>
+            </td>
+            <td align="left" class="sectionTableCell" >Wiki Pages:
+				<ul><li>
+					<%= WikiPage.count(:group => 'status', :conditions => ['site_id=? and tool=?',@site.id, 'Wiki'] ).collect{|t|t.join(': ')}.join('</li><li>') %>
+				</li></ul>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Checkouts</th>
+            <td align="left" class="sectionTableCell" colspan="2">
+             <ul>
+                <% for checkout in @site.checkouts %>
+                <li>
+                   <%= checkout.created_on.localtime.strftime(Utils::TIME_FORMAT) %> <%= link_to_user checkout.user %> of <%= link_to_page checkout.page %> in Wiki <%= link_to_site checkout.site %>
+                </li>
+                <% end %>
+             </ul>
+            </td>
+        </tr>
+		<% end %>
+    </table>
+</div>
+
+<% if @site.wiki? %>
+<div class="sectionHeading">RSS Feeds</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <th scope="row" class="sectionTableHeading">News, changes, comments, baseline updates</th>
+            <td align="left" class="sectionTableCell">
+            	<% u = url_for :controller => 'rss', :action => 'list', :site_folder => @site.folder %>
+				<%= link_to u, u  %>
+			</td>
+        </tr>
+        <tr>
+            <th scope="row" class="sectionTableHeading">Practices</th>
+            <td align="left" class="sectionTableCell">
+            	<code>rss/:site_folder/practices/:practice_name</code>
+			</td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Content Type</th>
+            <td align="left" class="sectionTableCell" >
+            	<code>rss/:site_folder/:uma_type</code>
+            </td>
+        </tr>
+    </table>
+</div>
+<% end %>
+
+
+<% if @site.wiki? %>
+<div class="sectionHeading">Contributors</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+        <tr>
+            <th scope="row" class="sectionTableHeading">Overall</th>
+            <td align="left" class="sectionTableCell">
+            	<ul>
+            	<% @site.top_contributors.each do |c | %>
+					<% if c[1] > 5 %>
+					<li><%= link_to_user c[0] %>: <%= c[1].to_s %></li>
+					<% end %>
+				<% end %>
+				</ul>
+            </td>
+        </tr>
+        <tr valign="top">
+            <th scope="row" class="sectionTableHeading">All</th>
+            <td align="left" class="sectionTableCell" >
+               <ul>
+                   <% for user in @site.users %>
+                   <li>
+                      <%= link_to_user(user) %>
+                   </li>
+                   <% end %>
+                </ul>
+            </td>
+        </tr>
+    </table>
+</div>
+<% end %>
+
+<% if @site.wiki? %>
+<div class="sectionHeading">Reports</div>
+<div class="sectionContent">
+    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    	<% ['Daily','Weekly', 'Monthly', 'Immediate'].each do |report| %>
+        <tr>
+            <th scope="row" class="sectionTableHeading"><%= report %></th>
+            <td align="left" class="sectionTableCell">
+	           	<p></>The following users will be notified of changes and new comments:
+	        	<%= Notification.find_all_users(@site, report).collect{|u|u.name}.join(', ') %>.
+				</p>
+				<p><%= link_to_notification_toggle(@site.id, report)  %></p>
+            </td>
+        </tr>
+		<% end %>
+    </table>
+</div>
+<% end %>
+
+
+<div class="sectionHeading">Properties</div>
+<div class="sectionContent">
+<table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">ID</th>
+        <td align="left" class="sectionTableCell"><%= @site.id %></td>
+    </tr>
+    <tr valign="top">
+            <th scope="row" class="sectionTableHeading">Title</th>
+            <td align="left" class="sectionTableCell"><%= @site.title %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Root Path</th>
+        <td align="left" class="sectionTableCell"><%= @site.path %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">URL</th>
+        <td align="left" class="sectionTableCell"><%= url_for(@site.rel_path) %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Created On</th>
+        <td align="left" class="sectionTableCell"><%= @site.created_on.strftime("%I:%M %p %d-%b-%y") %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Updated On</th>
+        <td align="left" class="sectionTableCell"><%= @site.updated_on.strftime("%I:%M %p %d-%b-%y") %></td>
+    </tr>
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Content Scanned On</th>
+        <td align="left" class="sectionTableCell"><%= @site.content_scanned_on.strftime("%I:%M %p %d-%b-%y") if @site.content_scanned_on %>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row" class="sectionTableHeading">Pages</th>
+        <td align="left" class="sectionTableCell">
+			<% if @site.wiki? %>
+				<%= WikiPage.count(:conditions => ['site_id=?',@site.id] ) %>
+			<% else %>
+				<%= BaselineProcessPage.count(:conditions => ['site_id=?',@site.id] ) %>
+			<% end %>
+        </td>
+    </tr>
+</table>
+</div>
+<% end %>

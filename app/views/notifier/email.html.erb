@@ -1,0 +1,17 @@
+<style>
+<!--
+
+* { font-size:    9pt;    
+    font-family:    verdana, helvetica, arial, sans-serif; line-height: 1.7em; 
+    }
+
+p   {   margin: 0 
+    }
+-->
+</style>
+<%= Utils::MSG_EMAIL_SERVER_GENERATED %><br><br>
+<br>
+<%= @text %>
+<br><br><br>
+If you have questions regarding <%= ENV['EPFWIKI_APP_NAME'] %> or this e-mail, please contact <a href="mailto:<%= @admin.email %>"><%= @admin.name %></a>
+

@@ -1,0 +1,3 @@
+<%= render :partial => 'tinymce' %>
+<%= javascript_tag("alert('The page is currently checked out by user #{@checkout.user.name}. You can modify the HTML but you cannot commit any changes!')") if !mine?(@checkout) && !cadmin? %>
+<%= javascript_tag("alert('The page is currently checked out by user #{@checkout.user.name}. As you are the central administrator you can perform operations on this checkout. Other users cannot!')") if !mine?(@checkout) && cadmin? %>

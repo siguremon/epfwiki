@@ -1,0 +1,201 @@
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title><%= (ENV['EPFWIKI_APP_NAME'] + " - ") if !@site || !@site.id %><% if @site && @site.id %><%= @site.title + ' - ' %><% end %><%= @heading %></title>
+    <%= stylesheet_link_tag 'default' %>
+	<%= stylesheet_link_tag 'wiki' %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag 'jquery.jeditable.mini.js' %>
+	<%= javascript_include_tag "contentpage" %>
+	<%= javascript_include_tag "steps" %>	
+    <% if params[:controller] == 'search' and params[:action] != 'tasks' %>
+    <!-- search stuff -->
+    	<%= javascript_include_tag 'jquery.ba-bbq.min','bootstrap.min' %>
+    	<%= javascript_include_tag 'search.js' %>
+    	<%= javascript_include_tag 'jquery.cookie.js' %>
+    	<%= stylesheet_link_tag 'bootstrap.min', 'bootstrap-theme.min' %> 
+	<!-- end of search stuff -->
+    <% end %>    
+    <script type="text/javascript" language="JavaScript">
+               backPath = './../../';
+    </script>
+    <% unless @tinymce.blank? %>
+        <%= javascript_include_tag 'tiny_mce/tiny_mce.js' %>  
+        <script language="javascript" type="text/javascript">
+        tinyMCE.init({
+        gecko_spellcheck : true,
+        mode : "textareas",
+        theme : "<%= @tinymce %>",
+        theme_advanced_statusbar_location: "bottom",
+        theme_advanced_resizing : true,
+        content_css : "../../stylesheets/default.css"
+        });
+        </script>        
+    <% end %>
+    </head>
+  <body onload="createSectionLinks('div', 'sectionHeading', './../../images/');">
+
+<% unless params[:action] == 'login' %>  
+<% params[:action] = case params[:controller] + '/' + params[:action]
+when 'sites/list' 
+	'Sites'
+when 'users/list' 
+	'Users'
+when 'search/index'
+	'Search'
+when 'users/account' 
+	"Account"
+when 'other/about' 
+	'About'
+end
+%>	
+<div id="epfwiki_header">
+<div id="toolbar">
+	<ol id="toc">
+	    <%= menulink_to 'Sites', :controller => 'sites', :action => 'list' %>
+		<%= menulink_to 'Users', :controller => 'users', :action => 'list' %>
+		<%= menulink_to 'Search', :controller => 'search' %>
+		<% if admin? %>
+		  <%= menulink_to 'About', :controller => 'other', :action => 'about' %>			      <% end %>
+		<% if session['user'] %>
+			<li class="simple"><%= link_to raw('<span>Logout</span>'), :controller => 'login', :action => 'logout'%></li>
+		<% else %>
+			<li class="simple"><%= link_to raw('<span>Login</span>'), :controller => 'login', :action => 'login' %></li>
+		<% end %>
+		<li class="simple"><a href="<%= ENV['EPFWIKI_BASE_URL'] %>" target="_top"><span>Home</span></a></li>
+		<% if session['user'] %>
+			<li class="simple"><%= link_to raw("<span>#{session_user.email}</span>"), :controller => 'users', :action => 'account' %></li>
+		<% end %>
+	</ol>
+</div>
+</div>
+<div id="spacer"></div>
+<% end %>
+	
+  <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td valign="top">
+          <a name="Top" id="Top"></a>
+
+          <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+              <td class="pageTitle">
+                  <%= @heading %>
+              </td>
+            </tr>
+          </table>
+          
+          <table cellspacing="0" cellpadding="0" border="0" width="100%">
+            <tr>
+               <td class="pageTitleSeparator">
+                  <%= image_tag 'shim.gif',:height => 1 %></td>
+				  <%= render :partial => 'other/img' %>
+            </tr>
+          </table>
+          
+           <div class="overview">
+             <table cellpadding="0" cellspacing="0" border="0"
+             width="97%">
+               <tr>
+                 <td width="50">
+                    <%= image_tag('site_logo.jpg') %>
+                 </td>
+                 <td>
+                   <table cellpadding="0" cellspacing="0" border="0"
+                   class="overviewTable">
+                     <tr>
+                       <td valign="top">
+                           <%= @overview %>
+                       </td>
+                     </tr>
+                   </table>
+                 </td>
+               </tr>
+             </table>
+           </div>
+
+<!-- start of what should be a partial because it is also in layout wiki.rhtml -->
+<% unless flash.empty? %>
+    <div class="sectionContent">
+        <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+            <tr>
+                <td class="sectionTableCell">
+                    <table>
+                    <% ['error', 'warning', 'notice', 'success'].each do |flash_type| %>
+                        <% if flash[flash_type] %>
+                            <tr>
+                                <th valign="top" width="100"><%= image_tag(flash_type + '.png') %></th>
+                                <td><%= raw flash[flash_type] %></td>
+                            </tr>
+                        <% end %>
+                    <% end %>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+<% end %>
+<!-- end of partial -->       
+             <%= yield %>
+         </td>
+      </tr>
+  </table>
+  <br>
+  <br>
+  <br>
+              <% if Rails.env == "development2" %>
+                <div class="sectionHeading">Debug</div>
+                <div class="sectionContent">
+                    <table cellpadding="0" cellspacing="0" border="0" class="sectionTable">
+                        <tr>
+                            <td class="sectionTableCell">
+                                <table>
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Session</th>
+                                      <td align="left" class="sectionTableCell"><%= debug(session) %></td>
+                                  </tr> 
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Params</th>
+                                      <td align="left" class="sectionTableCell"><%= debug(params) %></td>
+                                  </tr> 
+                                  <!--<tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Response</th>
+                                      <td align="left" class="sectionTableCell"> debug(response) </td>
+                                  </tr> -->
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Request Environment</th>
+                                      <td align="left" class="sectionTableCell"><%= debug(request.env) %></td>
+                                  </tr>
+                                  <% if @site %>
+                                  <tr valign="top">
+                                      <th scope="row" class="sectionTableHeading">Site</th>
+                                      <td align="left" class="sectionTableCell"><!-- TODOdebug(@site) --></td>
+                                  </tr>
+                                  <% end %>
+                                <% if @page %>
+                                    <tr valign="top">
+                                        <th scope="row" class="sectionTableHeading">Page</th>
+                                        <td align="left" class="sectionTableCell"><%= debug(@page) %></td>
+                                    </tr>
+                                <% end %>
+                                <% if @version %>
+                                    <tr valign="top">
+                                        <th scope="row" class="sectionTableHeading">Version</th>
+                                        <td align="left" class="sectionTableCell"><%= debug(@version) %></td>
+                                    </tr>
+                                <% end %>
+                                </table>
+                            </td>
+                      </tr>
+                  </table>
+              </div>
+            <% end %>
+                    <div id="footer">
+        <p>
+            <%= link_to 'Site Help and Feedback', :controller => 'portal', :action => 'feedback' %> 
+        </p>
+        </div>
+     </body>
+</html>
+

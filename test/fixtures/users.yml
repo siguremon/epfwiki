@@ -1,0 +1,76 @@
+# == Schema Information
+# Schema version: 1
+#
+# Table name: users
+#
+#  id                       :integer(11)   not null, primary key
+#  email                    :string(250)   default(), not null
+#  name                     :string(50)    default(), not null
+#  ip_address               :string(20)    default(), not null
+#  hashed_password          :string(40)    
+#  hashed_password_new      :string(40)    
+#  admin                    :string(1)     default(N), not null
+#  notify_daily             :integer(1)    default(0), not null
+#  notify_weekly            :integer(1)    default(0), not null
+#  notify_monthly           :integer(1)    default(0), not null
+#  site_id                  :integer(10)   
+#  created_on               :datetime      
+#  updated_on               :datetime      
+#  http_user_agent          :string(250)   
+#  logon_count              :integer(5)    default(0)
+#  logon_using_cookie_count :integer(5)    default(0)
+#  last_logon               :datetime      
+#  confirmed_on             :datetime      
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+andy:
+    id: 1
+    email: "andy.kaufman@epf.eclipse.org"
+    name: "Andy Kaufman"
+    ip_address: "localhost"
+    hashed_password: "<%= hash_pw("secret") %> "
+    admin: "Y"
+    created_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    updated_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    confirmed_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+admin:
+    id: 2
+    email: "user2@epf.eclipse.org"
+    name: "User2"
+    ip_address: "localhost"
+    hashed_password: "<%= hash_pw("user2") %> "
+    admin: "Y"
+    created_on:  "2006-01-01 00:00:00"
+    updated_on: "2006-01-02 00:00:00"
+    confirmed_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"    
+cash:
+    id: 3
+    email: "cash.oshman@epf.eclipse.org"
+    name: "Cash Oshman"
+    ip_address: "localhost"
+    hashed_password: "<%= hash_pw("secret") %> "
+    admin: "N"
+    created_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    updated_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>" 
+    confirmed_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"    
+tony:
+    id: 4
+    email: "tony.clifton@epf.eclipse.org"
+    name: "Tony Clifton"
+    ip_address: "localhost"
+    hashed_password: "<%= hash_pw("secret") %> "
+    admin: "N"
+    created_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    updated_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    confirmed_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+george:
+    id: 5
+    email: "george.shapiro@epf.eclipse.org"
+    name: "George Shapiro"
+    ip_address: "localhost"
+    hashed_password: "<%= hash_pw("secret") %> "
+    admin: "C"
+    created_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    updated_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"
+    confirmed_on: "<%= Time.now.strftime "%Y-%m-%d %H:%M:%S" %>"

@@ -1,0 +1,44 @@
+    <%= render :partial => 'notifier/header' %>
+    <p>
+	<%= link_to ENV['EPFWIKI_APP_NAME'], "#{ENV['EPFWIKI_BASE_URL']}/" %>
+	</p>
+	<hr>
+	<p>
+		<strong>General Summary</strong>
+		<ul>
+		<% @report.items.each do |itm| %>
+			<% if itm.class.name == 'Upload' %>
+				<li><%= link_to itm.filename, itm.url %> was uploaded by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+			<% elsif itm.class.name == 'User' %>
+				<li><%= itm.name %> registered as a new user at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+			<% end %>
+		<% end %>
+		</ul>
+	</p>
+	<% @wikis.each do |w| %>
+		<hr>
+		<p>
+			<strong><%= link_to w.title, w.url %> Summary</strong>
+			<ul>
+				<% @report.items.each do |itm| %>
+					<% if itm.class.name == 'Version' && itm.wiki == w %>
+						<li><%= link_to itm.presentation_name, itm.page.url %> was changed by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+					<% elsif itm.class.name == 'Comment' && itm.site == w %>
+						<li><%= link_to itm.page.presentation_name, itm.page.url %> was discussed by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+					<% elsif itm.class.name == 'Update' && itm.wiki == w %> 
+						<li><%= link_to itm.wiki.title, itm.wiki.url %> was updated with <%= link_to itm.baseline_process.title, itm.baseline_process.url %> by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+					<% elsif itm.class.name == 'Wiki' && itm == w %>
+						<li><%= link_to itm.title, itm.url %> was created by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+					<% elsif itm.class.name == 'Checkout' && itm.site == w %>
+						<li><%= link_to itm.page.presentation_name, itm.page.url %> was checked out by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+					<% elsif itm.class.name == 'WikiPage' && itm.site == w %>
+						<li><%= link_to itm.presentation_name, itm.url %> was created by <%= itm.user.name %> at <%= itm.created_on.strftime(Utils::TIME_FORMAT) %></li>
+					<% end %>
+				<% end %>
+			</ul>
+		</p>
+	<% end %>	
+
+<p>Generated on: <strong><%= @report.runtime.to_s %></strong><br>
+Showing from <strong><%= @report.starttime.to_s %></strong> to <strong><%= @report.starttime.to_s %></strong></p>
+<%= render :partial => 'notifier/footer' %>

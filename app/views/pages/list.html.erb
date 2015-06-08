@@ -1,0 +1,14 @@
+<% @heading = params[:type].capitalize %>
+<h2><%= @heading %></h2>
+
+<ul>
+    <% @pages.each do |page| %>
+    <li><%= page.presentation_name %>
+        <% page.sites.each do |site| %>
+            <% if site.wiki? %>
+            | <%= site.title %> <%= link_to_page(page) %>
+            <% end %>
+        <% end %>
+    </li>
+    <% end %>
+</ul>

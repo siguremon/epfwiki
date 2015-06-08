@@ -1,0 +1,12 @@
+<% @heading = "Checking Out #{@page.presentation_name}" %>
+<%= raw "You are about to check-out the page \"#{@page.presentation_name}\". <p>To be able to edit this page a reserved working copy will be created. <br>The page will be locked untill you check-in or undo the check-out. The changes will be visible to other users only after you check-in.</p><p>It is recommended to add a check-out note, you can modify this note when you check-in the file.</p>" %>
+
+<%= error_messages_for @version %>
+
+<div class="styled-form">
+<%= form_for @version, :url => {:controller => 'pages', :action => 'checkout'} do |f| %>
+<div class="form-row"><label>Checkout note</label><%= f.text_area :note, :cols => 60, :rows => 8 %></div>
+<div class="form-row"><label>Source Version:</label><%= f.select :version_id, @versions.collect {|version| [version.version_text, version.id]} %></div>
+<div class="form-row"><%= f.submit "Continue" %></div>    
+<% end %>
+</div>
